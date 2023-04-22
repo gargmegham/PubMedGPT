@@ -1,4 +1,4 @@
-# ChatGPT Telegram Bot: **GPT-4. Fast. No daily limits. Special chat modes**
+# Medical Telegram Bot: Using OpenAI models & SDKs with no daily limits.
 
 We all love [chat.openai.com](https://chat.openai.com), but... It's TERRIBLY laggy, has daily limits, and is only accessible through an archaic web interface.
 
