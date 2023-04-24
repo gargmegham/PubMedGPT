@@ -29,38 +29,29 @@ class User(Base):
     age = Column(Integer, default=0)
     gender = Column(Text, default="Unknown")  # M / F / O
     address = Column(Text, default="Unknown")
-    phone_number = Column(Text, default="Unknown")
-    email = Column(Text, default="Unknown")
-    """
-    medical_history: [{
-        "name": "Diabetes",
-        "from": "2019-01-01",
-        "to": "2020-01-01",
-        "description": "Diabetes description"
-        "severity": "Mild"
-        "surgeries_performed": ["Surgery 1", "Surgery 2"]
-        "symptoms": ["Symptom 1", "Symptom 2"]
-        "medications": ["Medication 1", "Medication 2"]
-    }]
-    family_history: [{
-        "name": "Diabetes",
-        "from": "2019-01-01",
-        "to": "2020-01-01",
-        "description": "Diabetes description"
-        "severity": "Mild"
-        "surgeries_performed": ["Surgery 1", "Surgery 2"]
-        "symptoms": ["Symptom 1", "Symptom 2"]
-        "medications": ["Medication 1", "Medication 2"]
-    }]
-    """
-    medical_info = Column(
-        JSON,
-        default={
-            "allergies": [],
-            "medical_history": [],
-            "family_history": [],
-        },
-    )
+
+
+class Allergy(Base):
+    __tablename__ = "allergies"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(Integer, nullable=False)
+    allergy = Column(Text, nullable=False)
+    timestamp = Column(DateTime, default=datetime.utcnow)
+
+
+class MedicalHistory(Base):
+    __tablename__ = "medical_history"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(Integer, nullable=False)
+    name = Column(Text, nullable=False)
+    from_date = Column(Text, nullable=False)
+    to_date = Column(Text, nullable=False)
+    surgeries_performed = Column(Text, nullable=False)
+    symptoms = Column(Text, nullable=False)
+    medications = Column(Text, nullable=False)
+    timestamp = Column(DateTime, default=datetime.utcnow)
 
 
 class Dialog(Base):
@@ -128,6 +119,44 @@ class MySQL:
     def set_user_attribute(self, user_id: int, attribute: str, value):
         session = self.Session()
         session.query(User).filter_by(id=user_id).update({attribute: value})
+        session.commit()
+        session.close()
+
+    def add_new_allergy(self, user_id: int, allergy: str):
+        self.check_if_user_exists(user_id, raise_exception=True)
+        session = self.Session()
+        session.add(
+            Allergy(
+                user_id=user_id,
+                allergy=allergy,
+            )
+        )
+        session.commit()
+        session.close()
+
+    def add_new_medical_history(
+        self,
+        user_id: int,
+        name: str,
+        from_date: str,
+        to_date: str,
+        surgeries_performed: str,
+        symptoms: str,
+        medications: str,
+    ):
+        self.check_if_user_exists(user_id, raise_exception=True)
+        session = self.Session()
+        session.add(
+            MedicalHistory(
+                user_id=user_id,
+                name=name,
+                from_date=from_date,
+                to_date=to_date,
+                surgeries_performed=surgeries_performed,
+                symptoms=symptoms,
+                medications=medications,
+            )
+        )
         session.commit()
         session.close()
 

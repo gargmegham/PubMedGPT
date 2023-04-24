@@ -9,6 +9,7 @@ from datetime import datetime
 import mysql
 import openai_utils
 import telegram
+from registeration import registeration_conversation_handler
 from telegram import (
     BotCommand,
     InlineKeyboardButton,
@@ -33,7 +34,6 @@ import config
 # setup
 mysql_db = mysql.MySQL()
 logger = logging.getLogger(__name__)
-
 user_semaphores = {}
 user_tasks = {}
 
@@ -89,15 +89,13 @@ async def register_user_if_not_exists(
 async def start_handle(update: Update, context: CallbackContext):
     await register_user_if_not_exists(update, context, update.message.from_user)
     user_id = update.message.from_user.id
-
     mysql_db.set_user_attribute(user_id, "last_interaction", datetime.now())
     mysql_db.start_new_dialog(user_id)
-
-    reply_text = "Hi! I'm <b>ChatGPT</b> bot implemented with GPT-3.5 OpenAI API 🤖\n\n"
-    reply_text += HELP_MESSAGE
-
-    reply_text += "\nAnd now... ask me anything!"
-
+    reply_text = "Hi! I'm <b>Maya</b> your medical assistant, an implementation of GPT-3.5 OpenAI API language model🤖"
+    if not mysql_db.check_if_user_exists(update.message.from_user.id):
+        reply_text += "\nLet's start with your registeration as a patient, please click on /registeration."
+    else:
+        reply_text += "\nLet's continue our conversation, you can use enter / to see command list.\nIf you're not registered as a patient, please click on /registeration."
     await update.message.reply_text(reply_text, parse_mode=ParseMode.HTML)
 
 
@@ -333,48 +331,6 @@ async def cancel_handle(update: Update, context: CallbackContext):
         )
 
 
-async def show_chat_modes_handle(update: Update, context: CallbackContext):
-    await register_user_if_not_exists(update, context, update.message.from_user)
-    if await is_previous_message_not_answered_yet(update, context):
-        return
-
-    user_id = update.message.from_user.id
-    mysql_db.set_user_attribute(user_id, "last_interaction", datetime.now())
-
-    keyboard = []
-    for chat_mode, chat_mode_dict in openai_utils.CHAT_MODES.items():
-        keyboard.append(
-            [
-                InlineKeyboardButton(
-                    chat_mode_dict["name"], callback_data=f"set_chat_mode|{chat_mode}"
-                )
-            ]
-        )
-    reply_markup = InlineKeyboardMarkup(keyboard)
-
-    await update.message.reply_text("Select chat mode:", reply_markup=reply_markup)
-
-
-async def set_chat_mode_handle(update: Update, context: CallbackContext):
-    await register_user_if_not_exists(
-        update.callback_query, context, update.callback_query.from_user
-    )
-    user_id = update.callback_query.from_user.id
-
-    query = update.callback_query
-    await query.answer()
-
-    chat_mode = query.data.split("|")[1]
-
-    mysql_db.set_user_attribute(user_id, "current_chat_mode", chat_mode)
-    mysql_db.start_new_dialog(user_id)
-
-    await query.edit_message_text(
-        f"{openai_utils.CHAT_MODES[chat_mode]['welcome_message']}",
-        parse_mode=ParseMode.HTML,
-    )
-
-
 def get_settings_menu(user_id: int):
     current_model = mysql_db.get_user_attribute(user_id, "current_model")
     text = config.models["info"][current_model]["description"]
@@ -401,7 +357,7 @@ def get_settings_menu(user_id: int):
     return text, reply_markup
 
 
-async def settings_handle(update: Update, context: CallbackContext):
+async def model_handle(update: Update, context: CallbackContext):
     await register_user_if_not_exists(update, context, update.message.from_user)
     if await is_previous_message_not_answered_yet(update, context):
         return
@@ -570,9 +526,6 @@ def run_bot() -> None:
             usernames.append(config.developer_telegram_username)
         user_filter = filters.User(username=usernames) | filters.User(user_id=user_ids)
     # add handlers
-    application.add_handler(
-        MessageHandler(filters.TEXT & ~filters.COMMAND & user_filter, message_handle)
-    )
     application.add_handler(CommandHandler("start", start_handle, filters=user_filter))
     application.add_handler(CommandHandler("help", help_handle, filters=user_filter))
     application.add_handler(CommandHandler("retry", retry_handle, filters=user_filter))
@@ -585,20 +538,17 @@ def run_bot() -> None:
     application.add_handler(
         CommandHandler("extract", extract_prompt_completion_handle, filters=user_filter)
     )
-    application.add_handler(
-        CommandHandler("mode", show_chat_modes_handle, filters=user_filter)
-    )
-    application.add_handler(
-        CommandHandler("settings", settings_handle, filters=user_filter)
-    )
+    application.add_handler(CommandHandler("model", model_handle, filters=user_filter))
     application.add_handler(
         CommandHandler("balance", show_balance_handle, filters=user_filter)
     )
     application.add_handler(
         CallbackQueryHandler(set_settings_handle, pattern="^set_settings")
     )
+    #  add conversation handlers
+    application.add_handler(registeration_conversation_handler(user_filter))
     application.add_handler(
-        CallbackQueryHandler(set_chat_mode_handle, pattern="^set_chat_mode")
+        MessageHandler(filters.TEXT & ~filters.COMMAND & user_filter, message_handle)
     )
     # add error handler
     application.add_error_handler(error_handle)
