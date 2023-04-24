@@ -253,7 +253,6 @@ async def message_handle(
             )
 
             # create table in sql db if not exists
-            mysql_db.create_tables_if_not_exists()
             mysql_db.insert_qna(prompt=_message, completion=answer)
 
         except asyncio.CancelledError:

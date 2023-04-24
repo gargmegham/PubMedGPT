@@ -88,6 +88,7 @@ class MySQL:
     def __init__(self):
         self.engine = create_engine(config.mysql_uri)
         self.Session = sessionmaker(bind=self.engine)
+        self.create_tables_if_not_exists()
 
     def create_tables_if_not_exists(self):
         Base.metadata.create_all(self.engine)
