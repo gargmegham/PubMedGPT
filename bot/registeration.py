@@ -186,7 +186,6 @@ async def end(update: Update, context: CallbackContext) -> int:
 
 
 def registeration_conversation_handler() -> ConversationHandler:
-    # Add conversation handler with the states GENDER, PHOTO, LOCATION and BIO
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler("registeration", start)],
         states={
