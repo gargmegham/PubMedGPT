@@ -212,8 +212,3 @@ class ChatGPT:
         n_output_tokens = len(encoding.encode(answer))
 
         return n_input_tokens, n_output_tokens
-
-
-async def transcribe_audio(audio_file):
-    r = await openai.Audio.atranscribe("whisper-1", audio_file)
-    return r["text"]

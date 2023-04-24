@@ -26,7 +26,6 @@ class User(Base):
     current_chat_mode = Column(Text, default="default")
     current_model = Column(Text, default=config.models["available_text_models"][0])
     n_used_tokens = Column(JSON, default={})
-    n_transcribed_seconds = Column(Float, default=0.0)
     age = Column(Integer, default=0)
     gender = Column(Text, default="Unknown")  # M / F / O
     address = Column(Text, default="Unknown")
@@ -67,7 +66,7 @@ class User(Base):
 class Dialog(Base):
     __tablename__ = "dialogs"
 
-    id = Column(Text, primary_key=True)
+    uid = Column(Text, nullable=False, primary_key=True)
     user_id = Column(Integer, nullable=False)
     chat_mode = Column(Text, default="default")
     start_time = Column(DateTime, default=datetime.utcnow)
@@ -93,7 +92,7 @@ class MySQL:
     def create_tables_if_not_exists(self):
         Base.metadata.create_all(self.engine)
 
-    def check_if_user_exists(self, user_id: int):
+    def check_if_user_exists(self, user_id: int, raise_exception: bool = False) -> bool:
         session = self.Session()
         user = session.query(User).filter_by(id=user_id).first()
         session.close()
@@ -139,7 +138,7 @@ class MySQL:
         # add new dialog
         session.add(
             Dialog(
-                id=dialog_id,
+                uid=dialog_id,
                 user_id=user_id,
                 chat_mode=self.get_user_attribute(user_id, "current_chat_mode"),
                 model=self.get_user_attribute(user_id, "current_model"),
@@ -174,7 +173,7 @@ class MySQL:
         session = self.Session()
         dialog_messages = (
             session.query(Dialog)
-            .filter_by(id=dialog_id, user_id=user_id)
+            .filter_by(uid=dialog_id, user_id=user_id)
             .first()
             .messages
         )
@@ -187,7 +186,7 @@ class MySQL:
         if dialog_id is None:
             dialog_id = self.get_user_attribute(user_id, "current_dialog_id")
         session = self.Session()
-        session.query(Dialog).filter_by(id=dialog_id, user_id=user_id).update(
+        session.query(Dialog).filter_by(uid=dialog_id, user_id=user_id).update(
             {"messages": dialog_messages}
         )
         session.commit()

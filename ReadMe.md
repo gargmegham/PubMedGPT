@@ -9,7 +9,6 @@ This repo is ChatGPT re-created as Telegram Bot. **And it works great.**
 - No request limits
 - Message streaming
 - GPT-4 support
-- Voice message recognition
 - Support of [ChatGPT API](https://platform.openai.com/docs/guides/chat/introduction)
 - List of allowed Telegram users
 - Track $ balance spent on OpenAI API

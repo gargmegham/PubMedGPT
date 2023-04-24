@@ -3,14 +3,11 @@ import html
 import io
 import json
 import logging
-import tempfile
 import traceback
 from datetime import datetime
-from pathlib import Path
 
 import mysql
 import openai_utils
-import pydub
 import telegram
 from telegram import (
     BotCommand,
@@ -87,10 +84,6 @@ async def register_user_if_not_exists(
             "gpt-3.5-turbo": {"n_input_tokens": 0, "n_output_tokens": n_used_tokens}
         }
         mysql_db.set_user_attribute(user.id, "n_used_tokens", new_n_used_tokens)
-
-    # voice message transcription
-    if mysql_db.get_user_attribute(user.id, "n_transcribed_seconds") is None:
-        mysql_db.set_user_attribute(user.id, "n_transcribed_seconds", 0.0)
 
 
 async def start_handle(update: Update, context: CallbackContext):
@@ -308,46 +301,6 @@ async def is_previous_message_not_answered_yet(
         return False
 
 
-async def voice_message_handle(update: Update, context: CallbackContext):
-    await register_user_if_not_exists(update, context, update.message.from_user)
-    if await is_previous_message_not_answered_yet(update, context):
-        return
-
-    user_id = update.message.from_user.id
-    mysql_db.set_user_attribute(user_id, "last_interaction", datetime.now())
-
-    voice = update.message.voice
-    with tempfile.TemporaryDirectory() as tmp_dir:
-        tmp_dir = Path(tmp_dir)
-        voice_ogg_path = tmp_dir / "voice.ogg"
-
-        # download
-        voice_file = await context.bot.get_file(voice.file_id)
-        await voice_file.download_to_drive(voice_ogg_path)
-
-        # convert to mp3
-        voice_mp3_path = tmp_dir / "voice.mp3"
-        pydub.AudioSegment.from_file(voice_ogg_path).export(
-            voice_mp3_path, format="mp3"
-        )
-
-        # transcribe
-        with open(voice_mp3_path, "rb") as f:
-            transcribed_text = await openai_utils.transcribe_audio(f)
-
-    text = f"🎤: <i>{transcribed_text}</i>"
-    await update.message.reply_text(text, parse_mode=ParseMode.HTML)
-
-    # update n_transcribed_seconds
-    mysql_db.set_user_attribute(
-        user_id,
-        "n_transcribed_seconds",
-        voice.duration + mysql_db.get_user_attribute(user_id, "n_transcribed_seconds"),
-    )
-
-    await message_handle(update, context, message=transcribed_text)
-
-
 async def new_dialog_handle(update: Update, context: CallbackContext):
     await register_user_if_not_exists(update, context, update.message.from_user)
     if await is_previous_message_not_answered_yet(update, context):
@@ -511,9 +464,6 @@ async def show_balance_handle(update: Update, context: CallbackContext):
     total_n_used_tokens = 0
 
     n_used_tokens_dict = mysql_db.get_user_attribute(user_id, "n_used_tokens")
-    n_transcribed_seconds = mysql_db.get_user_attribute(
-        user_id, "n_transcribed_seconds"
-    )
 
     details_text = "🏷️ Details:\n"
     for model_key in sorted(n_used_tokens_dict.keys()):
@@ -532,14 +482,6 @@ async def show_balance_handle(update: Update, context: CallbackContext):
         total_n_spent_dollars += n_input_spent_dollars + n_output_spent_dollars
 
         details_text += f"- {model_key}: <b>{n_input_spent_dollars + n_output_spent_dollars:.03f}$</b> / <b>{n_input_tokens + n_output_tokens} tokens</b>\n"
-
-    voice_recognition_n_spent_dollars = config.models["info"]["whisper"][
-        "price_per_1_min"
-    ] * (n_transcribed_seconds / 60)
-    if n_transcribed_seconds != 0:
-        details_text += f"- Whisper (voice recognition): <b>{voice_recognition_n_spent_dollars:.03f}$</b> / <b>{n_transcribed_seconds:.01f} seconds</b>\n"
-
-    total_n_spent_dollars += voice_recognition_n_spent_dollars
 
     text = f"You spent <b>{total_n_spent_dollars:.03f}$</b>\n"
     text += f"You used <b>{total_n_used_tokens}</b> tokens\n\n"
@@ -642,9 +584,7 @@ def run_bot() -> None:
         CommandHandler("cancel", cancel_handle, filters=user_filter)
     )
     application.add_handler(
-        CommandHandler(
-            "extract", extract_prompt_completion_handle, filters=user_filter
-        )
+        CommandHandler("extract", extract_prompt_completion_handle, filters=user_filter)
     )
     application.add_handler(
         CommandHandler("mode", show_chat_modes_handle, filters=user_filter)
@@ -660,9 +600,6 @@ def run_bot() -> None:
     )
     application.add_handler(
         CallbackQueryHandler(set_chat_mode_handle, pattern="^set_chat_mode")
-    )
-    application.add_handler(
-        MessageHandler(filters.VOICE & user_filter, voice_message_handle)
     )
     # add error handler
     application.add_error_handler(error_handle)
