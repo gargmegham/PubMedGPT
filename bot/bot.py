@@ -93,9 +93,9 @@ async def start_handle(update: Update, context: CallbackContext):
     mysql_db.start_new_dialog(user_id)
     reply_text = "Hi! I'm <b>Maya</b> your medical assistant, an implementation of GPT-3.5 OpenAI API language model🤖"
     if not mysql_db.check_if_user_exists(update.message.from_user.id):
-        reply_text += "\nLet's start with some registeration as a patient, please click on /registeration."
+        reply_text += "\nLet's start with your registeration as a patient, please click on /registeration."
     else:
-        reply_text += "\nLet's continue our conversation, you can use enter / to see command list."
+        reply_text += "\nLet's continue our conversation, you can use enter / to see command list.\nIf you're not registered as a patient, please click on /registeration."
     await update.message.reply_text(reply_text, parse_mode=ParseMode.HTML)
 
 
