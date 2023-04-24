@@ -30,18 +30,20 @@ class User(Base):
     gender = Column(Text, default="Unknown")  # M / F / O
     address = Column(Text, default="Unknown")
 
+
 class Allergy(Base):
     __tablename__ = "allergies"
 
-    uid = Column(Text, nullable=False, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Integer, nullable=False)
     allergy = Column(Text, nullable=False)
     timestamp = Column(DateTime, default=datetime.utcnow)
 
+
 class MedicalHistory(Base):
     __tablename__ = "medical_history"
 
-    uid = Column(Text, nullable=False, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Integer, nullable=False)
     name = Column(Text, nullable=False)
     from_date = Column(Text, nullable=False)
@@ -125,20 +127,27 @@ class MySQL:
         session = self.Session()
         session.add(
             Allergy(
-                uid=str(uuid.uuid4()),
                 user_id=user_id,
                 allergy=allergy,
             )
         )
         session.commit()
         session.close()
-    
-    def add_new_medical_history(self, user_id: int, name: str, from_date: str, to_date: str, surgeries_performed: str, symptoms: str, medications: str):
+
+    def add_new_medical_history(
+        self,
+        user_id: int,
+        name: str,
+        from_date: str,
+        to_date: str,
+        surgeries_performed: str,
+        symptoms: str,
+        medications: str,
+    ):
         self.check_if_user_exists(user_id, raise_exception=True)
         session = self.Session()
         session.add(
             MedicalHistory(
-                uid=str(uuid.uuid4()),
                 user_id=user_id,
                 name=name,
                 from_date=from_date,

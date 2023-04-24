@@ -9,6 +9,7 @@ from datetime import datetime
 import mysql
 import openai_utils
 import telegram
+from registeration import registeration_conversation_handler
 from telegram import (
     BotCommand,
     InlineKeyboardButton,
@@ -27,7 +28,6 @@ from telegram.ext import (
     MessageHandler,
     filters,
 )
-from registeration import registeration_conversation_handler
 
 import config
 
@@ -546,9 +546,7 @@ def run_bot() -> None:
         CallbackQueryHandler(set_settings_handle, pattern="^set_settings")
     )
     #  add conversation handlers
-    application.add_handler(
-        registeration_conversation_handler()
-    )
+    application.add_handler(registeration_conversation_handler())
     application.add_handler(
         MessageHandler(filters.TEXT & ~filters.COMMAND & user_filter, message_handle)
     )

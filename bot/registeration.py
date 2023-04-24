@@ -1,4 +1,6 @@
 import logging
+
+import mysql
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
 from telegram.ext import (
     CallbackContext,
@@ -7,7 +9,6 @@ from telegram.ext import (
     MessageHandler,
     filters,
 )
-import mysql
 
 logger = logging.getLogger(__name__)
 mysql_db = mysql.MySQL()
@@ -50,9 +51,7 @@ async def gender(update: Update, context: CallbackContext) -> int:
         "gender",
         update.message.text,
     )
-    await update.message.reply_text(
-        "I see! Please tell me your age."
-    )
+    await update.message.reply_text("I see! Please tell me your age.")
     return AGE
 
 
@@ -97,6 +96,7 @@ async def allergies(update: Update, context: CallbackContext) -> int:
     )
     return MEDICAL_HISTORY
 
+
 async def skip_allergies(update: Update, context: CallbackContext) -> int:
     """Skips the allergies and asks for medical history."""
     await update.message.reply_text(
@@ -112,6 +112,7 @@ async def skip_allergies(update: Update, context: CallbackContext) -> int:
         "
     )
     return MEDICAL_HISTORY
+
 
 async def medical_history(update: Update, context: CallbackContext) -> int:
     """Stores the medical history and asks for location."""
@@ -150,29 +151,33 @@ async def medical_history(update: Update, context: CallbackContext) -> int:
     )
     return LOCATION
 
+
 async def skip_medical_history(update: Update, context: CallbackContext) -> int:
     """Skips the medical history and asks for location."""
     await update.message.reply_text(
-        'You seem a bit paranoid! Now, send me your location please, or send /skip.'
+        "You seem a bit paranoid! Now, send me your location please, or send /skip."
     )
     return LOCATION
+
 
 async def location(update: Update, context: CallbackContext) -> int:
     """Stores the location and ends the conversation."""
     user = update.message.from_user
     user_location = update.message.location
     mysql_db.set_user_attribute(
-        user.id,
-        "address",
-        f"{user_location.latitude}, {user_location.longitude}"
+        user.id, "address", f"{user_location.latitude}, {user_location.longitude}"
     )
-    await update.message.reply_text("Thank you! I will take all of this into account while assisting you in the future.")
+    await update.message.reply_text(
+        "Thank you! I will take all of this into account while assisting you in the future."
+    )
     return ConversationHandler.END
+
 
 async def skip_location(update: Update, context: CallbackContext) -> int:
     """Skips the location and ends the conversation."""
     await update.message.reply_text("I bet you live in a nice neighborhood anyway!")
     return ConversationHandler.END
+
 
 async def end(update: Update, context: CallbackContext) -> int:
     """Cancels and ends the conversation."""
@@ -180,7 +185,8 @@ async def end(update: Update, context: CallbackContext) -> int:
         "\
         Please make sure you have provided all the information correctly.\n\
         If you want to add any information, please use /registeration command again.\n\
-        ", reply_markup=ReplyKeyboardRemove()
+        ",
+        reply_markup=ReplyKeyboardRemove(),
     )
     return ConversationHandler.END
 
@@ -203,7 +209,7 @@ def registeration_conversation_handler() -> ConversationHandler:
             ],
             LOCATION: [
                 MessageHandler(filters.LOCATION, location),
-                CommandHandler('skip', skip_location),
+                CommandHandler("skip", skip_location),
             ],
         },
         fallbacks=[CommandHandler("end", end)],
