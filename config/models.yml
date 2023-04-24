@@ -1,4 +1,4 @@
-available_text_models: ["davinci:ft-dales-project-2023-04-15-17-53-10", "gpt-3.5-turbo"]
+available_text_models: ["gpt-3.5-turbo", "davinci:ft-dales-project-2023-04-15-17-53-10"]
 
 info:
   gpt-3.5-turbo:
