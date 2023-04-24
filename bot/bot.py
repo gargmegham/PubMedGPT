@@ -546,7 +546,7 @@ def run_bot() -> None:
         CallbackQueryHandler(set_settings_handle, pattern="^set_settings")
     )
     #  add conversation handlers
-    application.add_handler(registeration_conversation_handler())
+    application.add_handler(registeration_conversation_handler(user_filter))
     application.add_handler(
         MessageHandler(filters.TEXT & ~filters.COMMAND & user_filter, message_handle)
     )

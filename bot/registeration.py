@@ -64,10 +64,7 @@ async def age(update: Update, context: CallbackContext) -> int:
         update.message.text,
     )
     await update.message.reply_text(
-        "Please tell me about your allergies if any, or send /skip if you don't have any.\
-        You can send multiple allergies just copy below format, and modify it according to your details.\n\n\
-        Allergies: pollen, juniper, dust mites, mold, cats, dogs, cockroaches\
-        "
+        "Please tell me about your allergies if any, or send /skip if you don't have any.\n\You can send multiple allergies just copy below format, and modify it according to your details.\n\nAllergies: pollen, juniper, dust mites, mold, cats, dogs, cockroaches"
     )
     return ALLERGIES
 
@@ -86,13 +83,7 @@ async def allergies(update: Update, context: CallbackContext) -> int:
             allergy.strip(),
         )
     await update.message.reply_text(
-        "Please tell me about your medical history, or send /skip if you don't have any.\n\
-        You can send multiple medical conditions copy below format, and modify it according to your details.\n\n\
-        Condition: diabetes from 2010-01-01 to 2015-01-01\n\
-        Surgeries Performed: gastric bypass, gallbladder removal\n\
-        Symptoms: fatigue, weight loss, frequent urination\n\
-        Medications: metformin, insulin, lantus\n\
-        "
+        "Please tell me about your medical history, or send /skip if you don't have any.\nYou can send multiple medical conditions copy below format, and modify it according to your details.\n\nCondition: diabetes\nFrom: 2010-01-01\nTo: 2015-01-01\nSurgeries Performed: gastric bypass, gallbladder removal\nSymptoms: fatigue, weight loss, frequent urination\nMedications: metformin, insulin, lantus\n"
     )
     return MEDICAL_HISTORY
 
@@ -100,16 +91,7 @@ async def allergies(update: Update, context: CallbackContext) -> int:
 async def skip_allergies(update: Update, context: CallbackContext) -> int:
     """Skips the allergies and asks for medical history."""
     await update.message.reply_text(
-        "I bet you have great genes!\n\
-        Now, tell me about your medical history, or send /skip if you don't have any.\n\
-        You can send multiple medical conditions copy below format, and modify it according to your details.\n\n\
-        Condition: diabetes\n\
-        From: 2010-01-01\n\
-        To: 2015-01-01\n\
-        Surgeries Performed: gastric bypass, gallbladder removal\n\
-        Symptoms: fatigue, weight loss, frequent urination\n\
-        Medications: metformin, insulin, lantus\n\
-        "
+        "I bet you have great genes!\nNow, tell me about your medical history, or send /skip if you don't have any.\nYou can send multiple medical conditions copy below format, and modify it according to your details.\n\nCondition: diabetes\nFrom: 2010-01-01\nTo: 2015-01-01\nRelated Surgeries Performed: gastric bypass, gallbladder removal\nRelated Symptoms: fatigue, weight loss, frequent urination\nRelated Medications: metformin, insulin, lantus\n"
     )
     return MEDICAL_HISTORY
 
@@ -131,11 +113,11 @@ async def medical_history(update: Update, context: CallbackContext) -> int:
             from_date = line.split(":")[1].strip()
         elif line.startswith("To:"):
             to_date = line.split(":")[1].strip()
-        elif line.startswith("Surgeries Performed:"):
+        elif line.startswith("Related Surgeries Performed:"):
             surgeries_performed = line.split(":")[1].strip()
-        elif line.startswith("Symptoms:"):
+        elif line.startswith("Related Symptoms:"):
             symptoms = line.split(":")[1].strip()
-        elif line.startswith("Medications:"):
+        elif line.startswith("Related Medications:"):
             medications = line.split(":")[1].strip()
     mysql_db.add_new_medical_history(
         user.id,
@@ -190,25 +172,41 @@ async def end(update: Update, context: CallbackContext) -> int:
     )
     return ConversationHandler.END
 
+def custom_filter_for_multiline_messages_that_starts_with(text: str, num_lines: int) -> filters.BaseFilter:
+    """
+    This is a custom filter for multiline messages that starts with a given text.
+    """
+    class CustomFilter(filters.BaseFilter):
+        def filter(self, message: filters.Message) -> bool:
+            if message.text is None:
+                return False
+            if not message.text.startswith(text):
+                return False
+            if len(message.text.splitlines()) < num_lines:
+                return False
+            return True
+    return CustomFilter()
 
-def registeration_conversation_handler() -> ConversationHandler:
+
+
+def registeration_conversation_handler(user_filter) -> ConversationHandler:
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler("registeration", start)],
         states={
-            GENDER: [MessageHandler(filters.Regex("^(Male|Female|Other)$"), gender)],
+            GENDER: [MessageHandler(filters.Regex("^(Male|Female|Other)$") & user_filter, gender)],
             AGE: [
-                MessageHandler(filters.Regex("^(0?[1-9]|[1-9][0-9])$"), age),
+                MessageHandler(filters.Regex("^(0?[1-9]|[1-9][0-9])$") & user_filter, age),
             ],
             ALLERGIES: [
-                MessageHandler(filters.Regex("^(Allergies: .*)$"), allergies),
+                MessageHandler(filters.Regex("^(Allergies: .*)$") & user_filter, allergies),
                 CommandHandler("skip", skip_allergies),
             ],
             MEDICAL_HISTORY: [
-                MessageHandler(filters.Regex("^(Condition: .*)$"), medical_history),
+                MessageHandler(filters.Regex(user_filter & custom_filter_for_multiline_messages_that_starts_with("Condition:", 6)), medical_history),
                 CommandHandler("skip", skip_medical_history),
             ],
             LOCATION: [
-                MessageHandler(filters.LOCATION, location),
+                MessageHandler(filters.LOCATION & user_filter, location),
                 CommandHandler("skip", skip_location),
             ],
         },
