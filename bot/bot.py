@@ -233,7 +233,6 @@ async def message_handle(
             new_dialog_message = {
                 "user": _message,
                 "bot": answer,
-                "date": datetime.now(),
             }
             mysql_db.set_dialog_messages(
                 user_id,
