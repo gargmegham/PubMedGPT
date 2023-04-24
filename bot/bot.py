@@ -46,7 +46,7 @@ HELP_MESSAGE = """Commands:
 ⚪ /mode - Select chat mode
 ⚪ /model - Select GPT model
 ⚪ /balance - Show balance
-⚪ /sql - Extract my prompt data from SQL database
+⚪ /qna-extract - Extract my prompt data from SQL database
 ⚪ /help - Show help
 """
 
@@ -604,7 +604,8 @@ async def post_init(application: Application):
             BotCommand(command="/model", description="Select GPT model"),
             BotCommand(command="/help", description="Show available commands"),
             BotCommand(
-                command="/sql", description="Extract my prompt data from SQL database"
+                command="/qna-extract",
+                description="Extract my prompt data from SQL database",
             ),
         ]
     )
@@ -642,7 +643,9 @@ def run_bot() -> None:
         CommandHandler("cancel", cancel_handle, filters=user_filter)
     )
     application.add_handler(
-        CommandHandler("sql", extract_prompt_completion_handle, filters=user_filter)
+        CommandHandler(
+            "qna-extract", extract_prompt_completion_handle, filters=user_filter
+        )
     )
     application.add_handler(
         CommandHandler("mode", show_chat_modes_handle, filters=user_filter)
