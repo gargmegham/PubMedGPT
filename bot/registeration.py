@@ -150,7 +150,7 @@ async def medical_history(update: Update, context: CallbackContext) -> int:
         medications,
     )
     await update.message.reply_text(
-        'I"ll take note of that. Now, send me your location please, or send /skip.'
+        "I'll take note of that. Now, send me your location please, or send /skip."
     )
     return LOCATION
 
