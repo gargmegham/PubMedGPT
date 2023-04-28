@@ -223,37 +223,28 @@ class MySQL:
         history = []
         history.append(
             {
-                "role": "user", "content": f"My name is {user.first_name} {user.last_name}"
+                "role": "user",
+                "content": f"My name is {user.first_name} {user.last_name}",
             }
         )
-        history.append(
-            {
-                "role": "user", "content": f"My age is {user.age}"
-            }
-        )
-        history.append(
-            {
-                "role": "user", "content": f"My gender is {user.gender}"
-            }
-        )
+        history.append({"role": "user", "content": f"My age is {user.age}"})
+        history.append({"role": "user", "content": f"My gender is {user.gender}"})
         allergies = session.query(Allergy).filter_by(user_id=user_id).all()
         medical_history = session.query(MedicalHistory).filter_by(user_id=user_id).all()
         session.close()
         allergy_details = ", ".join([allergy.name for allergy in allergies])
         history.append(
-            {
-                "role": "user", "content": f"I'm allergic to: {allergy_details}"
-            }
+            {"role": "user", "content": f"I'm allergic to: {allergy_details}"}
         )
         for index, history in enumerate(medical_history):
             history_details = f"Name: {history.name}, From: {history.from_date}, To: {history.to_date}, Surgeries Performed: {history.surgeries_performed}, Symptoms: {history.symptoms}, Medications: {history.medications}"
             history.append(
                 {
-                    "role": "user", "content": f"Medical history - {index+1}: {history_details}"
+                    "role": "user",
+                    "content": f"Medical history - {index+1}: {history_details}",
                 }
             )
         return history
-
 
     def get_sinus_congestion_qnas(self, user_id: int) -> str:
         self.check_if_user_exists(user_id, raise_exception=True)

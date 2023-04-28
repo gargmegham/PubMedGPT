@@ -25,7 +25,6 @@ async def start(update: Update, context: CallbackContext) -> int:
         reply_markup=ReplyKeyboardMarkup(
             reply_keyboard,
             one_time_keyboard=True,
-            input_field_placeholder="Male, Female or Other?",
         ),
     )
     return GENDER

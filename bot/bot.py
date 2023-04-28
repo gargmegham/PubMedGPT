@@ -1,7 +1,6 @@
 import handlers
 from filters import (
     get_messages_that_indicate_a_certian_medical_condition,
-    get_messages_that_starts_with_and_have_atleast_n_lines,
     get_user_filter,
 )
 from telegram import BotCommand
@@ -78,7 +77,8 @@ def run_bot() -> None:
         MessageHandler(
             user_filter
             & filters.TEXT
-            & (get_messages_that_starts_with_and_have_atleast_n_lines("sinus-", 1)),
+            & ~filters.COMMAND
+            & filters.Regex("^(sinus-: .*)$"),
             handlers.next_sinus_question_answer_callback,
         )
     )
@@ -86,10 +86,9 @@ def run_bot() -> None:
         MessageHandler(
             user_filter
             & filters.TEXT
-            & (
-                get_messages_that_indicate_a_certian_medical_condition(
-                    "nasal or sinus congestion"
-                )
+            & ~filters.COMMAND
+            & get_messages_that_indicate_a_certian_medical_condition(
+                "nasal or sinus congestion"
             ),
             handlers.sinus_congestion_start_handler,
         )
