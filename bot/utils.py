@@ -6,11 +6,11 @@ from telegram import Update, User
 from telegram.constants import ParseMode
 from telegram.ext import CallbackContext
 
+from bot import user_semaphores
+
 # setup
 mysql_db = mysql.MySQL()
 logger = logging.getLogger(__name__)
-user_semaphores = {}
-user_tasks = {}
 
 
 async def register_user_if_not_exists(

@@ -12,12 +12,11 @@ from telegram.ext import CallbackContext
 from utils import edited_message_handle, is_previous_message_not_answered_yet
 
 import config
+from bot import user_semaphores, user_tasks
 
 # setup
 mysql_db = mysql.MySQL()
 logger = logging.getLogger(__name__)
-user_semaphores = {}
-user_tasks = {}
 
 
 async def message_handler(
@@ -62,7 +61,7 @@ async def message_handler(
             parse_mode = {"html": ParseMode.HTML, "markdown": ParseMode.MARKDOWN}[
                 chatgpt.CHAT_MODES[chat_mode]["parse_mode"]
             ]
-            chatgpt_instance = chatgpt.ChatGPT(model=current_model)
+            chatgpt_instance = chatgpt.ChatGPT()
             if config.enable_message_streaming:
                 gen = chatgpt_instance.send_message_stream(
                     _message, dialog_messages=dialog_messages, chat_mode=chat_mode

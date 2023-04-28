@@ -202,6 +202,7 @@ class Filter(BaseMedicalGPT):
         """
         prompt = f"Please respond with 'yes' or 'no' based on whether the following message indicates the user has {condition}. If you're uncertain, respond with 'no'.\n\nMessage: {message}\n\nAnswer: "
         response = self._generate_response(prompt, 2, 1, 0.5)
+        print(f"******{response}******")
         return self._interpret_response_as_binary(response)
 
     def _interpret_response_as_binary(self, response: str) -> bool:

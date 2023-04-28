@@ -15,6 +15,9 @@ from telegram.ext import (
 
 import config
 
+user_semaphores = {}
+user_tasks = {}
+
 
 async def post_init(application: Application):
     await application.bot.set_my_commands(
@@ -81,10 +84,10 @@ def run_bot() -> None:
     )
     application.add_handler(
         MessageHandler(
-            user_filter
-            & get_messages_that_indicate_a_certian_medical_condition(
+            get_messages_that_indicate_a_certian_medical_condition(
                 "nasal or sinus congestion"
-            ),
+            )
+            & user_filter,
             handlers.sinus_congestion_start_handler,
         )
     )

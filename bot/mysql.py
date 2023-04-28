@@ -251,7 +251,10 @@ class MySQL:
         session = self.Session()
         # where answers are not null and answers are not empty
         questions_and_answers = (
-            session.query(SinusCongestionQnA).filter(SinusCongestionQnA.answer != "").filter_by(user_id=user_id).all()
+            session.query(SinusCongestionQnA)
+            .filter(SinusCongestionQnA.answer != "")
+            .filter_by(user_id=user_id)
+            .all()
         )
         session.close()
         return questions_and_answers
