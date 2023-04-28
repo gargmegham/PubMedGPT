@@ -43,8 +43,9 @@ async def next_sinus_question_answer_callback(
         {"role": "user", "content": "I'm suffering from sinus congestion."},
     ]
     for previous_qna in previous_qnas:
-        messages.append({"role": "assistant", "content": previous_qna.question})
-        messages.append({"role": "user", "content": previous_qna.answer})
+        if previous_qna.answer and previous_qna.question:
+            messages.append({"role": "assistant", "content": previous_qna.question})
+            messages.append({"role": "user", "content": previous_qna.answer})
     patient_history = mysql_db.prepare_patient_history(user_id)
     messages = [
         *messages,
