@@ -232,7 +232,7 @@ class MySQL:
         allergies = session.query(Allergy).filter_by(user_id=user_id).all()
         medical_history = session.query(MedicalHistory).filter_by(user_id=user_id).all()
         session.close()
-        allergy_details = ", ".join([allergy.name for allergy in allergies])
+        allergy_details = ", ".join([allergy.allergy for allergy in allergies])
         history.append(
             {"role": "user", "content": f"I'm allergic to: {allergy_details}"}
         )
