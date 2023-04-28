@@ -165,3 +165,64 @@ class ChatGPT:
         n_output_tokens = 1 + len(encoding.encode(answer))
 
         return n_input_tokens, n_output_tokens
+
+
+class BaseMedicalGPT:
+    def _generate_response(
+        self,
+        prompt,
+        max_tokens,
+        n,
+        temperature,
+        model="gpt-3.5-turbo",
+        previous_messages=[],
+    ):
+        response = openai.ChatCompletion.create(
+            model=model,
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are an advanced medical expert chatbot assistant.\nYour primary goal is to assist users to the best of your ability with thier medical, health and psychological needs.\nYou should always ask clarifying questions before assisting the user, ask necessary information from patient specific to thier issue, and then providing helpful information, and diagnosis based on your analysis of patients details.\nIn order to effectively diagnosing users, it is important to be detailed and thorough in your responses. Use examples and evidence to support your points and justify your recommendations or solutions.\nRemember to always prioritize the needs and satisfaction of the patient.\nYour ultimate goal is to provide a helpful and enjoyable experience for the user.\nIf user asks you help related to anything which does not seem like a job of professional medical assistant, or asks to perform any task which is not relevant to medicine, health and your expertise as a medical assistant do not answer his question, but be sure to advise him to only use your service for medical needs.",
+                },
+                *previous_messages,
+                {"role": "user", "content": prompt},
+            ],
+            max_tokens=max_tokens,
+            n=n,
+            temperature=temperature,
+        )
+        return response.choices[0].message.content.strip()
+
+
+class Filter(BaseMedicalGPT):
+    def medical_condition_message_filter(self, message, condition) -> bool:
+        """
+        Given a message from the user, check if user has this medical condition
+        :return: True if user has this medical condition, False otherwise
+        """
+        prompt = f"Please respond with 'yes' or 'no' based on whether the following message indicates the user has {condition}. If you're uncertain, respond with 'no'.\n\nMessage: {message}\n\nAnswer: "
+        response = self._generate_response(prompt, 2, 1, 0.5)
+        return self._interpret_response_as_binary(response)
+
+    def _interpret_response_as_binary(self, response: str) -> bool:
+        """
+        If response contains yes,
+        """
+        if "yes" in response.lower() or "y" in response.lower():
+            return True
+        else:
+            return False
+
+
+class NextQuestion(BaseMedicalGPT):
+    def generate_next_detailed_message_based_on_input_and_context(
+        self, previous_messages
+    ):
+        prompt = f"""
+        As a medical assistant, please provide ask a clarifying question or provide a description based on patients history, previous chat context and given system instructions.
+        Clarifying Question/Prescription: 
+        """
+        response = self._generate_response(
+            prompt, 1000, 1, 0.5, previous_messages=previous_messages
+        )
+        return response

@@ -1,5 +1,9 @@
 import handlers
-from filters import get_user_filter
+from filters import (
+    get_messages_that_indicate_a_certian_medical_condition,
+    get_messages_that_starts_with_and_have_atleast_n_lines,
+    get_user_filter,
+)
 from telegram import BotCommand
 from telegram.ext import (
     AIORateLimiter,
@@ -70,6 +74,26 @@ def run_bot() -> None:
     )
     #  add conversation handlers
     application.add_handler(handlers.registeration_handler(user_filter))
+    application.add_handler(
+        MessageHandler(
+            user_filter
+            & filters.TEXT
+            & (get_messages_that_starts_with_and_have_atleast_n_lines("sinus-", 1)),
+            handlers.next_sinus_question_answer_callback,
+        )
+    )
+    application.add_handler(
+        MessageHandler(
+            user_filter
+            & filters.TEXT
+            & (
+                get_messages_that_indicate_a_certian_medical_condition(
+                    "nasal or sinus congestion"
+                )
+            ),
+            handlers.sinus_congestion_start_handler,
+        )
+    )
     application.add_handler(
         MessageHandler(
             filters.TEXT & ~filters.COMMAND & user_filter, handlers.message_handler

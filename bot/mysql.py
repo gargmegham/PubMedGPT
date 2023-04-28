@@ -1,77 +1,20 @@
 import base64
 import uuid
-from datetime import datetime
 from typing import Optional
 
-from sqlalchemy import JSON, Column, DateTime, Integer, Text, create_engine
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from tables import (
+    Allergy,
+    Base,
+    Dialog,
+    MedicalHistory,
+    QuestionAnswer,
+    SinusCongestionQnA,
+    User,
+)
 
 import config
-
-Base = declarative_base()
-
-
-class User(Base):
-    __tablename__ = "users"
-
-    id = Column(Integer, primary_key=True)
-    chat_id = Column(Integer, nullable=False)
-    username = Column(Text, nullable=False)
-    first_name = Column(Text, default="")
-    last_name = Column(Text, default="")
-    last_interaction = Column(DateTime, default=datetime.utcnow)
-    first_seen = Column(DateTime, default=datetime.utcnow)
-    current_dialog_id = Column(Text, default="")
-    current_chat_mode = Column(Text, default="default")
-    current_model = Column(Text, default="gpt-3.5-turbo")
-    n_used_tokens = Column(JSON, default={})
-    age = Column(Integer, default=0)
-    gender = Column(Text, default="Unknown")  # M / F / O
-    address = Column(Text, default="Unknown")
-
-
-class Allergy(Base):
-    __tablename__ = "allergies"
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(Integer, nullable=False)
-    allergy = Column(Text, nullable=False)
-    timestamp = Column(DateTime, default=datetime.utcnow)
-
-
-class MedicalHistory(Base):
-    __tablename__ = "medical_history"
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(Integer, nullable=False)
-    name = Column(Text, nullable=False)
-    from_date = Column(Text, nullable=False)
-    to_date = Column(Text, nullable=False)
-    surgeries_performed = Column(Text, nullable=False)
-    symptoms = Column(Text, nullable=False)
-    medications = Column(Text, nullable=False)
-    timestamp = Column(DateTime, default=datetime.utcnow)
-
-
-class Dialog(Base):
-    __tablename__ = "dialogs"
-
-    uid = Column(Text, nullable=False, primary_key=True)
-    user_id = Column(Integer, nullable=False)
-    chat_mode = Column(Text, default="default")
-    start_time = Column(DateTime, default=datetime.utcnow)
-    model = Column(Text, default="gpt-3.5-turbo")
-    messages = Column(JSON, default=[])
-
-
-class QuestionAnswer(Base):
-    __tablename__ = "qna"
-
-    id = Column(Integer, primary_key=True)
-    prompt = Column(Text, nullable=False)
-    completion = Column(Text, nullable=False)
-    timestamp = Column(DateTime, default=datetime.utcnow)
 
 
 class MySQL:
@@ -236,3 +179,87 @@ class MySQL:
         for entry in entries:
             jsonl_response += f'{{"prompt": "{base64.b64decode(str(entry.prompt)).decode("utf-8")}", "completion": "{base64.b64decode(str(entry.completion)).decode("utf-8")}"}}\n'
         return jsonl_response.encode("utf-8")
+
+    def add_sinus_congestion_record(self, user_id: int, question: str):
+        self.check_if_user_exists(user_id, raise_exception=True)
+        session = self.Session()
+        session.add(SinusCongestionQnA(user_id=user_id, question=question))
+        session.commit()
+        session.close()
+
+    def answer_last_sinus_congestion_prompt(self, user_id: int, asnwer: str):
+        self.check_if_user_exists(user_id, raise_exception=True)
+        session = self.Session()
+        # find last prompt by timestamp and update its answer
+        last_prompt = (
+            session.query(SinusCongestionQnA)
+            .filter_by(user_id=user_id)
+            .order_by(SinusCongestionQnA.timestamp.desc())
+            .first()
+        )
+        session.query(SinusCongestionQnA).filter_by(id=last_prompt.id).update(
+            {
+                "asnwer": asnwer,
+            }
+        )
+        session.commit()
+        session.close()
+
+    def prepare_patient_history(self, user_id: int) -> str:
+        """
+        Prepare patient history for the doctor.
+        Format should be like following:
+        Patient history:
+        Name: \n
+        Age: \n
+        Gender: \n
+        Medical History: \n
+            - Name: \n, From: \n, To: \n, Surgeries Performed: \n, Symptoms: \n, Medications: \n
+        Allergies: \n
+        """
+        self.check_if_user_exists(user_id, raise_exception=True)
+        session = self.Session()
+        user = session.query(User).filter_by(id=user_id).first()
+        history = []
+        history.append(
+            {
+                "role": "user", "content": f"My name is {user.first_name} {user.last_name}"
+            }
+        )
+        history.append(
+            {
+                "role": "user", "content": f"My age is {user.age}"
+            }
+        )
+        history.append(
+            {
+                "role": "user", "content": f"My gender is {user.gender}"
+            }
+        )
+        allergies = session.query(Allergy).filter_by(user_id=user_id).all()
+        medical_history = session.query(MedicalHistory).filter_by(user_id=user_id).all()
+        session.close()
+        allergy_details = ", ".join([allergy.name for allergy in allergies])
+        history.append(
+            {
+                "role": "user", "content": f"I'm allergic to: {allergy_details}"
+            }
+        )
+        for index, history in enumerate(medical_history):
+            history_details = f"Name: {history.name}, From: {history.from_date}, To: {history.to_date}, Surgeries Performed: {history.surgeries_performed}, Symptoms: {history.symptoms}, Medications: {history.medications}"
+            history.append(
+                {
+                    "role": "user", "content": f"Medical history - {index+1}: {history_details}"
+                }
+            )
+        return history
+
+
+    def get_sinus_congestion_qnas(self, user_id: int) -> str:
+        self.check_if_user_exists(user_id, raise_exception=True)
+        session = self.Session()
+        questions_and_answers = (
+            session.query(SinusCongestionQnA).filter_by(user_id=user_id).all()
+        )
+        session.close()
+        return questions_and_answers

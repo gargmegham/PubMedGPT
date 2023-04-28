@@ -1,3 +1,4 @@
+import chatgpt
 from telegram.ext import filters
 
 import config
@@ -31,5 +32,19 @@ def get_messages_that_starts_with_and_have_atleast_n_lines(
             if len(message.text.splitlines()) < num_lines:
                 return False
             return True
+
+    return CustomFilter()
+
+
+def get_messages_that_indicate_a_certian_medical_condition(
+    condition: str,
+) -> filters.BaseFilter:
+    """
+    This is a custom filter for messages that indicate nasal congestion.
+    """
+
+    class CustomFilter(filters.BaseFilter):
+        def filter(self, message: filters.Message) -> bool:
+            return chatgpt.Filter.medical_condition_message_filter(message, condition)
 
     return CustomFilter()

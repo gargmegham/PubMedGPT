@@ -6,6 +6,10 @@ import traceback
 import telegram
 from commands import CommandHandler
 from message import message_handler
+from nasal_congestion import (
+    next_sinus_question_answer_callback,
+    sinus_congestion_start_handler,
+)
 from registeration import registeration_handler
 from telegram import Update
 from telegram.constants import ParseMode
