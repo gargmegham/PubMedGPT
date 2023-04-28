@@ -199,7 +199,7 @@ class MySQL:
         )
         session.query(SinusCongestionQnA).filter_by(id=last_prompt.id).update(
             {
-                "asnwer": asnwer,
+                "asnwer": asnwer.strip(),
             }
         )
         session.commit()
@@ -249,8 +249,9 @@ class MySQL:
     def get_sinus_congestion_qnas(self, user_id: int) -> str:
         self.check_if_user_exists(user_id, raise_exception=True)
         session = self.Session()
+        # where answers are not null and answers are not empty
         questions_and_answers = (
-            session.query(SinusCongestionQnA).filter_by(user_id=user_id).all()
+            session.query(SinusCongestionQnA).filter(SinusCongestionQnA.answer != "").filter_by(user_id=user_id).all()
         )
         session.close()
         return questions_and_answers
