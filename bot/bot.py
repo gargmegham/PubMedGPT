@@ -75,18 +75,13 @@ def run_bot() -> None:
     application.add_handler(handlers.registeration_handler(user_filter))
     application.add_handler(
         MessageHandler(
-            user_filter
-            & filters.TEXT
-            & ~filters.COMMAND
-            & filters.Regex("^(sinus-: .*)$"),
+            filters.Regex(r"^sinus:") & user_filter,
             handlers.next_sinus_question_answer_callback,
         )
     )
     application.add_handler(
         MessageHandler(
             user_filter
-            & filters.TEXT
-            & ~filters.COMMAND
             & get_messages_that_indicate_a_certian_medical_condition(
                 "nasal or sinus congestion"
             ),

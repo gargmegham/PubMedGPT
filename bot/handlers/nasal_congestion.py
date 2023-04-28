@@ -17,7 +17,7 @@ async def sinus_congestion_start_handler(
 ) -> None:
     if await is_previous_message_not_answered_yet(update, context):
         return
-    reply_text = "I see that you are suffering from <b>Sinus Congestion</b>\n<b>How long have you been suffering from this?</b>\n\n**Please start all your messages with <code>sinus-</code>\nExample: <code>sinus-I am suffering from sinus congestion since last 6 days.</code>"
+    reply_text = "I see that you are suffering from <b>Sinus Congestion</b>\n<b>How long have you been suffering from this?</b>\n\n**Please start all your messages with <code>sinus:</code>\nExample: <code>sinus: I am suffering from sinus congestion since last 6 days.</code>"
     user_id = update.message.from_user.id
     mysql_db.add_sinus_congestion_record(
         user_id, "please tell me since when are you facing this issue."
@@ -32,7 +32,7 @@ async def next_sinus_question_answer_callback(
         return
     user_id = update.message.from_user.id
     mysql_db.answer_last_sinus_congestion_prompt(
-        user_id, update.message.text.split("sinus-")[1].strip()
+        user_id, update.message.text.replace("sinus:", "").strip()
     )
     previous_qnas = mysql_db.get_sinus_congestion_qnas(user_id)
     messages = [
