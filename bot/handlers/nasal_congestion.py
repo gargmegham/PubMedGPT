@@ -17,7 +17,7 @@ async def sinus_congestion_start_handler(
 ) -> None:
     if await is_previous_message_not_answered_yet(update, context):
         return
-    reply_text = "I see that you are suffering from <b>Sinus Congestion</b>\n<b>How long have you been suffering from this?</b>\n\n**Please start all your messages with <code>sinus-<code>\nExample: <code>sinus-I am suffering from sinus congestion since last 6 days."
+    reply_text = "I see that you are suffering from <b>Sinus Congestion</b>\n<b>How long have you been suffering from this?</b>\n\n**Please start all your messages with <code>sinus-<code>\nExample: <code>sinus-I am suffering from sinus congestion since last 6 days.</code>"
     user_id = update.message.from_user.id
     mysql_db.add_sinus_congestion_record(
         user_id, "please tell me since when are you facing this issue."
