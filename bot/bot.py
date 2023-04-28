@@ -49,7 +49,7 @@ def run_bot() -> None:
         .build()
     )
     user_filter = get_user_filter()
-    command_handler = handlers.CommandHandler()
+    command_handler = handlers.CommandHandler
     application.add_handler(
         CommandHandler("start", command_handler.start_handle, filters=user_filter)
     )
