@@ -20,11 +20,12 @@ class CommandHandler:
         user_id = update.message.from_user.id
         mysql_db.set_user_attribute(user_id, "last_interaction", datetime.now())
         mysql_db.start_new_dialog(user_id)
-        reply_text = "Hi! I'm <b>Maya</b> your medical assistant, an implementation of GPT-3.5 OpenAI API language model🤖"
+        
+        reply_text = "Hi! I'm <b>Maya</b> your personal medical assistant 🤖.\n"
         if not mysql_db.check_if_user_exists(update.message.from_user.id):
-            reply_text += "\nLet's start with your registeration as a patient, please click on /register."
+            reply_text += "\nLet's start with some basic details about you as a patient, please click on /register."
         else:
-            reply_text += "\nLet's continue our conversation, you can use enter / to see command list.\nIf you're not registered as a patient, please click on /register."
+            reply_text += "\Welcome back! Please click on /new to start a new conversation.\nIf you've not registered yet, please click on /register."
         await update.message.reply_text(reply_text, parse_mode=ParseMode.HTML)
 
     async def help_handle(update: Update, context: CallbackContext):
@@ -32,7 +33,7 @@ class CommandHandler:
         user_id = update.message.from_user.id
         mysql_db.set_user_attribute(user_id, "last_interaction", datetime.now())
         await update.message.reply_text(
-            """Commands:\n⚪ /retry - Regenerate last bot answer\n⚪ /new - Start new conversation\n⚪ /extract - Extract my prompt data from SQL database\n⚪ /help - Show help""",
+            """Hi! I'm <b>Maya</b> your personal medical assistant 🤖.\n⚪ /register - Register yourself as a patient\n⚪ /new - Start new conversation\n⚪ /retry - Regenerate last bot answer\n⚪ /cancel - Cancel current conversation\n⚪ /extract - Extract my prompt data from SQL database\n⚪ /help - Show this help message""",
             parse_mode=ParseMode.HTML,
         )
 
