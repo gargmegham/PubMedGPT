@@ -3,8 +3,8 @@ import logging
 import traceback
 from datetime import datetime
 
+import chatgpt
 import mysql
-import openai_utils
 import telegram
 from telegram import Update
 from telegram.constants import ParseMode
@@ -43,7 +43,7 @@ async def message_handler(
             ) > 0:
                 mysql_db.start_new_dialog(user_id)
                 await update.message.reply_text(
-                    f"Starting new dialog due to timeout (<b>{openai_utils.CHAT_MODES[chat_mode]['name']}</b> mode) ✅",
+                    f"Starting new dialog due to timeout (<b>{chatgpt.CHAT_MODES[chat_mode]['name']}</b> mode) ✅",
                     parse_mode=ParseMode.HTML,
                 )
         mysql_db.set_user_attribute(user_id, "last_interaction", datetime.now())
@@ -60,9 +60,9 @@ async def message_handler(
             _message = message or update.message.text
             dialog_messages = mysql_db.get_dialog_messages(user_id, dialog_id=None)
             parse_mode = {"html": ParseMode.HTML, "markdown": ParseMode.MARKDOWN}[
-                openai_utils.CHAT_MODES[chat_mode]["parse_mode"]
+                chatgpt.CHAT_MODES[chat_mode]["parse_mode"]
             ]
-            chatgpt_instance = openai_utils.ChatGPT(model=current_model)
+            chatgpt_instance = chatgpt.ChatGPT(model=current_model)
             if config.enable_message_streaming:
                 gen = chatgpt_instance.send_message_stream(
                     _message, dialog_messages=dialog_messages, chat_mode=chat_mode

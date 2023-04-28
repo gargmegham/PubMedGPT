@@ -1,8 +1,8 @@
 import io
 from datetime import datetime
 
+import chatgpt
 import mysql
-import openai_utils
 from message import message_handler
 from telegram import Update
 from telegram.constants import ParseMode
@@ -71,7 +71,7 @@ class CommandHandler:
 
         chat_mode = mysql_db.get_user_attribute(user_id, "current_chat_mode")
         await update.message.reply_text(
-            f"{openai_utils.CHAT_MODES[chat_mode]['welcome_message']}",
+            f"{chatgpt.CHAT_MODES[chat_mode]['welcome_message']}",
             parse_mode=ParseMode.HTML,
         )
 
