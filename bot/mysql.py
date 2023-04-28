@@ -1,9 +1,9 @@
 import base64
 import uuid
 from datetime import datetime
-from typing import Any, Optional
+from typing import Optional
 
-from sqlalchemy import JSON, Column, DateTime, Float, Integer, Text, create_engine
+from sqlalchemy import JSON, Column, DateTime, Integer, Text, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -24,7 +24,7 @@ class User(Base):
     first_seen = Column(DateTime, default=datetime.utcnow)
     current_dialog_id = Column(Text, default="")
     current_chat_mode = Column(Text, default="default")
-    current_model = Column(Text, default=config.models["available_text_models"][0])
+    current_model = Column(Text, default="gpt-3.5-turbo")
     n_used_tokens = Column(JSON, default={})
     age = Column(Integer, default=0)
     gender = Column(Text, default="Unknown")  # M / F / O
@@ -61,7 +61,7 @@ class Dialog(Base):
     user_id = Column(Integer, nullable=False)
     chat_mode = Column(Text, default="default")
     start_time = Column(DateTime, default=datetime.utcnow)
-    model = Column(Text, default=config.models["available_text_models"][0])
+    model = Column(Text, default="gpt-3.5-turbo")
     messages = Column(JSON, default=[])
 
 

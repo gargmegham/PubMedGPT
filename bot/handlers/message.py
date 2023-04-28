@@ -9,10 +9,7 @@ import telegram
 from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import CallbackContext
-from utils import (
-    edited_message_handle,
-    is_previous_message_not_answered_yet,
-)
+from utils import edited_message_handle, is_previous_message_not_answered_yet
 
 import config
 

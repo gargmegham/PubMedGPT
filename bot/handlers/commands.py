@@ -21,7 +21,7 @@ class CommandHandler:
         user_id = update.message.from_user.id
         mysql_db.set_user_attribute(user_id, "last_interaction", datetime.now())
         mysql_db.start_new_dialog(user_id)
-        
+
         reply_text = "Hi! I'm <b>Maya</b> your personal medical assistant 🤖.\nWelcome back! Please click on /new to start a new conversation.\nIf you've not registered yet, please click on /register."
         await update.message.reply_text(reply_text, parse_mode=ParseMode.HTML)
 

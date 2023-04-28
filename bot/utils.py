@@ -7,8 +7,6 @@ from telegram.constants import ParseMode
 from telegram.ext import CallbackContext
 from utils import register_user_if_not_exists
 
-import config
-
 # setup
 mysql_db = mysql.MySQL()
 logger = logging.getLogger(__name__)
@@ -35,9 +33,7 @@ async def register_user_if_not_exists(
     if user.id not in user_semaphores:
         user_semaphores[user.id] = asyncio.Semaphore(1)
     if mysql_db.get_user_attribute(user.id, "current_model") is None:
-        mysql_db.set_user_attribute(
-            user.id, "current_model", config.models["available_text_models"][0]
-        )
+        mysql_db.set_user_attribute(user.id, "current_model", "gpt-3.5-turbo")
     # back compatibility for n_used_tokens field
     n_used_tokens = mysql_db.get_user_attribute(user.id, "n_used_tokens")
     if isinstance(n_used_tokens, int):
