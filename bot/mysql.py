@@ -236,8 +236,8 @@ class MySQL:
         history.append(
             {"role": "user", "content": f"I'm allergic to: {allergy_details}"}
         )
-        for index, history in enumerate(medical_history):
-            history_details = f"Name: {history.name}, From: {history.from_date}, To: {history.to_date}, Surgeries Performed: {history.surgeries_performed}, Symptoms: {history.symptoms}, Medications: {history.medications}"
+        for index, med_history in enumerate(medical_history):
+            history_details = f"Name: {med_history.name}, From: {med_history.from_date}, To: {med_history.to_date}, Surgeries Performed: {med_history.surgeries_performed}, Symptoms: {med_history.symptoms}, Medications: {med_history.medications}"
             history.append(
                 {
                     "role": "user",
