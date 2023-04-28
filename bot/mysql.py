@@ -187,7 +187,7 @@ class MySQL:
         session.commit()
         session.close()
 
-    def answer_last_sinus_congestion_prompt(self, user_id: int, asnwer: str):
+    def answer_last_sinus_congestion_prompt(self, user_id: int, answer: str):
         self.check_if_user_exists(user_id, raise_exception=True)
         session = self.Session()
         # find last prompt by timestamp and update its answer
@@ -199,7 +199,7 @@ class MySQL:
         )
         session.query(SinusCongestionQnA).filter_by(id=last_prompt.id).update(
             {
-                "asnwer": asnwer.strip(),
+                "answer": answer.strip(),
             }
         )
         session.commit()
