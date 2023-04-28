@@ -16,20 +16,18 @@ user_tasks = {}
 
 class CommandHandler:
     async def start_handle(update: Update, context: CallbackContext):
-        await register_user_if_not_exists(update, context, update.message.from_user)
+        if await register_user_if_not_exists(update, context, update.message.from_user):
+            return
         user_id = update.message.from_user.id
         mysql_db.set_user_attribute(user_id, "last_interaction", datetime.now())
         mysql_db.start_new_dialog(user_id)
         
-        reply_text = "Hi! I'm <b>Maya</b> your personal medical assistant 🤖.\n"
-        if not mysql_db.check_if_user_exists(update.message.from_user.id):
-            reply_text += "\nLet's start with some basic details about you as a patient, please click on /register."
-        else:
-            reply_text += "\Welcome back! Please click on /new to start a new conversation.\nIf you've not registered yet, please click on /register."
+        reply_text = "Hi! I'm <b>Maya</b> your personal medical assistant 🤖.\nWelcome back! Please click on /new to start a new conversation.\nIf you've not registered yet, please click on /register."
         await update.message.reply_text(reply_text, parse_mode=ParseMode.HTML)
 
     async def help_handle(update: Update, context: CallbackContext):
-        await register_user_if_not_exists(update, context, update.message.from_user)
+        if await register_user_if_not_exists(update, context, update.message.from_user):
+            return
         user_id = update.message.from_user.id
         mysql_db.set_user_attribute(user_id, "last_interaction", datetime.now())
         await update.message.reply_text(
@@ -38,7 +36,6 @@ class CommandHandler:
         )
 
     async def retry_handle(update: Update, context: CallbackContext):
-        await register_user_if_not_exists(update, context, update.message.from_user)
         if await is_previous_message_not_answered_yet(update, context):
             return
 
@@ -63,7 +60,6 @@ class CommandHandler:
         )
 
     async def new_dialog_handle(update: Update, context: CallbackContext):
-        await register_user_if_not_exists(update, context, update.message.from_user)
         if await is_previous_message_not_answered_yet(update, context):
             return
 
@@ -81,10 +77,8 @@ class CommandHandler:
 
     async def cancel_handle(update: Update, context: CallbackContext):
         await register_user_if_not_exists(update, context, update.message.from_user)
-
         user_id = update.message.from_user.id
         mysql_db.set_user_attribute(user_id, "last_interaction", datetime.now())
-
         if user_id in user_tasks:
             task = user_tasks[user_id]
             task.cancel()
@@ -96,7 +90,6 @@ class CommandHandler:
     async def extract_prompt_completion_handle(
         update: Update, context: CallbackContext
     ):
-        await register_user_if_not_exists(update, context, update.message.from_user)
         if await is_previous_message_not_answered_yet(update, context):
             return
         user_id = update.message.from_user.id

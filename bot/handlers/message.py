@@ -12,7 +12,6 @@ from telegram.ext import CallbackContext
 from utils import (
     edited_message_handle,
     is_previous_message_not_answered_yet,
-    register_user_if_not_exists,
 )
 
 import config
@@ -31,7 +30,6 @@ async def message_handler(
     if update.edited_message is not None:
         await edited_message_handle(update, context)
         return
-    await register_user_if_not_exists(update, context, update.message.from_user)
     if await is_previous_message_not_answered_yet(update, context):
         return
     user_id = update.message.from_user.id
