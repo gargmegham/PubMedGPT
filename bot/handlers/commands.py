@@ -3,7 +3,7 @@ from datetime import datetime
 
 import chatgpt
 import mysql
-from message import message_handler
+from handlers.message import message_handler
 from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import CallbackContext

@@ -4,9 +4,9 @@ import logging
 import traceback
 
 import telegram
-from commands import CommandHandler
-from message import message_handler
-from nasal_congestion import (
+from handlers.commands import CommandHandler
+from handlers.message import message_handler
+from handlers.nasal_congestion import (
     next_sinus_question_answer_callback,
     sinus_congestion_start_handler,
 )

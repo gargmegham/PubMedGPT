@@ -5,7 +5,6 @@ import mysql
 from telegram import Update, User
 from telegram.constants import ParseMode
 from telegram.ext import CallbackContext
-from utils import register_user_if_not_exists
 
 # setup
 mysql_db = mysql.MySQL()
