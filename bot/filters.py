@@ -4,7 +4,7 @@ from telegram.ext import filters
 import config
 
 
-def get_user_filter(self):
+def get_user_filter():
     filter = filters.ALL
     if len(config.allowed_telegram_usernames) > 0:
         usernames = config.allowed_telegram_usernames
