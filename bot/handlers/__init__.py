@@ -10,7 +10,7 @@ from handlers.nasal_congestion import (
     next_sinus_question_answer_callback,
     sinus_congestion_start_handler,
 )
-from registeration import registeration_handler
+from handlers.registeration import registeration_handler
 from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import CallbackContext
