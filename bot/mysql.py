@@ -237,13 +237,26 @@ class MySQL:
             {"role": "user", "content": f"I'm allergic to: {allergy_details}"}
         )
         for index, med_history in enumerate(medical_history):
-            history_details = f"Name: {med_history.name}, From: {med_history.from_date}, To: {med_history.to_date}, Surgeries Performed: {med_history.surgeries_performed}, Symptoms: {med_history.symptoms}, Medications: {med_history.medications}"
-            history.append(
-                {
-                    "role": "user",
-                    "content": f"Medical history - {index+1}: {history_details}",
-                }
-            )
+            history_details = ""
+            if med_history.name:
+                history_details = f"Name: {med_history.name}"
+            if med_history.from_date:
+                history_details += f", From: {med_history.from_date}"
+            if med_history.to_date:
+                history_details += f", To: {med_history.to_date}"
+            if med_history.surgeries_performed:
+                history_details += f", Surgeries Performed: {med_history.surgeries_performed}"
+            if med_history.symptoms:
+                history_details += f", Symptoms: {med_history.symptoms}"
+            if med_history.medications:
+                history_details += f", Medications: {med_history.medications}"
+            if history_details:
+                history.append(
+                    {
+                        "role": "user",
+                        "content": f"Medical history - {index+1}: {history_details}",
+                    }
+                )
         return history
 
     def get_sinus_congestion_qnas(self, user_id: int) -> str:
