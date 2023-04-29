@@ -126,10 +126,6 @@ async def message_handler(
             mysql_db.update_n_used_tokens(
                 user_id, current_model, n_input_tokens, n_output_tokens
             )
-
-            # create table in sql db if not exists
-            mysql_db.insert_qna(prompt=_message, completion=answer)
-
         except asyncio.CancelledError:
             # note: intermediate token updates only work when enable_message_streaming=True (config.yml)
             mysql_db.update_n_used_tokens(

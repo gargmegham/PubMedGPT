@@ -9,7 +9,6 @@ from tables import (
     Base,
     Dialog,
     MedicalHistory,
-    QuestionAnswer,
     SinusCongestionQnA,
     User,
 )
@@ -164,20 +163,17 @@ class MySQL:
         session.commit()
         session.close()
 
-    def insert_qna(self, prompt: str, completion: str):
-        base64_prompt = base64.b64encode(prompt.encode("utf-8")).decode("utf-8")
-        base64_completion = base64.b64encode(completion.encode("utf-8")).decode("utf-8")
-        session = self.Session()
-        session.add(QuestionAnswer(prompt=base64_prompt, completion=base64_completion))
-        session.commit()
-
     def extract_qna_json(self):
         session = self.Session()
-        entries = session.query(QuestionAnswer).all()
+        entries = session.query(Dialog).all()
         session.close()
         jsonl_response = ""
         for entry in entries:
-            jsonl_response += f'{{"prompt": "{base64.b64decode(str(entry.prompt)).decode("utf-8")}", "completion": "{base64.b64decode(str(entry.completion)).decode("utf-8")}"}}\n'
+            messages = entry.messages
+            for message in messages:
+                prompt = message["user"]
+                completion = message["bot"]
+                jsonl_response += f'{{"prompt": "{base64.b64decode(str(prompt)).decode("utf-8")}", "completion": "{base64.b64decode(str(completion)).decode("utf-8")}"}}\n'
         return jsonl_response.encode("utf-8")
 
     def add_sinus_congestion_record(self, user_id: int, question: str):

@@ -59,15 +59,6 @@ class Dialog(Base):
     messages = Column(JSON, default=[])
 
 
-class QuestionAnswer(Base):
-    __tablename__ = "qna"
-
-    id = Column(Integer, primary_key=True)
-    prompt = Column(Text, nullable=False)
-    completion = Column(Text, nullable=False)
-    timestamp = Column(DateTime, default=datetime.utcnow)
-
-
 class SinusCongestionQnA(Base):
     __tablename__ = "sinus_congestion"
 
