@@ -4,14 +4,7 @@ from typing import Optional
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from tables import (
-    Allergy,
-    Base,
-    Dialog,
-    MedicalHistory,
-    SinusCongestionQnA,
-    User,
-)
+from tables import Allergy, Base, Dialog, MedicalHistory, SinusCongestionQnA, User
 
 import config
 
