@@ -51,7 +51,8 @@ class MedicalHistory(Base):
 class Dialog(Base):
     __tablename__ = "dialogs"
 
-    uid = Column(Text, nullable=False, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    uid = Column(Text, nullable=False)
     user_id = Column(Integer, nullable=False)
     chat_mode = Column(Text, default="default")
     start_time = Column(DateTime, default=datetime.utcnow)
