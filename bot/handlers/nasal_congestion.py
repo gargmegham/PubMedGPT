@@ -8,8 +8,8 @@ from telegram.ext import CallbackContext
 from utils import is_previous_message_not_answered_yet
 
 logger = logging.getLogger(__name__)
-
 mysql_db = mysql.MySQL()
+CHAT_MODES = config.chat_modes
 
 
 async def sinus_congestion_start_handler(
@@ -38,7 +38,7 @@ async def next_sinus_question_answer_callback(
     messages = [
         {
             "role": "system",
-            "content": """Here are some general guidelines for treating sinus congestion:\n\nDuration of symptoms:\nIf symptoms have persisted for more than 7 days, antibiotics might be considered.\nIf symptoms are long-standing, consider using Claritin, Pepcid, or consulting an ENT specialist.\n\nFever:\nIf you have a fever above 102.4°F for 3 days, antibiotics might be prescribed.\n\nOther symptoms:\nFor additional symptoms, refer to the relevant protocols, such as treatment for earaches, sore throats, or coughs.\nAntihistamines or nasal sprays:\n\nIf you haven't tried these yet, consider using over-the-counter options like steroids, phenylephrine, pseudoephedrine, Mucinex, Flonase, Claritin, Zyrtec, Xyzal, or Allegra.\n\nAge:\nUnder 18: Amoxicillin or Augmentin may be prescribed.\nOver 18: Adult dosages of Amoxicillin or Augmentin may be prescribed.\n\nPenicillin allergy:\nFor those with a penicillin allergy, alternatives like Cefdinir, Clindamycin, Doxycycline, or Levofloxacin may be considered.\n\nMedication interactions:\nCheck for any possible interactions with current medications before prescribing new ones.\n\nMedical problems:\nAvoid prednisone in patients with elevated blood pressure, diabetes, or gastritis.\nAvoid albuterol in patients with tachycardia or atrial fibrillation.\n\nPregnancy:\nIf pregnant, consider the following treatment options: saline mist, cromolyn, Flonase, Claritin, Augmentin, or clotrimazole cream for 7 days.\n\nKeep in mind that these are general guidelines, and it is always important to consult with a healthcare professional before starting any new treatment.""",
+            "content": CHAT_MODES["default"]["prompt_start"],
         },
         {"role": "user", "content": "I'm suffering from sinus congestion."},
     ]

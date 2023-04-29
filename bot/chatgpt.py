@@ -21,16 +21,14 @@ class ChatGPT:
     def __init__(self):
         self.model = "gpt-3.5-turbo"
 
-    async def send_message(self, message, dialog_messages=[], chat_mode="default"):
-        if chat_mode not in CHAT_MODES.keys():
-            raise ValueError(f"Chat mode {chat_mode} is not supported")
+    async def send_message(self, message, dialog_messages=[]):
 
         n_dialog_messages_before = len(dialog_messages)
         answer = None
         while answer is None:
             try:
                 messages = self._generate_prompt_messages(
-                    message, dialog_messages, chat_mode
+                    message, dialog_messages
                 )
                 r = await openai.ChatCompletion.acreate(
                     model=self.model, messages=messages, **OPENAI_COMPLETION_OPTIONS
@@ -61,17 +59,14 @@ class ChatGPT:
         )
 
     async def send_message_stream(
-        self, message, dialog_messages=[], chat_mode="default"
+        self, message, dialog_messages=[]
     ):
-        if chat_mode not in CHAT_MODES.keys():
-            raise ValueError(f"Chat mode {chat_mode} is not supported")
-
         n_dialog_messages_before = len(dialog_messages)
         answer = None
         while answer is None:
             try:
                 messages = self._generate_prompt_messages(
-                    message, dialog_messages, chat_mode
+                    message, dialog_messages
                 )
                 r_gen = await openai.ChatCompletion.acreate(
                     model=self.model,
@@ -110,25 +105,8 @@ class ChatGPT:
             n_output_tokens,
         ), n_first_dialog_messages_removed  # sending final answer
 
-    def _generate_prompt(self, message, dialog_messages, chat_mode):
-        prompt = CHAT_MODES[chat_mode]["prompt_start"]
-        prompt += "\n\n"
-
-        # add chat context
-        if len(dialog_messages) > 0:
-            prompt += "Chat:\n"
-            for dialog_message in dialog_messages:
-                prompt += f"User: {dialog_message['user']}\n"
-                prompt += f"Assistant: {dialog_message['bot']}\n"
-
-        # current message
-        prompt += f"User: {message}\n"
-        prompt += "Assistant: "
-
-        return prompt
-
-    def _generate_prompt_messages(self, message, dialog_messages, chat_mode):
-        prompt = CHAT_MODES[chat_mode]["prompt_start"]
+    def _generate_prompt_messages(self, message, dialog_messages):
+        prompt = CHAT_MODES["default"]["prompt_start"]
 
         messages = [{"role": "system", "content": prompt}]
         for dialog_message in dialog_messages:

@@ -31,7 +31,6 @@ async def message_handler(
     user_id = update.message.from_user.id
 
     async def message_handle_fn():
-        chat_mode = mysql_db.get_user_attribute(user_id, "current_chat_mode")
         # new dialog timeout
         if use_new_dialog_timeout:
             if (
@@ -42,7 +41,7 @@ async def message_handler(
             ) > 0:
                 mysql_db.start_new_dialog(user_id)
                 await update.message.reply_text(
-                    f"Starting new dialog due to timeout (<b>{chatgpt.CHAT_MODES[chat_mode]['name']}</b> mode) ✅",
+                    f"Starting new dialog due to timeout (<b>{chatgpt.CHAT_MODES["default"]['name']}</b> mode) ✅",
                     parse_mode=ParseMode.HTML,
                 )
         mysql_db.set_user_attribute(user_id, "last_interaction", datetime.now())
@@ -59,12 +58,12 @@ async def message_handler(
             _message = message or update.message.text
             dialog_messages = mysql_db.get_dialog_messages(user_id, dialog_id=None)
             parse_mode = {"html": ParseMode.HTML, "markdown": ParseMode.MARKDOWN}[
-                chatgpt.CHAT_MODES[chat_mode]["parse_mode"]
+                chatgpt.CHAT_MODES["default"]["parse_mode"]
             ]
             chatgpt_instance = chatgpt.ChatGPT()
             if config.enable_message_streaming:
                 gen = chatgpt_instance.send_message_stream(
-                    _message, dialog_messages=dialog_messages, chat_mode=chat_mode
+                    _message, dialog_messages=dialog_messages
                 )
             else:
                 (
@@ -72,7 +71,7 @@ async def message_handler(
                     (n_input_tokens, n_output_tokens),
                     n_first_dialog_messages_removed,
                 ) = await chatgpt_instance.send_message(
-                    _message, dialog_messages=dialog_messages, chat_mode=chat_mode
+                    _message, dialog_messages=dialog_messages
                 )
 
                 async def fake_gen():

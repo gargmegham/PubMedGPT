@@ -62,16 +62,12 @@ class CommandHandler:
     async def new_dialog_handle(update: Update, context: CallbackContext):
         if await is_previous_message_not_answered_yet(update, context):
             return
-
         user_id = update.message.from_user.id
         mysql_db.set_user_attribute(user_id, "last_interaction", datetime.now())
-
         mysql_db.start_new_dialog(user_id)
         await update.message.reply_text("Starting new dialog ✅")
-
-        chat_mode = mysql_db.get_user_attribute(user_id, "current_chat_mode")
         await update.message.reply_text(
-            f"{chatgpt.CHAT_MODES[chat_mode]['welcome_message']}",
+            f"{chatgpt.CHAT_MODES["default"]['welcome_message']}",
             parse_mode=ParseMode.HTML,
         )
 
