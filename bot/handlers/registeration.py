@@ -1,6 +1,7 @@
 import logging
 
 import mysql
+from filters import get_messages_that_starts_with_and_have_atleast_n_lines
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
 from telegram.ext import (
     CallbackContext,
@@ -13,19 +14,6 @@ from telegram.ext import (
 logger = logging.getLogger(__name__)
 mysql_db = mysql.MySQL()
 
-"""
-Conversation flow:
-    1. /registeration
-    2. ask gender
-    3. ask age
-    4. ask allergies
-    5. ask about medical history
-    6. ask about address
-    7. ask about phone number
-    8. ask about email
-    9. ask about bio
-"""
-
 GENDER, AGE, ALLERGIES, MEDICAL_HISTORY, LOCATION = range(5)
 
 
@@ -37,7 +25,6 @@ async def start(update: Update, context: CallbackContext) -> int:
         reply_markup=ReplyKeyboardMarkup(
             reply_keyboard,
             one_time_keyboard=True,
-            input_field_placeholder="Male, Female or Other?",
         ),
     )
     return GENDER
@@ -187,36 +174,16 @@ async def end(update: Update, context: CallbackContext) -> int:
     await update.message.reply_text(
         "\
         Please make sure you have provided all the information correctly.\n\
-        If you want to add any information, please use /registeration command again.\n\
+        If you want to add any information, please use /register command again.\n\
         ",
         reply_markup=ReplyKeyboardRemove(),
     )
     return ConversationHandler.END
 
 
-def custom_filter_for_multiline_messages_that_starts_with(
-    text: str, num_lines: int
-) -> filters.BaseFilter:
-    """
-    This is a custom filter for multiline messages that starts with a given text.
-    """
-
-    class CustomFilter(filters.BaseFilter):
-        def filter(self, message: filters.Message) -> bool:
-            if message.text is None:
-                return False
-            if not message.text.startswith(text):
-                return False
-            if len(message.text.splitlines()) < num_lines:
-                return False
-            return True
-
-    return CustomFilter()
-
-
-def registeration_conversation_handler(user_filter) -> ConversationHandler:
+def registeration_handler(user_filter) -> ConversationHandler:
     conv_handler = ConversationHandler(
-        entry_points=[CommandHandler("registeration", start)],
+        entry_points=[CommandHandler("register", start)],
         states={
             GENDER: [
                 MessageHandler(
@@ -237,7 +204,7 @@ def registeration_conversation_handler(user_filter) -> ConversationHandler:
             MEDICAL_HISTORY: [
                 MessageHandler(
                     user_filter
-                    & custom_filter_for_multiline_messages_that_starts_with(
+                    & get_messages_that_starts_with_and_have_atleast_n_lines(
                         "Condition:", 6
                     ),
                     medical_history,

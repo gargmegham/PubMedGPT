@@ -25,7 +25,3 @@ mysql_uri = f"mysql+pymysql://{config_env['MYSQL_USER']}:{config_env['MYSQL_PASS
 # chat_modes
 with open(config_dir / "chat_modes.yml", "r") as f:
     chat_modes = yaml.safe_load(f)
-
-# models
-with open(config_dir / "models.yml", "r") as f:
-    models = yaml.safe_load(f)
