@@ -3,6 +3,7 @@ import logging
 import mysql
 from filters import get_messages_that_starts_with_and_have_atleast_n_lines
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
+from telegram.constants import ParseMode
 from telegram.ext import (
     CallbackContext,
     CommandHandler,
@@ -51,7 +52,8 @@ async def age(update: Update, context: CallbackContext) -> int:
         update.message.text,
     )
     await update.message.reply_text(
-        "Please tell me about your allergies if any, or send /skip if you don't have any.\n\You can send multiple allergies just copy below format, and modify it according to your details.\n\nAllergies: pollen, juniper, dust mites, mold, cats, dogs, cockroaches"
+        "Please tell me about your allergies if any, or send /skip if you don't have any.\n\You can send multiple allergies just copy below format, and modify it according to your details.\n\n<code>Allergies: pollen, juniper, dust mites, mold, cats, dogs, cockroaches</code>",
+        parse_mode=ParseMode.HTML,
     )
     return ALLERGIES
 
@@ -73,7 +75,8 @@ async def allergies(update: Update, context: CallbackContext) -> int:
             allergy.strip(),
         )
     await update.message.reply_text(
-        "Please tell me about your medical history, or send /skip if you don't have any.\nYou can send multiple medical conditions copy below format, and modify it according to your details.\n\nCondition: diabetes\nFrom: 2010-01-01\nTo: 2015-01-01\nSurgeries Performed: gastric bypass, gallbladder removal\nSymptoms: fatigue, weight loss, frequent urination\nMedications: metformin, insulin, lantus\n"
+        "Please tell me about your medical history, or send /skip if you don't have any.\nYou can send multiple medical conditions copy below format, and modify it according to your details.\n\n<code>Condition: diabetes\nFrom: 2010-01-01\nTo: 2015-01-01\nSurgeries Performed: gastric bypass, gallbladder removal\nSymptoms: fatigue, weight loss, frequent urination\nMedications: metformin, insulin, lantus\n</code>",
+        parse_mode=ParseMode.HTML,
     )
     return MEDICAL_HISTORY
 
