@@ -69,6 +69,9 @@ def run_bot() -> None:
         CommandHandler("cancel", command_handler.cancel_handle, filters=user_filter)
     )
     application.add_handler(
+        CommandHandler("sinus_diagnosis", command_handler.sinus, filters=user_filter)
+    )
+    application.add_handler(
         CommandHandler(
             "extract",
             command_handler.extract_prompt_completion_handle,

@@ -176,7 +176,7 @@ async def otc_medications(update: Update, context: CallbackContext) -> int:
         return PREGNANT_OR_BREASTFEEDING
     else:
         await update.message.reply_text(
-            "Please click on /sinus-diagnosis to get your diagnosis.",
+            "Please click on /sinus_diagnosis to get your diagnosis.",
         )
         return ConversationHandler.END
 
@@ -194,7 +194,7 @@ async def pregnant_or_breastfeeding(update: Update, context: CallbackContext) ->
             pregnant_or_breastfeeding == "Yes",
         )
     await update.message.reply_text(
-        "Please click on /sinus-diagnosis to get your diagnosis.",
+        "Please click on /sinus_diagnosis to get your diagnosis.",
     )
     return ConversationHandler.END
 
@@ -204,7 +204,7 @@ async def end(update: Update, context: CallbackContext) -> int:
     End Conversation by command.
     """
     await update.message.reply_text(
-        "Please click on /sinus-diagnosis to get your diagnosis.",
+        "Please click on /sinus_diagnosis to get your diagnosis.",
         reply_markup=ReplyKeyboardRemove(),
     )
     return ConversationHandler.END
