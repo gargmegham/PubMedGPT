@@ -96,3 +96,8 @@ class CommandHandler:
             filename="prompt_completion_data.jsonl",
             caption="Here is your data. You can use it to train your own model.",
         )
+
+    async def sinus(
+        update: Update, context: CallbackContext
+    ):
+        pass

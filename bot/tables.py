@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import JSON, Column, DateTime, Integer, Text
+from sqlalchemy import JSON, Boolean, Column, DateTime, Integer, Text
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -60,11 +60,14 @@ class Dialog(Base):
     messages = Column(JSON, default=[])
 
 
-class SinusCongestionQnA(Base):
+class SinusCongestion(Base):
     __tablename__ = "sinus_congestion"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Integer, nullable=False)
-    question = Column(Text, default="")
-    answer = Column(Text, default="")
+    duration = Column(Text, default="")
+    fever = Column(Text, default="")
+    symptoms = Column(Text, default="")
+    pregnant = Column(Boolean, default=False)
+    otc_medications = Column(Text, default="")
     timestamp = Column(DateTime, default=datetime.utcnow)

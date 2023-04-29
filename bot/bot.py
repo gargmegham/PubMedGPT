@@ -1,6 +1,7 @@
 import handlers
 from filters import (
     get_messages_that_indicate_a_certian_medical_condition,
+    get_messages_that_start_with,
     get_user_filter,
 )
 from telegram import BotCommand
@@ -68,6 +69,9 @@ def run_bot() -> None:
         CommandHandler("cancel", command_handler.cancel_handle, filters=user_filter)
     )
     application.add_handler(
+        CommandHandler("sinus_diagnosis", command_handler.sinus, filters=user_filter)
+    )
+    application.add_handler(
         CommandHandler(
             "extract",
             command_handler.extract_prompt_completion_handle,
@@ -76,21 +80,22 @@ def run_bot() -> None:
     )
     #  add conversation handlers
     application.add_handler(handlers.registeration_handler(user_filter))
-    # application.add_handler(
-    #     MessageHandler(
-    #         filters.Regex(r"^sinus:") & user_filter,
-    #         handlers.next_sinus_question_answer_callback,
-    #     )
-    # )
-    # application.add_handler(
-    #     MessageHandler(
-    #         get_messages_that_indicate_a_certian_medical_condition(
-    #             "nasal or sinus congestion"
-    #         )
-    #         & user_filter,
-    #         handlers.sinus_congestion_start_handler,
-    #     )
-    # )
+    application.add_handler(
+        MessageHandler(
+            get_messages_that_start_with("Condition:") & user_filter,
+            handlers.medical_history,
+        )
+    )
+    application.add_handler(handlers.sinus_congestion_handler(user_filter))
+    application.add_handler(
+        MessageHandler(
+            get_messages_that_indicate_a_certian_medical_condition(
+                "nasal or sinus congestion"
+            )
+            & user_filter,
+            handlers.sinus_congestion_start_handler,
+        )
+    )
     application.add_handler(
         MessageHandler(
             filters.TEXT & ~filters.COMMAND & user_filter, handlers.message_handler

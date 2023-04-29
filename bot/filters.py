@@ -49,3 +49,17 @@ def get_messages_that_indicate_a_certian_medical_condition(
             return chatgpt.Filter().medical_condition_message_filter(message, condition)
 
     return CustomFilter()
+
+
+def get_messages_that_start_with(
+    text: str,
+) -> filters.MessageFilter:
+    """
+    This is a custom filter for messages that indicate nasal congestion.
+    """
+
+    class CustomFilter(filters.MessageFilter):
+        def filter(self, message: Message) -> bool:
+            return message.text is not None and message.text.startswith(text)
+
+    return CustomFilter()

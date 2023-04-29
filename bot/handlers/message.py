@@ -63,7 +63,7 @@ async def message_handler(
             chatgpt_instance = chatgpt.ChatGPT()
             if config.enable_message_streaming:
                 gen = chatgpt_instance.send_message_stream(
-                    _message, dialog_messages=dialog_messages
+                    _message, dialog_messages=dialog_messages, user_id=user_id
                 )
             else:
                 (
@@ -71,7 +71,7 @@ async def message_handler(
                     (n_input_tokens, n_output_tokens),
                     n_first_dialog_messages_removed,
                 ) = await chatgpt_instance.send_message(
-                    _message, dialog_messages=dialog_messages
+                    _message, dialog_messages=dialog_messages, user_id=user_id
                 )
 
                 async def fake_gen():
