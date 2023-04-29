@@ -67,7 +67,7 @@ class CommandHandler:
         mysql_db.start_new_dialog(user_id)
         await update.message.reply_text("Starting new dialog ✅")
         await update.message.reply_text(
-            f"{chatgpt.CHAT_MODES["default"]['welcome_message']}",
+            f"{chatgpt.CHAT_MODES['default']['welcome_message']}",
             parse_mode=ParseMode.HTML,
         )
 

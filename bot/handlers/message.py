@@ -41,7 +41,7 @@ async def message_handler(
             ) > 0:
                 mysql_db.start_new_dialog(user_id)
                 await update.message.reply_text(
-                    f"Starting new dialog due to timeout (<b>{chatgpt.CHAT_MODES["default"]['name']}</b> mode) ✅",
+                    f"Starting new dialog due to timeout (<b>{chatgpt.CHAT_MODES['default']['name']}</b> mode) ✅",
                     parse_mode=ParseMode.HTML,
                 )
         mysql_db.set_user_attribute(user_id, "last_interaction", datetime.now())
