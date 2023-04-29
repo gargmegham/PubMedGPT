@@ -4,7 +4,7 @@ from typing import Optional
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from tables import Allergy, Base, Dialog, MedicalHistory, SinusCongestionQnA, User
+from tables import Allergy, Base, Dialog, MedicalHistory, SinusCongestion, User
 
 import config
 
@@ -141,6 +141,7 @@ class MySQL:
             .first()
             .messages
         )
+        session.close()
         return dialog_messages
 
     def set_dialog_messages(
@@ -169,62 +170,76 @@ class MySQL:
                 jsonl_response += f'{{"prompt": "{base64.b64decode(str(prompt)).decode("utf-8")}", "completion": "{base64.b64decode(str(completion)).decode("utf-8")}"}}\n'
         return jsonl_response.encode("utf-8")
 
-    def add_sinus_congestion_record(self, user_id: int, question: str):
+    def add_sinus_congestion_record(self, user_id: int):
         self.check_if_user_exists(user_id, raise_exception=True)
         session = self.Session()
-        session.add(SinusCongestionQnA(user_id=user_id, question=question))
+        # delete old record
+        session.query(SinusCongestion).filter_by(user_id=user_id).delete()
+        session.add(SinusCongestion(user_id=user_id))
         session.commit()
         session.close()
 
-    def answer_last_sinus_congestion_prompt(self, user_id: int, answer: str):
-        self.check_if_user_exists(user_id, raise_exception=True)
+    def update_sinus_congestion_attribute(self, user_id: int, attribute: str, value):
         session = self.Session()
-        # find last prompt by timestamp and update its answer
-        last_prompt = (
-            session.query(SinusCongestionQnA)
-            .filter_by(user_id=user_id)
-            .order_by(SinusCongestionQnA.timestamp.desc())
-            .first()
-        )
-        session.query(SinusCongestionQnA).filter_by(id=last_prompt.id).update(
-            {
-                "answer": answer.strip(),
-            }
+        session.query(SinusCongestion).filter_by(user_id=user_id).update(
+            {attribute: value}
         )
         session.commit()
         session.close()
 
-    def prepare_patient_history(self, user_id: int) -> str:
-        """
-        Prepare patient history for the doctor.
-        Format should be like following:
-        Patient history:
-        Name: \n
-        Age: \n
-        Gender: \n
-        Medical History: \n
-            - Name: \n, From: \n, To: \n, Surgeries Performed: \n, Symptoms: \n, Medications: \n
-        Allergies: \n
-        """
+    def get_sinus_data(self, user_id: int):
+        self.check_if_user_exists(user_id, raise_exception=True)
+        session = self.Session()
+        sinus_data = session.query(SinusCongestion).filter_by(user_id=user_id).first()
+        session.commit()
+        session.close()
+        return sinus_data
+
+    def prepare_patient_history(self, user_id: int) -> list:
         self.check_if_user_exists(user_id, raise_exception=True)
         session = self.Session()
         user = session.query(User).filter_by(id=user_id).first()
         history = []
         history.append(
             {
+                "role": "assistant",
+                "content": "What's your name?",
+            }
+        )
+        history.append(
+            {
                 "role": "user",
                 "content": f"My name is {user.first_name} {user.last_name}",
             }
         )
+        history.append(
+            {
+                "role": "assistant",
+                "content": "What's your age?",
+            }
+        )
         history.append({"role": "user", "content": f"My age is {user.age}"})
+        history.append(
+            {
+                "role": "assistant",
+                "content": "What's your gender?",
+            }
+        )
         history.append({"role": "user", "content": f"My gender is {user.gender}"})
         allergies = session.query(Allergy).filter_by(user_id=user_id).all()
         medical_history = session.query(MedicalHistory).filter_by(user_id=user_id).all()
         session.close()
         allergy_details = ", ".join([allergy.allergy for allergy in allergies])
-        history.append(
-            {"role": "user", "content": f"I'm allergic to: {allergy_details}"}
-        )
+        if allergy_details:
+            history.append(
+                {
+                    "role": "assistant",
+                    "content": "Do you have any allergies?",
+                }
+            )
+            history.append(
+                {"role": "user", "content": f"I'm allergic to: {allergy_details}"}
+            )
         for index, med_history in enumerate(medical_history):
             history_details = ""
             if med_history.name:
@@ -244,21 +259,14 @@ class MySQL:
             if history_details:
                 history.append(
                     {
+                        "role": "assistant",
+                        "content": "Do you have any allergies?",
+                    }
+                )
+                history.append(
+                    {
                         "role": "user",
                         "content": f"Medical history - {index+1}: {history_details}",
                     }
                 )
         return history
-
-    def get_sinus_congestion_qnas(self, user_id: int) -> str:
-        self.check_if_user_exists(user_id, raise_exception=True)
-        session = self.Session()
-        # where answers are not null and answers are not empty
-        questions_and_answers = (
-            session.query(SinusCongestionQnA)
-            .filter(SinusCongestionQnA.answer != "")
-            .filter_by(user_id=user_id)
-            .all()
-        )
-        session.close()
-        return questions_and_answers

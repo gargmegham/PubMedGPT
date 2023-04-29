@@ -1,9 +1,11 @@
+import mysql
 import openai
 import tiktoken
 
 import config
 
 openai.api_key = config.openai_api_key
+mysql_db = mysql.MySQL()
 
 
 CHAT_MODES = config.chat_modes
@@ -21,12 +23,14 @@ class ChatGPT:
     def __init__(self):
         self.model = "gpt-3.5-turbo"
 
-    async def send_message(self, message, dialog_messages=[]):
+    async def send_message(self, message, dialog_messages=[], user_id=None):
         n_dialog_messages_before = len(dialog_messages)
         answer = None
         while answer is None:
             try:
-                messages = self._generate_prompt_messages(message, dialog_messages)
+                messages = self._generate_prompt_messages(
+                    message, dialog_messages, user_id
+                )
                 r = await openai.ChatCompletion.acreate(
                     model=self.model, messages=messages, **OPENAI_COMPLETION_OPTIONS
                 )
@@ -55,12 +59,14 @@ class ChatGPT:
             n_first_dialog_messages_removed,
         )
 
-    async def send_message_stream(self, message, dialog_messages=[]):
+    async def send_message_stream(self, message, dialog_messages=[], user_id=None):
         n_dialog_messages_before = len(dialog_messages)
         answer = None
         while answer is None:
             try:
-                messages = self._generate_prompt_messages(message, dialog_messages)
+                messages = self._generate_prompt_messages(
+                    message, dialog_messages, user_id
+                )
                 r_gen = await openai.ChatCompletion.acreate(
                     model=self.model,
                     messages=messages,
@@ -98,9 +104,9 @@ class ChatGPT:
             n_output_tokens,
         ), n_first_dialog_messages_removed  # sending final answer
 
-    def _generate_prompt_messages(self, message, dialog_messages):
+    def _generate_prompt_messages(self, message, dialog_messages, user_id):
         prompt = CHAT_MODES["default"]["prompt_start"]
-
+        patient_history = mysql_db.prepare_patient_history(user_id)
         messages = [{"role": "system", "content": prompt}]
         for dialog_message in dialog_messages:
             messages.append({"role": "user", "content": dialog_message["user"]})
@@ -173,7 +179,6 @@ class Filter(BaseMedicalGPT):
         """
         prompt = f"Please respond with 'yes' or 'no' based on whether the following message indicates the user has {condition}. If you're uncertain, respond with 'no'.\n\nMessage: {message}\n\nAnswer: "
         response = self._generate_response(prompt, 2, 1, 0.5)
-        print(f"******{response}******")
         return self._interpret_response_as_binary(response)
 
     def _interpret_response_as_binary(self, response: str) -> bool:

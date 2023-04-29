@@ -78,7 +78,7 @@ async def allergies(update: Update, context: CallbackContext) -> int:
                 allergy.strip(),
             )
     await update.message.reply_text(
-        "Please tell me about your medical history, or send /skip if you don't have any.\nYou can send multiple medical conditions copy below format, and modify it according to your details.\n\n<code>Condition: diabetes\nFrom: 2010-01-01\nTo: 2015-01-01\nSurgeries Performed: gastric bypass, gallbladder removal\nSymptoms: fatigue, weight loss, frequent urination\nMedications: metformin, insulin, lantus\n</code>",
+        "Now please tell me about your medical history, or send /skip if you don't have any.\nYou can send multiple medical conditions copy below format, and modify it according to your details.\n\nCondition: diabetes\nFrom: 2010-01-01\nTo: 2015-01-01\nRelated Surgeries Performed: gastric bypass, gallbladder removal\nRelated Symptoms: fatigue, weight loss, frequent urination\nRelated Medications: metformin, insulin, lantus\n",
         parse_mode=ParseMode.HTML,
     )
     return MEDICAL_HISTORY
@@ -173,7 +173,9 @@ async def location(update: Update, context: CallbackContext) -> int:
 
 async def skip_location(update: Update, context: CallbackContext) -> int:
     """Skips the location and ends the conversation."""
-    await update.message.reply_text("I bet you live in a nice neighborhood anyway!")
+    await update.message.reply_text(
+        "I bet you live in a nice neighborhood anyway!\n\nYour registeration as a patient is complete.\nNow tell me how can I help you today?"
+    )
     return ConversationHandler.END
 
 
