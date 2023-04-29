@@ -22,14 +22,11 @@ class ChatGPT:
         self.model = "gpt-3.5-turbo"
 
     async def send_message(self, message, dialog_messages=[]):
-
         n_dialog_messages_before = len(dialog_messages)
         answer = None
         while answer is None:
             try:
-                messages = self._generate_prompt_messages(
-                    message, dialog_messages
-                )
+                messages = self._generate_prompt_messages(message, dialog_messages)
                 r = await openai.ChatCompletion.acreate(
                     model=self.model, messages=messages, **OPENAI_COMPLETION_OPTIONS
                 )
@@ -58,16 +55,12 @@ class ChatGPT:
             n_first_dialog_messages_removed,
         )
 
-    async def send_message_stream(
-        self, message, dialog_messages=[]
-    ):
+    async def send_message_stream(self, message, dialog_messages=[]):
         n_dialog_messages_before = len(dialog_messages)
         answer = None
         while answer is None:
             try:
-                messages = self._generate_prompt_messages(
-                    message, dialog_messages
-                )
+                messages = self._generate_prompt_messages(message, dialog_messages)
                 r_gen = await openai.ChatCompletion.acreate(
                     model=self.model,
                     messages=messages,

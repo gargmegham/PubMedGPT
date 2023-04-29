@@ -245,7 +245,9 @@ class MySQL:
             if med_history.to_date:
                 history_details += f", To: {med_history.to_date}"
             if med_history.surgeries_performed:
-                history_details += f", Surgeries Performed: {med_history.surgeries_performed}"
+                history_details += (
+                    f", Surgeries Performed: {med_history.surgeries_performed}"
+                )
             if med_history.symptoms:
                 history_details += f", Symptoms: {med_history.symptoms}"
             if med_history.medications:

@@ -7,7 +7,10 @@ from telegram.constants import ParseMode
 from telegram.ext import CallbackContext
 from utils import is_previous_message_not_answered_yet
 
+import config
+
 logger = logging.getLogger(__name__)
+
 mysql_db = mysql.MySQL()
 CHAT_MODES = config.chat_modes
 
