@@ -21,7 +21,7 @@ class User(Base):
     current_model = Column(Text, default="gpt-3.5-turbo")
     n_used_tokens = Column(JSON, default={})
     age = Column(Integer, default=0)
-    gender = Column(Text, default="Unknown")  # M / F / O
+    gender = Column(Text, default="Unknown")
     address = Column(Text, default="Unknown")
 
 
