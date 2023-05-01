@@ -209,7 +209,6 @@ class MySQL:
         self.check_if_user_exists(user_id, raise_exception=True)
         session = self.Session()
         sinus_data = session.query(SinusCongestion).filter_by(user_id=user_id).first()
-        session.commit()
         session.close()
         return sinus_data
 

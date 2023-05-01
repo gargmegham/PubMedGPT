@@ -104,8 +104,8 @@ class CommandHandler:
         user_id = update.message.from_user.id
         mysql_db.start_new_dialog(user_id)
         user = mysql_db.get_user(user_id)
-        age = user.age if user.age is not "Unknown" else None
-        gender = user.gender if user.gender is not "Unknown" else None
+        age = user.age if user.age != "Unknown" else None
+        gender = user.gender if user.gender != "Unknown" else None
         allergies = mysql_db.get_allergies(user_id)
         medical_history = mysql_db.get_medical_history(user_id)
         sinus_details = mysql_db.get_sinus_data(user_id)
