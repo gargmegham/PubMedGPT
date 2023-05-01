@@ -142,7 +142,7 @@ class CommandHandler:
         if user.gender == "Female" and sinus_details.pregnant == 1:
             message += f"I am pregnant.\n"
         message += "Please prescribe me some medicine for sinus congestion relief.\n"
-        handlers.message_handler(
+        await handlers.message_handler(
             update,
             context,
             message=message,
