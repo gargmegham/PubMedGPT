@@ -1,4 +1,4 @@
-import chatgpt
+import medicalgpt
 from telegram import Message
 from telegram.ext import filters
 
@@ -46,7 +46,9 @@ def get_messages_that_indicate_a_certian_medical_condition(
 
     class CustomFilter(filters.MessageFilter):
         def filter(self, message: Message) -> bool:
-            return chatgpt.Filter().medical_condition_message_filter(message, condition)
+            return medicalgpt.Filter().medical_condition_message_filter(
+                message, condition
+            )
 
     return CustomFilter()
 

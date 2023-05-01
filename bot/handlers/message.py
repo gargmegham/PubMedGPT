@@ -3,7 +3,7 @@ import logging
 import traceback
 from datetime import datetime
 
-import chatgpt
+import medicalgpt
 import mysql
 import telegram
 from telegram import Update
@@ -20,7 +20,11 @@ logger = logging.getLogger(__name__)
 
 
 async def message_handler(
-    update: Update, context: CallbackContext, message=None, use_new_dialog_timeout=True
+    update: Update,
+    context: CallbackContext,
+    message=None,
+    use_new_dialog_timeout=True,
+    pass_dialog_messages=True,
 ):
     # check if message is edited
     if update.edited_message is not None:
@@ -41,7 +45,7 @@ async def message_handler(
             ) > 0:
                 mysql_db.start_new_dialog(user_id)
                 await update.message.reply_text(
-                    f"Starting new dialog due to timeout (<b>{chatgpt.CHAT_MODES['default']['name']}</b> mode) ✅",
+                    f"Starting new dialog due to timeout (<b>{medicalgpt.CHAT_MODES['default']['name']}</b> mode) ✅",
                     parse_mode=ParseMode.HTML,
                 )
         mysql_db.set_user_attribute(user_id, "last_interaction", datetime.now())
@@ -50,37 +54,22 @@ async def message_handler(
         current_model = mysql_db.get_user_attribute(user_id, "current_model")
         try:
             # send placeholder message to user
-            placeholder_message = await update.message.reply_text(
-                "*****Please Wait*****"
-            )
+            placeholder_message = await update.message.reply_text("typing...")
             # send typing action
             await update.message.chat.send_action(action="typing")
             _message = message or update.message.text
-            dialog_messages = mysql_db.get_dialog_messages(user_id, dialog_id=None)
+            dialog_messages = (
+                mysql_db.get_dialog_messages(user_id, dialog_id=None)
+                if pass_dialog_messages
+                else []
+            )
             parse_mode = {"html": ParseMode.HTML, "markdown": ParseMode.MARKDOWN}[
-                chatgpt.CHAT_MODES["default"]["parse_mode"]
+                medicalgpt.CHAT_MODES["default"]["parse_mode"]
             ]
-            chatgpt_instance = chatgpt.ChatGPT()
-            if config.enable_message_streaming:
-                gen = chatgpt_instance.send_message_stream(
-                    _message, dialog_messages=dialog_messages, user_id=user_id
-                )
-            else:
-                (
-                    answer,
-                    (n_input_tokens, n_output_tokens),
-                    n_first_dialog_messages_removed,
-                ) = await chatgpt_instance.send_message(
-                    _message, dialog_messages=dialog_messages, user_id=user_id
-                )
-
-                async def fake_gen():
-                    yield "finished", answer, (
-                        n_input_tokens,
-                        n_output_tokens,
-                    ), n_first_dialog_messages_removed
-
-                gen = fake_gen()
+            gpt_instance = medicalgpt.MedicalGPT()
+            gen = gpt_instance.send_message_stream(
+                _message, dialog_messages=dialog_messages, user_id=user_id
+            )
             prev_answer = ""
             async for gen_item in gen:
                 (
@@ -111,7 +100,6 @@ async def message_handler(
                         )
                 await asyncio.sleep(0.01)  # wait a bit to avoid flooding
                 prev_answer = answer
-
             # update user data
             new_dialog_message = {
                 "user": _message,
@@ -127,7 +115,6 @@ async def message_handler(
                 user_id, current_model, n_input_tokens, n_output_tokens
             )
         except asyncio.CancelledError:
-            # note: intermediate token updates only work when enable_message_streaming=True (config.yml)
             mysql_db.update_n_used_tokens(
                 user_id, current_model, n_input_tokens, n_output_tokens
             )
@@ -150,7 +137,6 @@ async def message_handler(
     async with user_semaphores[user_id]:
         task = asyncio.create_task(message_handle_fn())
         user_tasks[user_id] = task
-
         try:
             await task
         except asyncio.CancelledError:
