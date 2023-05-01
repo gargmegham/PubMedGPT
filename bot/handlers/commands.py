@@ -1,9 +1,9 @@
 import io
 from datetime import datetime
 
+import handlers
 import medicalgpt
 import mysql
-import handlers
 from handlers.message import message_handler
 from telegram import Update
 from telegram.constants import ParseMode
@@ -104,8 +104,8 @@ class CommandHandler:
         user_id = update.message.from_user.id
         mysql_db.start_new_dialog(user_id)
         user = mysql_db.get_user(user_id)
-        age = user["age"] if user["age"] is not "Unknown" else None
-        gender = user["gender"] if user["gender"] is not "Unknown" else None
+        age = user.age if user.age is not "Unknown" else None
+        gender = user.gender if user.gender is not "Unknown" else None
         allergies = mysql_db.get_allergies(user_id)
         medical_history = mysql_db.get_medical_history(user_id)
         sinus_details = mysql_db.get_sinus_data(user_id)
@@ -131,15 +131,15 @@ class CommandHandler:
         # unhandled case
         message = ""
         message += "Here is my sinus details:\n"
-        if sinus_details["otc_medications"]:
-            message += f"Here are some otc medications i tried: {sinus_details['otc_medications']}\n"
-        if sinus_details["duration"]:
-            message += f"Duration of my sinus: {sinus_details['duration']}\n"
-        if sinus_details["symptoms"]:
-            message += f"My symptoms are: {sinus_details['symptoms']}\n"
-        if sinus_details["fever"]:
-            message += f"My fever details: {sinus_details['fever']}\n"
-        if user["gender"] == "Female" and sinus_details["pregnant"] == 1:
+        if sinus_details.otc_medications:
+            message += f"Here are some otc medications i tried: {sinus_details.otc_medications}\n"
+        if sinus_details.duration:
+            message += f"Duration of my sinus: {sinus_details.duration}\n"
+        if sinus_details.symptoms:
+            message += f"My symptoms are: {sinus_details.symptoms}\n"
+        if sinus_details.fever:
+            message += f"My fever details: {sinus_details.fever}\n"
+        if user.gender == "Female" and sinus_details.pregnant == 1:
             message += f"I am pregnant.\n"
         message += "Please prescribe me some medicine for sinus congestion relief.\n"
         handlers.message_handler(
@@ -147,5 +147,5 @@ class CommandHandler:
             context,
             message=message,
             use_new_dialog_timeout=False,
-            pass_dialog_messages=False
+            pass_dialog_messages=False,
         )

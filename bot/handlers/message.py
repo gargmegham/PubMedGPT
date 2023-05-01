@@ -20,7 +20,11 @@ logger = logging.getLogger(__name__)
 
 
 async def message_handler(
-    update: Update, context: CallbackContext, message=None, use_new_dialog_timeout=True, pass_dialog_messages=True
+    update: Update,
+    context: CallbackContext,
+    message=None,
+    use_new_dialog_timeout=True,
+    pass_dialog_messages=True,
 ):
     # check if message is edited
     if update.edited_message is not None:
@@ -54,7 +58,11 @@ async def message_handler(
             # send typing action
             await update.message.chat.send_action(action="typing")
             _message = message or update.message.text
-            dialog_messages = mysql_db.get_dialog_messages(user_id, dialog_id=None) if pass_dialog_messages else []
+            dialog_messages = (
+                mysql_db.get_dialog_messages(user_id, dialog_id=None)
+                if pass_dialog_messages
+                else []
+            )
             parse_mode = {"html": ParseMode.HTML, "markdown": ParseMode.MARKDOWN}[
                 medicalgpt.CHAT_MODES["default"]["parse_mode"]
             ]
