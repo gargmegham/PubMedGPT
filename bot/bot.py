@@ -38,6 +38,10 @@ async def post_init(application: Application):
             BotCommand(
                 command="/skip", description="Skip the current question and move on"
             ),
+            BotCommand(
+                command="/sinus_diagnosis",
+                description="Start a sinus congestion diagnosis",
+            ),
         ]
     )
 
