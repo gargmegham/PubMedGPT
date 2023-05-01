@@ -147,4 +147,5 @@ class CommandHandler:
             context,
             message=message,
             use_new_dialog_timeout=False,
+            pass_dialog_messages=False
         )
