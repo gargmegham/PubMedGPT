@@ -44,7 +44,25 @@ class MySQL:
         )
         session.commit()
         session.close()
+    
+    def get_user(self, user_id: int):
+        session = self.Session()
+        user = session.query(User).filter_by(id=user_id).first()
+        session.close()
+        return user
 
+    def get_allergies(self, user_id: int):
+        session = self.Session()
+        allergies = session.query(Allergy).filter_by(user_id=user_id).all()
+        session.close()
+        return allergies
+    
+    def get_medical_history(self, user_id: int):
+        session = self.Session()
+        medical_history = session.query(MedicalHistory).filter_by(user_id=user_id).all()
+        session.close()
+        return medical_history
+    
     def get_user_attribute(self, user_id: int, attribute: str):
         session = self.Session()
         user = session.query(User).filter_by(id=user_id).first()
