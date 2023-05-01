@@ -124,7 +124,7 @@ class CommandHandler:
                 Prednisone is a corticosteroid that is often used to reduce inflammation and swelling in the body. It is commonly prescribed for a variety of conditions, including asthma, allergies, and arthritis. However, prednisone can have several side effects, including increased blood pressure, weight gain, and mood changes. It should only be used under the guidance of a healthcare professional.\n
                 Flonase is a nasal spray that contains a corticosteroid called fluticasone propionate. It is used to treat nasal congestion, sneezing, and other symptoms associated with allergies or other nasal conditions. Flonase works by reducing inflammation in the nasal passages and is generally safe for long-term use.\n
                 Mucinex is a medication that contains guaifenesin, which is an expectorant that helps to thin and loosen mucus in the lungs, making it easier to cough up. It is commonly used to treat cough and congestion associated with colds, flu, and other respiratory infections.\n
-                It is important to note that these medications should only be used under the guidance of a healthcare professional. If you are experiencing symptoms of a sinus infection or any other medical condition, you should seek medical attention promptly. Too book an appointment with a doctor, please click on /booking.
+                It is important to note that these medications should only be used under the guidance of a healthcare professional. If you are experiencing symptoms of a sinus infection or any other medical condition, you should seek medical attention promptly. To book an appointment with a doctor, please click on /booking.
                 """,
                 parse_mode=ParseMode.HTML,
             )
