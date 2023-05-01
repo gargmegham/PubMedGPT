@@ -189,17 +189,3 @@ class Filter(BaseMedicalGPT):
             return True
         else:
             return False
-
-
-class NextQuestion(BaseMedicalGPT):
-    def generate_next_detailed_message_based_on_input_and_context(
-        self, previous_messages
-    ):
-        prompt = f"""
-        As a medical assistant, please provide ask a clarifying question or provide a description based on patients history, previous chat context and given system instructions.
-        Clarifying Question/Prescription: 
-        """
-        response = self._generate_response(
-            prompt, 1000, 1, 0.5, previous_messages=previous_messages
-        )
-        return response
