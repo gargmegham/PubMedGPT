@@ -35,7 +35,7 @@ class ChatGPT:
                     model=self.model, messages=messages, **OPENAI_COMPLETION_OPTIONS
                 )
                 answer = r.choices[0].message["content"]
-                answer = self._postprocess_answer(answer)
+                answer = str(answer).strip()
                 n_input_tokens, n_output_tokens = (
                     r.usage.prompt_tokens,
                     r.usage.completion_tokens,
@@ -90,7 +90,7 @@ class ChatGPT:
                             n_input_tokens,
                             n_output_tokens,
                         ), n_first_dialog_messages_removed
-                answer = self._postprocess_answer(answer)
+                answer = str(answer).strip()
 
             except openai.error.InvalidRequestError as e:  # too many tokens
                 if len(dialog_messages) == 0:
@@ -114,10 +114,6 @@ class ChatGPT:
         messages.append({"role": "user", "content": message})
 
         return messages
-
-    def _postprocess_answer(self, answer):
-        answer = answer.strip()
-        return answer
 
     def _count_tokens_from_messages(self, messages, answer):
         encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")

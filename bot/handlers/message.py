@@ -50,9 +50,7 @@ async def message_handler(
         current_model = mysql_db.get_user_attribute(user_id, "current_model")
         try:
             # send placeholder message to user
-            placeholder_message = await update.message.reply_text(
-                "*****Please Wait*****"
-            )
+            placeholder_message = await update.message.reply_text("typing...")
             # send typing action
             await update.message.chat.send_action(action="typing")
             _message = message or update.message.text
@@ -61,26 +59,9 @@ async def message_handler(
                 chatgpt.CHAT_MODES["default"]["parse_mode"]
             ]
             chatgpt_instance = chatgpt.ChatGPT()
-            if config.enable_message_streaming:
-                gen = chatgpt_instance.send_message_stream(
-                    _message, dialog_messages=dialog_messages, user_id=user_id
-                )
-            else:
-                (
-                    answer,
-                    (n_input_tokens, n_output_tokens),
-                    n_first_dialog_messages_removed,
-                ) = await chatgpt_instance.send_message(
-                    _message, dialog_messages=dialog_messages, user_id=user_id
-                )
-
-                async def fake_gen():
-                    yield "finished", answer, (
-                        n_input_tokens,
-                        n_output_tokens,
-                    ), n_first_dialog_messages_removed
-
-                gen = fake_gen()
+            gen = chatgpt_instance.send_message_stream(
+                _message, dialog_messages=dialog_messages, user_id=user_id
+            )
             prev_answer = ""
             async for gen_item in gen:
                 (
@@ -127,7 +108,6 @@ async def message_handler(
                 user_id, current_model, n_input_tokens, n_output_tokens
             )
         except asyncio.CancelledError:
-            # note: intermediate token updates only work when enable_message_streaming=True (config.yml)
             mysql_db.update_n_used_tokens(
                 user_id, current_model, n_input_tokens, n_output_tokens
             )
