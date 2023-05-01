@@ -1,8 +1,9 @@
 import io
 from datetime import datetime
 
-import chatgpt
+import medicalgpt
 import mysql
+import handlers
 from handlers.message import message_handler
 from telegram import Update
 from telegram.constants import ParseMode
@@ -67,7 +68,7 @@ class CommandHandler:
         mysql_db.start_new_dialog(user_id)
         await update.message.reply_text("Starting new dialog ✅")
         await update.message.reply_text(
-            f"{chatgpt.CHAT_MODES['default']['welcome_message']}",
+            f"{medicalgpt.CHAT_MODES['default']['welcome_message']}",
             parse_mode=ParseMode.HTML,
         )
 
@@ -97,7 +98,53 @@ class CommandHandler:
             caption="Here is your data. You can use it to train your own model.",
         )
 
-    async def sinus(
-        update: Update, context: CallbackContext
-    ):
-        pass
+    async def sinus(update: Update, context: CallbackContext):
+        if await register_user_if_not_exists(update, context, update.message.from_user):
+            return
+        user_id = update.message.from_user.id
+        mysql_db.start_new_dialog(user_id)
+        user = mysql_db.get_user(user_id)
+        age = user["age"] if user["age"] is not "Unknown" else None
+        gender = user["gender"] if user["gender"] is not "Unknown" else None
+        allergies = mysql_db.get_allergies(user_id)
+        medical_history = mysql_db.get_medical_history(user_id)
+        sinus_details = mysql_db.get_sinus_data(user_id)
+        # case - 1
+        if (
+            int(age) > 18
+            and gender == "Male"
+            and len(allergies) == 0
+            and len(medical_history) == 0
+            and not sinus_details["otc_medications"]
+        ):
+            await update.message.reply_text(
+                """
+                You can try <b>Augmentin, Prednisone, Flonase & Mucinex</b> for sinus pain relief.\n
+                Augmentin is an antibiotic that is commonly used to treat bacterial infections, including sinus infections. It is important to note that antibiotics should only be used when they are necessary, and only under the guidance of a healthcare professional.\n
+                Prednisone is a corticosteroid that is often used to reduce inflammation and swelling in the body. It is commonly prescribed for a variety of conditions, including asthma, allergies, and arthritis. However, prednisone can have several side effects, including increased blood pressure, weight gain, and mood changes. It should only be used under the guidance of a healthcare professional.\n
+                Flonase is a nasal spray that contains a corticosteroid called fluticasone propionate. It is used to treat nasal congestion, sneezing, and other symptoms associated with allergies or other nasal conditions. Flonase works by reducing inflammation in the nasal passages and is generally safe for long-term use.\n
+                Mucinex is a medication that contains guaifenesin, which is an expectorant that helps to thin and loosen mucus in the lungs, making it easier to cough up. It is commonly used to treat cough and congestion associated with colds, flu, and other respiratory infections.\n
+                It is important to note that these medications should only be used under the guidance of a healthcare professional. If you are experiencing symptoms of a sinus infection or any other medical condition, you should seek medical attention promptly. Too book an appointment with a doctor, please click on /booking.
+                """,
+                parse_mode=ParseMode.HTML,
+            )
+        # unhandled case
+        message = ""
+        message += "Here is my sinus details:\n"
+        if sinus_details["otc_medications"]:
+            message += f"Here are some otc medications i tried: {sinus_details['otc_medications']}\n"
+        if sinus_details["duration"]:
+            message += f"Duration of my sinus: {sinus_details['duration']}\n"
+        if sinus_details["symptoms"]:
+            message += f"My symptoms are: {sinus_details['symptoms']}\n"
+        if sinus_details["fever"]:
+            message += f"My fever details: {sinus_details['fever']}\n"
+        if user["gender"] == "Female" and sinus_details["pregnant"] == 1:
+            message += f"I am pregnant.\n"
+        message += "Please prescribe me some medicine for sinus congestion relief.\n"
+        handlers.message_handler(
+            update,
+            context,
+            message=message,
+            use_new_dialog_timeout=False,
+        )
