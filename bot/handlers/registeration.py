@@ -89,7 +89,7 @@ async def age(update: Update, context: CallbackContext) -> int:
 async def gender(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     gender = update.message.text
-    if gender in ["Male", "Female"]:
+    if gender not in ["Male", "Female"]:
         reply_keyboard = [["Male", "Female"]]
         await update.message.reply_text(
             "Please enter a valid gender.",
