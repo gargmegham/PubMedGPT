@@ -29,7 +29,7 @@ async def disease_start_handler(
         update.message.from_user.id, "diagnosed_with"
     )
     diagnosed_with = diagnosed_with.split(",")[0]
-    reply_text = f"I see that you are suffering from <b>{diagnosed_with}</b>\nPlease click on /diagnose to start the diagnosis process."
+    reply_text = f"I see that you are suffering from <b>{diagnosed_with}</b>\nPlease click on /disease to start the diagnosis process."
     await update.message.reply_text(reply_text, parse_mode=ParseMode.HTML)
 
 
