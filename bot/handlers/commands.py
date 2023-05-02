@@ -47,9 +47,7 @@ class CommandHandler:
             await update.message.reply_text("No message to retry 🤷‍♂️")
             return
         last_dialog_message = dialog_messages.pop()
-        mysql_db.set_dialog_messages(
-            user_id, dialog_messages, dialog_id=None
-        )
+        mysql_db.set_dialog_messages(user_id, dialog_messages, dialog_id=None)
         await message_handler(
             update,
             context,
