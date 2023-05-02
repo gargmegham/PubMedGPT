@@ -63,7 +63,7 @@ class Medication(Base):
 
 
 class Surgery(Base):
-    __tablename__ = "surgerie"
+    __tablename__ = "surgery"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Text, nullable=False)
