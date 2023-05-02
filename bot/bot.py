@@ -1,10 +1,10 @@
 import handlers
-import mysql
 from filters import (
     get_messages_that_indicate_a_certian_medical_condition,
-    get_messages_that_start_with,
     get_user_filter,
 )
+from mysql import MySQL
+from tables import Disease
 from telegram import BotCommand
 from telegram.ext import (
     AIORateLimiter,
@@ -19,7 +19,7 @@ import config
 
 user_semaphores = {}
 user_tasks = {}
-mysql_db = mysql.MySQL()
+mysql_db = MySQL()
 
 
 async def post_init(application: Application):
@@ -28,10 +28,6 @@ async def post_init(application: Application):
             BotCommand(command="/new", description="Start new conversation"),
             BotCommand(command="/retry", description="Regenerate last bot answer"),
             BotCommand(command="/help", description="Show available commands"),
-            BotCommand(
-                command="/extract",
-                description="Extract my prompt data from SQL database",
-            ),
             BotCommand(command="/cancel", description="Cancel current conversation"),
             BotCommand(command="/start", description="Start the bot"),
             BotCommand(
@@ -40,10 +36,8 @@ async def post_init(application: Application):
             BotCommand(
                 command="/skip", description="Skip the current question and move on"
             ),
-            BotCommand(
-                command="/sinus_diagnosis",
-                description="Start a sinus congestion diagnosis",
-            ),
+            BotCommand(command="/disease", description="Diagnose a disease"),
+            BotCommand(command="/end", description="Ends the current conversation"),
         ]
     )
 
@@ -74,34 +68,20 @@ def run_bot() -> None:
     application.add_handler(
         CommandHandler("cancel", command_handler.cancel_handle, filters=user_filter)
     )
-    application.add_handler(
-        CommandHandler("sinus_diagnosis", command_handler.sinus, filters=user_filter)
-    )
-    application.add_handler(
-        CommandHandler(
-            "extract",
-            command_handler.extract_prompt_completion_handle,
-            filters=user_filter,
-        )
-    )
-    #  add conversation handlers
     application.add_handler(handlers.registeration_handler(user_filter))
-    application.add_handler(
-        MessageHandler(
-            get_messages_that_start_with("Condition:") & user_filter,
-            handlers.medical_history,
-        )
-    )
-    application.add_handler(handlers.sinus_congestion_handler(user_filter))
-    application.add_handler(
-        MessageHandler(
-            get_messages_that_indicate_a_certian_medical_condition(
-                "nasal or sinus congestion"
+    application.add_handler(handlers.disease(user_filter))
+    #  add conversation handlers
+    diseases = mysql_db.get_instances(None, Disease, False)
+    for disease in diseases:
+        application.add_handler(
+            MessageHandler(
+                get_messages_that_indicate_a_certian_medical_condition(
+                    disease.detail, disease.id
+                )
+                & user_filter,
+                handlers.disease_start_handler,
             )
-            & user_filter,
-            handlers.sinus_congestion_start_handler,
         )
-    )
     application.add_handler(
         MessageHandler(
             filters.TEXT & ~filters.COMMAND & user_filter, handlers.message_handler

@@ -20,8 +20,9 @@ This repo is ChatGPT re-created as Telegram Bot. **And it works great.**
 - `/help` – Show help
 - `/register` - Registers patient in MySQL database with details like age, gender, medical history etc. using a ConversationHandler
 - `/cancel` - Cancel current conversation
-- `/extract` - Extract my prompt data from SQL database
 - `/skip` - Skip a registeration step
+- `/disease` - Diagnose a disease
+- `/end` - Ends the current conversation
 
 ## Setup
 1. Get your [OpenAI API](https://openai.com/api/) key

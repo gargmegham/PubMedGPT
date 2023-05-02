@@ -5,15 +5,17 @@ from datetime import datetime
 
 import medicalgpt
 import telegram
+from mysql import MySQL
 from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import CallbackContext
 from utils import edited_message_handle, is_previous_message_not_answered_yet
 
 import config
-from bot import mysql_db, user_semaphores, user_tasks
+from bot import user_semaphores, user_tasks
 
 # setup
+mysql_db = MySQL()
 logger = logging.getLogger(__name__)
 
 
@@ -36,8 +38,7 @@ async def message_handler(
         # new dialog timeout
         if use_new_dialog_timeout:
             if (
-                datetime.now()
-                - mysql_db.get_user_attribute(user_id, "last_interaction")
+                datetime.now() - mysql_db.get_attribute(user_id, "last_interaction")
             ).seconds > config.new_dialog_timeout and len(
                 mysql_db.get_dialog_messages(user_id)
             ) > 0:
@@ -46,10 +47,10 @@ async def message_handler(
                     f"Starting new dialog due to timeout (<b>{medicalgpt.CHAT_MODES['default']['name']}</b> mode) ✅",
                     parse_mode=ParseMode.HTML,
                 )
-        mysql_db.set_user_attribute(user_id, "last_interaction", datetime.now())
+        mysql_db.set_attribute(user_id, "last_interaction", datetime.now())
         # in case of CancelledError
         n_input_tokens, n_output_tokens = 0, 0
-        current_model = mysql_db.get_user_attribute(user_id, "current_model")
+        current_model = mysql_db.get_attribute(user_id, "current_model")
         try:
             # send placeholder message to user
             placeholder_message = await update.message.reply_text("typing...")

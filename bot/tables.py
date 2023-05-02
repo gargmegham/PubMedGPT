@@ -1,13 +1,22 @@
 from datetime import datetime
 
-from sqlalchemy import JSON, Boolean, Column, DateTime, Integer, Text, String
+from sqlalchemy import (
+    JSON,
+    Boolean,
+    Column,
+    DateTime,
+    ForeignKey,
+    Integer,
+    String,
+    Text,
+)
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
 
 class User(Base):
-    __tablename__ = "users"
+    __tablename__ = "user"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(String(255), nullable=False, unique=True)
@@ -20,36 +29,60 @@ class User(Base):
     current_chat_mode = Column(Text, default="default")
     current_model = Column(Text, default="gpt-3.5-turbo")
     n_used_tokens = Column(JSON, default={})
-    age = Column(Integer, default=0)
+    is_pregnant = Column(Boolean, default=False)
+    diagnosed_with = Column(Text, default="")
+    age = Column(Text, default="0")
     gender = Column(Text, default="Unknown")
     address = Column(Text, default="Unknown")
 
 
 class Allergy(Base):
-    __tablename__ = "allergies"
+    __tablename__ = "allergy"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Text, nullable=False)
-    allergy = Column(Text, nullable=False)
+    detail = Column(Text, nullable=False)
     timestamp = Column(DateTime, default=datetime.utcnow)
 
 
-class MedicalHistory(Base):
-    __tablename__ = "medical_history"
+class MedicalCondition(Base):
+    __tablename__ = "medical_condition"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Text, nullable=False)
-    name = Column(Text, nullable=False)
-    from_date = Column(Text, nullable=False)
-    to_date = Column(Text, nullable=False)
-    surgeries_performed = Column(Text, nullable=False)
-    symptoms = Column(Text, nullable=False)
-    medications = Column(Text, nullable=False)
+    detail = Column(Text, nullable=False)
+    timestamp = Column(DateTime, default=datetime.utcnow)
+
+
+class Medication(Base):
+    __tablename__ = "medication"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(Text, nullable=False)
+    detail = Column(Text, nullable=False)
+    timestamp = Column(DateTime, default=datetime.utcnow)
+
+
+class Surgery(Base):
+    __tablename__ = "surgery"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(Text, nullable=False)
+    detail = Column(Text, nullable=False)
+    timestamp = Column(DateTime, default=datetime.utcnow)
+
+
+class Symptom(Base):
+    __tablename__ = "symptom"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(Text, nullable=False)
+    detail = Column(Text, nullable=False)
     timestamp = Column(DateTime, default=datetime.utcnow)
 
 
 class Dialog(Base):
-    __tablename__ = "dialogs"
+    __tablename__ = "dialog"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     uid = Column(Text, nullable=False)
@@ -60,14 +93,28 @@ class Dialog(Base):
     messages = Column(JSON, default=[])
 
 
-class SinusCongestion(Base):
-    __tablename__ = "sinus_congestion"
+class Disease(Base):
+    __tablename__ = "disease"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    detail = Column(Text, nullable=False)
+    timestamp = Column(DateTime, default=datetime.utcnow)
+
+
+class DiseaseQuestion(Base):
+    __tablename__ = "disease_question"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    detail = Column(Text, nullable=False)
+    disease_id = Column(Integer, ForeignKey("disease.id"))
+    timestamp = Column(DateTime, default=datetime.utcnow)
+
+
+class DiseaseAnswer(Base):
+    __tablename__ = "disease_answer"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Text, nullable=False)
-    duration = Column(Text, default="")
-    fever = Column(Text, default="")
-    symptoms = Column(Text, default="")
-    pregnant = Column(Boolean, default=False)
-    otc_medications = Column(Text, default="")
+    detail = Column(Text, nullable=False)
+    disease_id = Column(Integer, ForeignKey("disease.id"))
     timestamp = Column(DateTime, default=datetime.utcnow)
