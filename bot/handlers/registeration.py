@@ -171,12 +171,18 @@ async def other_questions(update: Update, context: CallbackContext) -> int:
             parse_mode=ParseMode.HTML,
         )
         if questions_meta[current_question]["next_question"] == "end":
+            await update.message.reply_text(
+                "Thanks for your information. If you want to add any information, please use /register command again.\nPlease tell me how can I help you?",
+                reply_markup=ReplyKeyboardRemove(),
+                parse_mode=ParseMode.HTML,
+            )
             return ConversationHandler.END
         return OTHER_QUESTIONS
     except KeyError:
         await update.message.reply_text(
-            "Thanks for your information. If you want to add any information, please use /register command again.",
+            "Thanks for your information. If you want to add any information, please use /register command again.\nPlease tell me how can I help you?",
             reply_markup=ReplyKeyboardRemove(),
+            parse_mode=ParseMode.HTML,
         )
         return ConversationHandler.END
 
@@ -192,6 +198,11 @@ async def skip(update: Update, context: CallbackContext) -> int:
         parse_mode=ParseMode.HTML,
     )
     if questions_meta[current_question]["next_question"] == "end":
+        await update.message.reply_text(
+            "If you want to add any information, please use /register command again.\nPlease tell me how can I help you?",
+            reply_markup=ReplyKeyboardRemove(),
+            parse_mode=ParseMode.HTML,
+        )
         return ConversationHandler.END
     return OTHER_QUESTIONS
 
@@ -199,8 +210,9 @@ async def skip(update: Update, context: CallbackContext) -> int:
 async def end(update: Update, context: CallbackContext) -> int:
     """Cancels and ends the conversation."""
     await update.message.reply_text(
-        "If you want to add any information, please use /register command again.",
+        "If you want to add any information, please use /register command again.\nPlease tell me how can I help you?",
         reply_markup=ReplyKeyboardRemove(),
+        parse_mode=ParseMode.HTML,
     )
     return ConversationHandler.END
 
