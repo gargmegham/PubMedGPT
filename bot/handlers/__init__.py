@@ -10,7 +10,7 @@ from handlers.nasal_congestion import (
     sinus_congestion_handler,
     sinus_congestion_start_handler,
 )
-from handlers.registeration import medical_history, registeration_handler
+from handlers.registeration import registeration_handler
 from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import CallbackContext
