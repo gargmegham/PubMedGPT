@@ -1,6 +1,7 @@
 import logging
 
 from filters import get_messages_that_starts_with_and_have_atleast_n_lines
+from mysql import MySQL
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
 from telegram.constants import ParseMode
 from telegram.ext import (
@@ -11,7 +12,7 @@ from telegram.ext import (
     filters,
 )
 
-from bot import mysql_db
+mysql_db = MySQL()
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +36,7 @@ async def gender(update: Update, context: CallbackContext) -> int:
     """Stores the selected gender and asks for age."""
     user = update.message.from_user
     if update.message.text in ["Male", "Female", "Other"]:
-        mysql_db.set_user_attribute(
+        mysql_db.set_attribute(
             user.id,
             "gender",
             update.message.text,
@@ -48,7 +49,7 @@ async def age(update: Update, context: CallbackContext) -> int:
     """Stores the selected age and asks for allergies."""
     user = update.message.from_user
     if update.message.text.isdigit():
-        mysql_db.set_user_attribute(
+        mysql_db.set_attribute(
             user.id,
             "age",
             update.message.text,
@@ -163,7 +164,7 @@ async def location(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     user_location = update.message.location
     if user_location:
-        mysql_db.set_user_attribute(
+        mysql_db.set_attribute(
             user.id, "address", f"{user_location.latitude}, {user_location.longitude}"
         )
     await update.message.reply_text(

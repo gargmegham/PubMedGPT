@@ -1,5 +1,6 @@
 import logging
 
+from mysql import MySQL
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
 from telegram.constants import ParseMode
 from telegram.ext import (
@@ -11,7 +12,7 @@ from telegram.ext import (
 )
 from utils import is_previous_message_not_answered_yet
 
-from bot import mysql_db
+mysql_db = MySQL()
 
 logger = logging.getLogger(__name__)
 DURATION, FEVER, SYMPTOMS, OTC_MEDICATIONS, PREGNANT_OR_BREASTFEEDING = range(5)
@@ -128,7 +129,7 @@ async def skip_otc_medications(update: Update, context: CallbackContext) -> int:
     Stores the selected fever and asks for symptoms.
     """
     # check if user is female
-    gender = mysql_db.get_user_attribute(
+    gender = mysql_db.get_attribute(
         update.message.from_user.id,
         "gender",
     )
@@ -161,7 +162,7 @@ async def otc_medications(update: Update, context: CallbackContext) -> int:
             otc_medications_ans,
         )
     # check if user is female
-    gender = mysql_db.get_user_attribute(
+    gender = mysql_db.get_attribute(
         update.message.from_user.id,
         "gender",
     )
