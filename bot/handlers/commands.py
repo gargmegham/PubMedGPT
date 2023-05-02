@@ -3,15 +3,15 @@ from datetime import datetime
 
 import handlers
 import medicalgpt
-import mysql
 from handlers.message import message_handler
 from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import CallbackContext
 from utils import is_previous_message_not_answered_yet, register_user_if_not_exists
 
+from bot import mysql_db
+
 # setup
-mysql_db = mysql.MySQL()
 user_tasks = {}
 
 

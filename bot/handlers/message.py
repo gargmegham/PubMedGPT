@@ -4,7 +4,6 @@ import traceback
 from datetime import datetime
 
 import medicalgpt
-import mysql
 import telegram
 from telegram import Update
 from telegram.constants import ParseMode
@@ -12,10 +11,9 @@ from telegram.ext import CallbackContext
 from utils import edited_message_handle, is_previous_message_not_answered_yet
 
 import config
-from bot import user_semaphores, user_tasks
+from bot import mysql_db, user_semaphores, user_tasks
 
 # setup
-mysql_db = mysql.MySQL()
 logger = logging.getLogger(__name__)
 
 

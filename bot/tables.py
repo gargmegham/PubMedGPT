@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import JSON, Boolean, Column, DateTime, Integer, Text
+from sqlalchemy import JSON, Boolean, Column, DateTime, Integer, Text, String
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -9,8 +9,8 @@ Base = declarative_base()
 class User(Base):
     __tablename__ = "users"
 
-    id = Column(Integer, primary_key=True)
-    chat_id = Column(Integer, nullable=False)
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(String(255), nullable=False, unique=True)
     username = Column(Text, nullable=False)
     first_name = Column(Text, default="")
     last_name = Column(Text, default="")
@@ -29,7 +29,7 @@ class Allergy(Base):
     __tablename__ = "allergies"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(Integer, nullable=False)
+    user_id = Column(Text, nullable=False)
     allergy = Column(Text, nullable=False)
     timestamp = Column(DateTime, default=datetime.utcnow)
 
@@ -38,7 +38,7 @@ class MedicalHistory(Base):
     __tablename__ = "medical_history"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(Integer, nullable=False)
+    user_id = Column(Text, nullable=False)
     name = Column(Text, nullable=False)
     from_date = Column(Text, nullable=False)
     to_date = Column(Text, nullable=False)
@@ -53,7 +53,7 @@ class Dialog(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     uid = Column(Text, nullable=False)
-    user_id = Column(Integer, nullable=False)
+    user_id = Column(Text, nullable=False)
     chat_mode = Column(Text, default="default")
     start_time = Column(DateTime, default=datetime.utcnow)
     model = Column(Text, default="gpt-3.5-turbo")
@@ -64,7 +64,7 @@ class SinusCongestion(Base):
     __tablename__ = "sinus_congestion"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(Integer, nullable=False)
+    user_id = Column(Text, nullable=False)
     duration = Column(Text, default="")
     fever = Column(Text, default="")
     symptoms = Column(Text, default="")

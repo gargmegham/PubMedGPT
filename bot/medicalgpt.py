@@ -1,11 +1,10 @@
-import mysql
 import openai
 import tiktoken
 
 import config
+from bot import mysql_db
 
 openai.api_key = config.openai_api_key
-mysql_db = mysql.MySQL()
 
 
 CHAT_MODES = config.chat_modes

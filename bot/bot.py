@@ -1,4 +1,5 @@
 import handlers
+import mysql
 from filters import (
     get_messages_that_indicate_a_certian_medical_condition,
     get_messages_that_start_with,
@@ -18,6 +19,7 @@ import config
 
 user_semaphores = {}
 user_tasks = {}
+mysql_db = mysql.MySQL()
 
 
 async def post_init(application: Application):
@@ -112,4 +114,7 @@ def run_bot() -> None:
 
 
 if __name__ == "__main__":
-    run_bot()
+    try:
+        run_bot()
+    except KeyboardInterrupt:
+        print("Exiting...")

@@ -21,7 +21,6 @@ async def register_user_if_not_exists(
         reply_text = "Hi! I'm <b>Maya</b> your personal medical assistant 🤖.\nLet's start with some basic details about you as a patient, please click on /register."
         mysql_db.add_new_user(
             user.id,
-            update.message.chat_id,
             username=user.username,
             first_name=user.first_name,
             last_name=user.last_name,

@@ -20,14 +20,15 @@ class MySQL:
 
     def check_if_user_exists(self, user_id: int, raise_exception: bool = False) -> bool:
         session = self.Session()
-        user = session.query(User).filter_by(id=user_id).first()
+        user = session.query(User).filter_by(user_id=str(user_id)).first()
         session.close()
+        if raise_exception and user is None:
+            raise Exception(f"User {user_id} does not exist in the database")
         return user is not None
 
     def add_new_user(
         self,
         user_id: int,
-        chat_id: int,
         username: str = "",
         first_name: str = "",
         last_name: str = "",
@@ -35,8 +36,7 @@ class MySQL:
         session = self.Session()
         session.add(
             User(
-                id=user_id,
-                chat_id=chat_id,
+                user_id=str(user_id),
                 username=username,
                 first_name=first_name,
                 last_name=last_name,
@@ -47,7 +47,7 @@ class MySQL:
 
     def get_user(self, user_id: int):
         session = self.Session()
-        user = session.query(User).filter_by(id=user_id).first()
+        user = session.query(User).filter_by(user_id=str(user_id)).first()
         session.close()
         return user
 
@@ -65,13 +65,13 @@ class MySQL:
 
     def get_user_attribute(self, user_id: int, attribute: str):
         session = self.Session()
-        user = session.query(User).filter_by(id=user_id).first()
+        user = session.query(User).filter_by(user_id=str(user_id)).first()
         session.close()
         return getattr(user, attribute)
 
     def set_user_attribute(self, user_id: int, attribute: str, value):
         session = self.Session()
-        session.query(User).filter_by(id=user_id).update({attribute: value})
+        session.query(User).filter_by(user_id=str(user_id)).update({attribute: value})
         session.commit()
         session.close()
 
@@ -127,7 +127,7 @@ class MySQL:
             )
         )
         # update user's current dialog
-        session.query(User).filter_by(id=user_id).update(
+        session.query(User).filter_by(user_id=str(user_id)).update(
             {"current_dialog_id": dialog_id}
         )
         session.commit()
@@ -215,7 +215,7 @@ class MySQL:
     def prepare_patient_history(self, user_id: int) -> list:
         self.check_if_user_exists(user_id, raise_exception=True)
         session = self.Session()
-        user = session.query(User).filter_by(id=user_id).first()
+        user = session.query(User).filter_by(user_id=str(user_id)).first()
         history = []
         history.append(
             {

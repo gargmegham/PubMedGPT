@@ -1,6 +1,5 @@
 import logging
 
-import mysql
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
 from telegram.constants import ParseMode
 from telegram.ext import (
@@ -12,8 +11,9 @@ from telegram.ext import (
 )
 from utils import is_previous_message_not_answered_yet
 
+from bot import mysql_db
+
 logger = logging.getLogger(__name__)
-mysql_db = mysql.MySQL()
 DURATION, FEVER, SYMPTOMS, OTC_MEDICATIONS, PREGNANT_OR_BREASTFEEDING = range(5)
 
 
