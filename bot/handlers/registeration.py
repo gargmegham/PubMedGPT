@@ -53,9 +53,6 @@ questions_meta = {
 
 
 async def start(update: Update, context: CallbackContext) -> int:
-    user_id = update.message.from_user.id
-    if mysql_db.get_attribute(user_id, "age") is not None:
-        return GENDER
     await update.message.reply_text(
         "What is your age?\nFor example: <code>20</code>",
         reply_markup=ReplyKeyboardRemove(),
@@ -91,9 +88,6 @@ async def age(update: Update, context: CallbackContext) -> int:
 
 async def gender(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
-    if mysql_db.get_attribute(user.id, "gender") in ["Male", "Female"]:
-        context.user_data["current_question"] = "allergy"
-        return OTHER_QUESTIONS
     gender = update.message.text
     if gender not in ["Male", "Female"]:
         reply_keyboard = [["Male", "Female"]]
