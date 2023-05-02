@@ -157,7 +157,9 @@ async def other_questions(update: Update, context: CallbackContext) -> int:
     mysql_db.add_instance(
         user.id,
         questions_meta[current_question]["table"],
-        info,
+        {
+            "detail": info,
+        },
     )
     context.user_data["current_question"] = questions_meta[current_question][
         "next_question"
