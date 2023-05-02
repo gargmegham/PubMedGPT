@@ -103,7 +103,7 @@ async def end(update: Update, context: CallbackContext) -> int:
 
 def disease(user_filter) -> ConversationHandler:
     conv_handler = ConversationHandler(
-        entry_points=[CommandHandler("diagnose", start)],
+        entry_points=[CommandHandler("disease", start)],
         states={
             OTHER_QUESTIONS: [
                 MessageHandler(
