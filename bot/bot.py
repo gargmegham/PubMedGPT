@@ -64,11 +64,6 @@ def run_bot() -> None:
     )
     #  add conversation handlers
     application.add_handler(handlers.registeration_handler(user_filter))
-    diseases = mysql_db.get_instances(
-        None,
-        Disease,
-        find_first=False,
-    )
     # CommandHandler(
     #     disease.detail,
     #     handlers.disease_handler,
