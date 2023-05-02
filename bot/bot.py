@@ -1,5 +1,4 @@
 import handlers
-import mysql
 from filters import get_user_filter
 from tables import Disease
 from telegram import BotCommand
@@ -16,15 +15,9 @@ import config
 
 user_semaphores = {}
 user_tasks = {}
-mysql_db = mysql.MySQL()
 
 
 async def post_init(application: Application):
-    diseases = mysql_db.get_instances(
-        None,
-        Disease,
-        find_first=False,
-    )
     await application.bot.set_my_commands(
         [
             BotCommand(command="/new", description="Start new conversation"),
@@ -38,10 +31,7 @@ async def post_init(application: Application):
             BotCommand(
                 command="/skip", description="Skip the current question and move on"
             ),
-        ]
-        + [
-            BotCommand(command=disease.detail, description=disease.detail)
-            for disease in diseases
+            # BotCommand(command="/disease", description="Diagnose a disease"),
         ]
     )
 
@@ -79,14 +69,11 @@ def run_bot() -> None:
         Disease,
         find_first=False,
     )
-    for disease in diseases:
-        application.add_handler(
-            CommandHandler(
-                disease.detail,
-                handlers.disease_handler,
-                filters=user_filter,
-            )
-        )
+    # CommandHandler(
+    #     disease.detail,
+    #     handlers.disease_handler,
+    #     filters=user_filter,
+    # ),
     application.add_handler(
         MessageHandler(
             filters.TEXT & ~filters.COMMAND & user_filter, handlers.message_handler
