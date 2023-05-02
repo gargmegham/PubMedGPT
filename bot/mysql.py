@@ -103,7 +103,14 @@ class MySQL:
         session.commit()
         session.close()
 
-    def get_instances(self, user_id: int, model: Base, find_first: bool = False):
+    def get_instances(
+        self,
+        user_id: int,
+        model: Base,
+        find_first: bool = False,
+        extra_filters: dict = None,
+        id_greater_than: int = None,
+    ):
         """
         Supported tables:
         """
@@ -111,8 +118,12 @@ class MySQL:
         instances = session.query(model)
         if user_id is not None:
             instances = instances.filter_by(user_id=str(user_id))
+        if extra_filters is not None:
+            instances = instances.filter_by(**extra_filters)
+        if id_greater_than is not None:
+            instances = instances.filter(model.id > id_greater_than)
         if find_first:
-            instances = instances.first()
+            instances = instances.order_by(model.id).first()
         else:
             instances = instances.all()
         session.close()

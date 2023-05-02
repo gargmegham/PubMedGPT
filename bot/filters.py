@@ -1,8 +1,11 @@
 import medicalgpt
+from mysql import MySQL
 from telegram import Message
 from telegram.ext import filters
 
 import config
+
+mysql_db = MySQL()
 
 
 def get_user_filter():
@@ -18,7 +21,7 @@ def get_user_filter():
 
 
 def get_messages_that_indicate_a_certian_medical_condition(
-    condition: str,
+    condition: str, id: int
 ) -> filters.MessageFilter:
     """
     This is a custom filter for messages that indicate nasal congestion.
@@ -26,9 +29,14 @@ def get_messages_that_indicate_a_certian_medical_condition(
 
     class CustomFilter(filters.MessageFilter):
         def filter(self, message: Message) -> bool:
-            return medicalgpt.Filter().medical_condition_message_filter(
+            result = medicalgpt.Filter().medical_condition_message_filter(
                 message, condition
             )
+            if result:
+                mysql_db.set_attribute(
+                    message.from_user.id, "diagnosed_with", f"{condition},{id}"
+                )
+            return result
 
     return CustomFilter()
 

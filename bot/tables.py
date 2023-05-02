@@ -30,6 +30,7 @@ class User(Base):
     current_model = Column(Text, default="gpt-3.5-turbo")
     n_used_tokens = Column(JSON, default={})
     is_pregnant = Column(Boolean, default=False)
+    diagnosed_with = Column(Text, default="")
     age = Column(Text, default="0")
     gender = Column(Text, default="Unknown")
     address = Column(Text, default="Unknown")

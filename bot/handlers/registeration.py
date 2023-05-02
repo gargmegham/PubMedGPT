@@ -208,7 +208,7 @@ async def skip(update: Update, context: CallbackContext) -> int:
 
 
 async def end(update: Update, context: CallbackContext) -> int:
-    """Cancels and ends the conversation."""
+    """Ends the conversation."""
     await update.message.reply_text(
         "If you want to add any information, please use /register command again.\nPlease tell me how can I help you?",
         reply_markup=ReplyKeyboardRemove(),
@@ -239,6 +239,6 @@ def registeration_handler(user_filter) -> ConversationHandler:
                 CommandHandler("skip", skip),
             ],
         },
-        fallbacks=[CommandHandler("cancel", end)],
+        fallbacks=[CommandHandler("end", end)],
     )
     return conv_handler
