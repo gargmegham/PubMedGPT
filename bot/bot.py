@@ -1,9 +1,7 @@
 import handlers
-from filters import (
-    get_messages_that_indicate_a_certian_medical_condition,
-    get_messages_that_start_with,
-    get_user_filter,
-)
+import mysql
+from filters import get_user_filter
+from tables import Disease
 from telegram import BotCommand
 from telegram.ext import (
     AIORateLimiter,
@@ -18,9 +16,15 @@ import config
 
 user_semaphores = {}
 user_tasks = {}
+mysql_db = mysql.MySQL()
 
 
 async def post_init(application: Application):
+    diseases = mysql_db.get_instances(
+        None,
+        Disease,
+        find_first=False,
+    )
     await application.bot.set_my_commands(
         [
             BotCommand(command="/new", description="Start new conversation"),
@@ -34,10 +38,10 @@ async def post_init(application: Application):
             BotCommand(
                 command="/skip", description="Skip the current question and move on"
             ),
-            # BotCommand(
-            #     command="/sinus_diagnosis",
-            #     description="Start a sinus congestion diagnosis",
-            # ),
+        ]
+        + [
+            BotCommand(command=disease.detail, description=disease.detail)
+            for disease in diseases
         ]
     )
 
@@ -68,11 +72,21 @@ def run_bot() -> None:
     application.add_handler(
         CommandHandler("cancel", command_handler.cancel_handle, filters=user_filter)
     )
-    # application.add_handler(
-    #     CommandHandler("sinus_diagnosis", command_handler.sinus, filters=user_filter)
-    # )
     #  add conversation handlers
     application.add_handler(handlers.registeration_handler(user_filter))
+    diseases = mysql_db.get_instances(
+        None,
+        Disease,
+        find_first=False,
+    )
+    for disease in diseases:
+        application.add_handler(
+            CommandHandler(
+                disease.detail,
+                handlers.disease_handler,
+                filters=user_filter,
+            )
+        )
     application.add_handler(
         MessageHandler(
             filters.TEXT & ~filters.COMMAND & user_filter, handlers.message_handler

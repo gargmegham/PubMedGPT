@@ -53,6 +53,9 @@ questions_meta = {
 
 
 async def start(update: Update, context: CallbackContext) -> int:
+    user_id = update.message.from_user.id
+    if mysql_db.get_attribute(user_id, "age") is not None:
+        return GENDER
     await update.message.reply_text(
         "What is your age?\nFor example: <code>20</code>",
         reply_markup=ReplyKeyboardRemove(),
@@ -88,6 +91,9 @@ async def age(update: Update, context: CallbackContext) -> int:
 
 async def gender(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
+    if mysql_db.get_attribute(user.id, "gender") in ["Male", "Female"]:
+        context.user_data["current_question"] = "allergy"
+        return OTHER_QUESTIONS
     gender = update.message.text
     if gender not in ["Male", "Female"]:
         reply_keyboard = [["Male", "Female"]]
@@ -151,27 +157,34 @@ async def is_pregnant(update: Update, context: CallbackContext) -> int:
 
 
 async def other_questions(update: Update, context: CallbackContext) -> int:
-    current_question = context.user_data["current_question"]
-    user = update.message.from_user
-    info = update.message.text
-    mysql_db.add_instance(
-        user.id,
-        questions_meta[current_question]["table"],
-        {
-            "detail": info,
-        },
-    )
-    context.user_data["current_question"] = questions_meta[current_question][
-        "next_question"
-    ]
-    await update.message.reply_text(
-        f'{questions_meta[questions_meta[current_question]["next_question"]]["question"]}\nFor skipping this question, click on "/skip"',
-        reply_markup=ReplyKeyboardRemove(),
-        parse_mode=ParseMode.HTML,
-    )
-    if questions_meta[current_question]["next_question"] == "end":
+    try:
+        current_question = context.user_data["current_question"]
+        user = update.message.from_user
+        info = update.message.text
+        mysql_db.add_instance(
+            user.id,
+            questions_meta[current_question]["table"],
+            {
+                "detail": info,
+            },
+        )
+        context.user_data["current_question"] = questions_meta[current_question][
+            "next_question"
+        ]
+        await update.message.reply_text(
+            f'{questions_meta[questions_meta[current_question]["next_question"]]["question"]}\nFor skipping this question, click on "/skip"',
+            reply_markup=ReplyKeyboardRemove(),
+            parse_mode=ParseMode.HTML,
+        )
+        if questions_meta[current_question]["next_question"] == "end":
+            return ConversationHandler.END
+        return OTHER_QUESTIONS
+    except KeyError:
+        await update.message.reply_text(
+            "Thanks for your information. If you want to add any information, please use /register command again.",
+            reply_markup=ReplyKeyboardRemove(),
+        )
         return ConversationHandler.END
-    return OTHER_QUESTIONS
 
 
 async def skip(update: Update, context: CallbackContext) -> int:

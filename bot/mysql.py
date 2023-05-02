@@ -108,7 +108,9 @@ class MySQL:
         Supported tables:
         """
         session = self.Session()
-        instances = session.query(model).filter_by(user_id=user_id)
+        instances = session.query(model)
+        if user_id is not None:
+            instances = instances.filter_by(user_id=str(user_id))
         if find_first:
             instances = instances.first()
         else:
