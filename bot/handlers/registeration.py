@@ -114,7 +114,7 @@ async def gender(update: Update, context: CallbackContext) -> int:
             parse_mode=ParseMode.HTML,
         )
         return IS_PREGNANT
-    context.user_data["current_question"] = "allergies"
+    context.user_data["current_question"] = "allergy"
     await update.message.reply_text(
         f'{questions_meta["allergy"]["question"]}\nFor skipping this question, click on "/skip"',
         reply_markup=ReplyKeyboardRemove(),
