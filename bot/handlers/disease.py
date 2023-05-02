@@ -30,7 +30,6 @@ async def disease_start_handler(
     )
     diagnosed_with = diagnosed_with.split(",")[0]
     reply_text = f"I see that you are suffering from <b>{diagnosed_with}</b>\nPlease click on /diagnose to start the diagnosis process."
-    context.user_data["disease"] = "sinus"
     await update.message.reply_text(reply_text, parse_mode=ParseMode.HTML)
 
 
