@@ -144,6 +144,8 @@ async def message_handler(
     if await is_previous_message_not_answered_yet(update, context):
         return
     user_id = update.message.from_user.id
+    if user_id not in user_semaphores:
+        user_semaphores[user_id] = asyncio.Semaphore(1)
     async with user_semaphores[user_id]:
         task = asyncio.create_task(
             message_handle_fn(
