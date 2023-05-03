@@ -121,6 +121,7 @@ class MySQL:
         find_first: bool = False,
         extra_filters: dict = None,
         id_greater_than: int = None,
+        find_last: bool = False,
     ):
         """
         Supported tables:
@@ -135,6 +136,8 @@ class MySQL:
             instances = instances.filter(model.id > id_greater_than)
         if find_first:
             instances = instances.order_by(model.id).first()
+        elif find_last:
+            instances = instances.order_by(model.id.desc()).first()
         else:
             instances = instances.all()
         session.close()
@@ -240,12 +243,13 @@ class MySQL:
                 None, DiseaseQuestion, extra_filters={"disease_id": disease_id}
             )
             for disease_specific_question in disease_specific_questions:
-                answers = self.get_instances(
+                answer = self.get_instances(
                     user_id,
                     DiseaseAnswer,
-                    extra_filters={"disease_question_id": disease_specific_question.id},
+                    extra_filters={"question_id": disease_specific_question.id},
+                    find_last=True,
                 )
-                if len(answers) > 0:
+                if answer is not None:
                     history.extend(
                         [
                             {
@@ -254,9 +258,7 @@ class MySQL:
                             },
                             {
                                 "role": "user",
-                                "content": "\n".join(
-                                    [answer.detail for answer in answers]
-                                ),
+                                "content": answer.detail,
                             },
                         ]
                     )

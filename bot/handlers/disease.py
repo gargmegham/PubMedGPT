@@ -65,15 +65,28 @@ async def other_questions(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     user_id = user.id
     info = update.message.text
-    mysql_db.add_instance(
-        user_id,
-        DiseaseAnswer,
-        {
-            "detail": info,
-            "disease_id": int(diagnosed_with_id),
-            "question_id": int(current_question_id),
-        },
-    )
+    instance = mysql_db.check_if_object_exists(user_id, False, DiseaseAnswer)
+    if instance is not None:
+        mysql_db.set_attribute(
+            user_id,
+            "detail",
+            info,
+            DiseaseAnswer,
+            extra_filters={
+                "disease_id": diagnosed_with_id,
+                "question_id": current_question_id,
+            },
+        )
+    else:
+        mysql_db.add_instance(
+            user_id,
+            DiseaseAnswer,
+            {
+                "detail": info,
+                "disease_id": int(diagnosed_with_id),
+                "question_id": int(current_question_id),
+            },
+        )
     next_question = mysql_db.get_instances(
         None,
         DiseaseQuestion,
