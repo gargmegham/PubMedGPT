@@ -1,5 +1,8 @@
+import asyncio
 import logging
 
+from handlers.message import message_handle_fn
+from medicalgpt import MedicalGPT
 from mysql import MySQL
 from tables import DiseaseAnswer, DiseaseQuestion
 from telegram import ReplyKeyboardRemove, Update
@@ -12,6 +15,8 @@ from telegram.ext import (
     filters,
 )
 from utils import is_previous_message_not_answered_yet
+
+from bot import user_semaphores, user_tasks
 
 mysql_db = MySQL()
 
@@ -58,13 +63,15 @@ async def other_questions(update: Update, context: CallbackContext) -> int:
     current_question_id = context.user_data["current_question_id"]
     diagnosed_with_id = context.user_data["diagnosed_with_id"]
     user = update.message.from_user
+    user_id = user.id
     info = update.message.text
     mysql_db.add_instance(
-        user.id,
+        user_id,
         DiseaseAnswer,
         {
             "detail": info,
             "disease_id": int(diagnosed_with_id),
+            "question_id": int(current_question_id),
         },
     )
     next_question = mysql_db.get_instances(
@@ -82,12 +89,33 @@ async def other_questions(update: Update, context: CallbackContext) -> int:
             parse_mode=ParseMode.HTML,
         )
         return OTHER_QUESTIONS
-    await update.message.reply_text(
-        "Thanks for all the information. here is your diagnosis:",
-        reply_markup=ReplyKeyboardRemove(),
-        parse_mode=ParseMode.HTML,
-    )
-    # TODO: get diagnosis
+    mysql_db.set_attribute(user_id, "diagnosed_with", "")
+    async with user_semaphores[user_id]:
+        task = asyncio.create_task(
+            message_handle_fn(
+                update=update,
+                context=context,
+                message="Based on the given information, provide the best possible advice for me as a patient.",
+                use_new_dialog_timeout=True,
+                pass_dialog_messages=False,
+                user_id=user_id,
+                disease_id=int(diagnosed_with_id),
+            )
+        )
+        user_tasks[user_id] = task
+        try:
+            await task
+        except asyncio.CancelledError:
+            await update.message.reply_text("✅ Canceled", parse_mode=ParseMode.HTML)
+        else:
+            pass
+        finally:
+            update.message.reply_text(
+                "✅ Please use /booking to book an appointment with our recommended doctor.",
+                parse_mode=ParseMode.HTML,
+            )
+            if user_id in user_tasks:
+                del user_tasks[user_id]
     return ConversationHandler.END
 
 

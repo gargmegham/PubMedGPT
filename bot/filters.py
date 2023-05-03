@@ -29,6 +29,11 @@ def get_messages_that_indicate_a_certian_medical_condition(
 
     class CustomFilter(filters.MessageFilter):
         def filter(self, message: Message) -> bool:
+            diagnosed_with = mysql_db.get_attribute(
+                message.from_user.id, "diagnosed_with"
+            )
+            if len(diagnosed_with):
+                return False
             result = medicalgpt.Filter().medical_condition_message_filter(
                 message, condition
             )

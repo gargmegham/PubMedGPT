@@ -3,7 +3,18 @@ from typing import Optional
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from tables import Allergy, Base, Dialog, User
+from tables import (
+    Allergy,
+    Base,
+    Dialog,
+    DiseaseAnswer,
+    DiseaseInstructions,
+    DiseaseQuestion,
+    MedicalCondition,
+    Medication,
+    Surgery,
+    User,
+)
 
 import config
 
@@ -136,47 +147,135 @@ class MySQL:
         session.close()
         return instance
 
-    def prepare_patient_history(self, user_id: int) -> list:
-        session = self.Session()
-        user = session.query(User).filter_by(user_id=str(user_id)).first()
-        history = []
-        history.append(
+    def prepare_patient_history(self, user_id: int, disease_id: int = None) -> list:
+        user = self.get_instances(user_id, User, find_first=True)
+        history = [
             {
                 "role": "assistant",
-                "content": "What's your name?",
-            }
-        )
-        history.append(
+                "content": "Please tell me your name?",
+            },
             {
                 "role": "user",
                 "content": f"My name is {user.first_name} {user.last_name}",
-            }
-        )
-        history.append(
+            },
             {
                 "role": "assistant",
                 "content": "What's your age?",
-            }
-        )
-        history.append({"role": "user", "content": f"My age is {user.age}"})
-        history.append(
+            },
+            {"role": "user", "content": f"My age is {user.age}"},
             {
                 "role": "assistant",
                 "content": "What's your gender?",
-            }
+            },
+            {"role": "user", "content": f"My gender is {user.gender}"},
+        ]
+        if user.gender == "Female":
+            history.extend(
+                [
+                    {
+                        "role": "assistant",
+                        "content": "Are you pregnant?",
+                    },
+                    {
+                        "role": "user",
+                        "content": "Yes" if user.is_pregnant else "No",
+                    },
+                ]
+            )
+        allergies = "\n".join(
+            [allergy.detail for allergy in self.get_instances(user_id, Allergy)]
         )
-        history.append({"role": "user", "content": f"My gender is {user.gender}"})
-        allergies = session.query(Allergy).filter_by(user_id=user_id).all()
-        session.close()
-        allergy_details = ", ".join([allergy.allergy for allergy in allergies])
-        if allergy_details:
-            history.append(
+        medical_conditions = "\n".join(
+            [mc.detail for mc in self.get_instances(user_id, MedicalCondition)]
+        )
+        medications = "\n".join(
+            [
+                medication.detail
+                for medication in self.get_instances(user_id, Medication)
+            ]
+        )
+        surgeries = "\n".join(
+            [surgery.detail for surgery in self.get_instances(user_id, Surgery)]
+        )
+        history.extend(
+            [
                 {
                     "role": "assistant",
-                    "content": "Do you have any allergies?",
-                }
+                    "content": "Do you have any allergies? If yes, please tell me about them.",
+                },
+                {
+                    "role": "user",
+                    "content": allergies if len(allergies) > 0 else "No",
+                },
+                {
+                    "role": "assistant",
+                    "content": "Do you have any medical conditions? If yes, please tell me about them.",
+                },
+                {
+                    "role": "user",
+                    "content": medical_conditions
+                    if len(medical_conditions) > 0
+                    else "No",
+                },
+                {
+                    "role": "assistant",
+                    "content": "Do you take any medications? If yes, please tell me about them.",
+                },
+                {
+                    "role": "user",
+                    "content": medications if len(medications) > 0 else "No",
+                },
+                {
+                    "role": "assistant",
+                    "content": "Have you had any surgeries? If yes, please tell me about them.",
+                },
+                {
+                    "role": "user",
+                    "content": surgeries if len(surgeries) > 0 else "No",
+                },
+            ]
+        )
+        if disease_id is not None:
+            disease_specific_questions = self.get_instances(
+                user_id, DiseaseQuestion, extra_filters={"disease_id": disease_id}
             )
-            history.append(
-                {"role": "user", "content": f"I'm allergic to: {allergy_details}"}
+            for disease_specific_question in disease_specific_questions:
+                answers = self.get_instances(
+                    user_id,
+                    DiseaseAnswer,
+                    extra_filters={"disease_question_id": disease_specific_question.id},
+                )
+                if len(answers) > 0:
+                    history.extend(
+                        [
+                            {
+                                "role": "assistant",
+                                "content": disease_specific_question.detail,
+                            },
+                            {
+                                "role": "user",
+                                "content": "\n".join(
+                                    [answer.detail for answer in answers]
+                                ),
+                            },
+                        ]
+                    )
+            disease_specific_instructions = "\n".join(
+                [
+                    instruction.detail
+                    for instruction in self.get_instances(
+                        user_id,
+                        DiseaseInstructions,
+                        extra_filters={"disease_id": disease_id},
+                    )
+                ]
+            )
+            history.extend(
+                [
+                    {
+                        "role": "system",
+                        "content": f"Here are some instructions for you from the doctor:\n\n{disease_specific_instructions}",
+                    },
+                ]
             )
         return history

@@ -107,5 +107,15 @@ class DiseaseAnswer(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Text, nullable=False)
     detail = Column(Text, nullable=False)
+    question_id = Column(Integer, ForeignKey("disease_question.id"))
+    disease_id = Column(Integer, ForeignKey("disease.id"))
+    timestamp = Column(DateTime, default=datetime.utcnow)
+
+
+class DiseaseInstructions(Base):
+    __tablename__ = "disease_instructions"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    detail = Column(Text, nullable=False)
     disease_id = Column(Integer, ForeignKey("disease.id"))
     timestamp = Column(DateTime, default=datetime.utcnow)

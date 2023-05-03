@@ -25,12 +25,15 @@ class BaseMedicalGPT:
         message,
         dialog_messages,
         prompt=CHAT_MODES["default"]["prompt_start"],
-        user_id=None,
+        user_id: int = None,
+        disease_id: int = None,
     ):
         messages = [{"role": "system", "content": prompt}]
         patient_details_messages = []
         if user_id is not None:
-            patient_details_messages = list(mysql_db.prepare_patient_history(user_id))
+            patient_details_messages = list(
+                mysql_db.prepare_patient_history(user_id, disease_id=disease_id)
+            )
         for dialog_message in dialog_messages:
             messages.append({"role": "user", "content": dialog_message["user"]})
             messages.append({"role": "assistant", "content": dialog_message["bot"]})
@@ -59,19 +62,18 @@ class BaseMedicalGPT:
 
 
 class MedicalGPT(BaseMedicalGPT):
-    def __init__(self):
-        self.model = "gpt-3.5-turbo"
-
-    async def send_message_stream(self, message, dialog_messages=[], user_id=None):
+    async def send_message_stream(
+        self, message, dialog_messages=[], user_id: int = None, disease_id: int = None
+    ):
         n_dialog_messages_before = len(dialog_messages)
         answer = None
         while answer is None:
             try:
                 messages = self._generate_prompt_messages(
-                    message, dialog_messages, user_id=user_id
+                    message, dialog_messages, user_id=user_id, disease_id=disease_id
                 )
                 r_gen = await openai.ChatCompletion.acreate(
-                    model=self.model,
+                    model="gpt-3.5-turbo",
                     messages=messages,
                     stream=True,
                     **OPENAI_COMPLETION_OPTIONS,
