@@ -125,10 +125,6 @@ async def other_questions(update: Update, context: CallbackContext) -> int:
             pass
         finally:
             mysql_db.set_attribute(user_id, "diagnosed_with", "")
-            update.message.reply_text(
-                "✅ Please use /booking to book an appointment with our recommended doctor.",
-                parse_mode=ParseMode.HTML,
-            )
             if user_id in user_tasks:
                 del user_tasks[user_id]
     return ConversationHandler.END
