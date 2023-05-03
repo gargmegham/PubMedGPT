@@ -237,7 +237,7 @@ class MySQL:
         )
         if disease_id is not None:
             disease_specific_questions = self.get_instances(
-                user_id, DiseaseQuestion, extra_filters={"disease_id": disease_id}
+                None, DiseaseQuestion, extra_filters={"disease_id": disease_id}
             )
             for disease_specific_question in disease_specific_questions:
                 answers = self.get_instances(
