@@ -33,8 +33,11 @@ async def disease_start_handler(
     diagnosed_with = mysql_db.get_attribute(
         update.message.from_user.id, "diagnosed_with"
     )
-    diagnosed_with = diagnosed_with.split(",")[0]
-    reply_text = f"I see that you are suffering from <b>{diagnosed_with}</b>\nPlease click on /disease to start the diagnosis process."
+    try:
+        diagnosed_with = diagnosed_with.split(",")[0]
+        reply_text = f"I see that you are suffering from <b>{diagnosed_with}</b>\nPlease click on /disease to start the diagnosis process."
+    except IndexError:
+        reply_text = "You've not been diagnosed with any disease yet. Please tell me your problem and then click on /disease to start the diagnosis process."
     await update.message.reply_text(reply_text, parse_mode=ParseMode.HTML)
 
 
@@ -42,21 +45,28 @@ async def start(update: Update, context: CallbackContext) -> int:
     diagnosed_with = mysql_db.get_attribute(
         update.message.from_user.id, "diagnosed_with"
     )
-    diagnosed_with_id = int(diagnosed_with.split(",")[1])
-    first_question = mysql_db.get_instances(
-        None,
-        DiseaseQuestion,
-        find_first=True,
-        extra_filters={"disease_id": diagnosed_with_id},
-    )
-    context.user_data["current_question_id"] = first_question.id
-    context.user_data["diagnosed_with_id"] = diagnosed_with_id
-    await update.message.reply_text(
-        first_question.detail,
-        reply_markup=ReplyKeyboardRemove(),
-        parse_mode=ParseMode.HTML,
-    )
-    return OTHER_QUESTIONS
+    try:
+        diagnosed_with_id = int(diagnosed_with.split(",")[1])
+        first_question = mysql_db.get_instances(
+            None,
+            DiseaseQuestion,
+            find_first=True,
+            extra_filters={"disease_id": diagnosed_with_id},
+        )
+        context.user_data["current_question_id"] = first_question.id
+        context.user_data["diagnosed_with_id"] = diagnosed_with_id
+        await update.message.reply_text(
+            first_question.detail,
+            reply_markup=ReplyKeyboardRemove(),
+            parse_mode=ParseMode.HTML,
+        )
+        return OTHER_QUESTIONS
+    except IndexError:
+        await update.message.reply_text(
+            "You've not been diagnosed with any disease yet. Please tell me your problem and then click on /disease to start the diagnosis process.",
+            parse_mode=ParseMode.HTML,
+        )
+        return ConversationHandler.END
 
 
 async def other_questions(update: Update, context: CallbackContext) -> int:
