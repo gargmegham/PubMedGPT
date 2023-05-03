@@ -266,7 +266,7 @@ class MySQL:
                 [
                     instruction.detail
                     for instruction in self.get_instances(
-                        user_id,
+                        None,
                         DiseaseInstructions,
                         extra_filters={"disease_id": disease_id},
                     )
