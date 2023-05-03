@@ -109,7 +109,7 @@ async def other_questions(update: Update, context: CallbackContext) -> int:
             message_handle_fn(
                 update=update,
                 context=context,
-                message="Based on the given information, provide the best possible advice for me as a patient.",
+                message="Based on whatever information i've given you, please provide the best possible advice for me. I don't have any other symptoms or details to provide",
                 use_new_dialog_timeout=True,
                 pass_dialog_messages=False,
                 user_id=user_id,

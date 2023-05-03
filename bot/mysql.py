@@ -152,26 +152,48 @@ class MySQL:
 
     def prepare_patient_history(self, user_id: int, disease_id: int = None) -> list:
         user = self.get_instances(user_id, User, find_first=True)
-        history = [
-            {
-                "role": "assistant",
-                "content": "Please tell me your name?",
-            },
-            {
-                "role": "user",
-                "content": f"My name is {user.first_name} {user.last_name}",
-            },
-            {
-                "role": "assistant",
-                "content": "What's your age?",
-            },
-            {"role": "user", "content": f"My age is {user.age}"},
-            {
-                "role": "assistant",
-                "content": "What's your gender?",
-            },
-            {"role": "user", "content": f"My gender is {user.gender}"},
-        ]
+        history = []
+        if disease_id:
+            disease_specific_instructions = "\n".join(
+                [
+                    instruction.detail
+                    for instruction in self.get_instances(
+                        None,
+                        DiseaseInstructions,
+                        extra_filters={"disease_id": disease_id},
+                    )
+                ]
+            )
+            history.extend(
+                [
+                    {
+                        "role": "system",
+                        "content": f"Here are some instructions for you from the doctor:\n\n{disease_specific_instructions}",
+                    },
+                ]
+            )
+        history.extend(
+            [
+                {
+                    "role": "assistant",
+                    "content": "Please tell me your name?",
+                },
+                {
+                    "role": "user",
+                    "content": f"My name is {user.first_name} {user.last_name}",
+                },
+                {
+                    "role": "assistant",
+                    "content": "What's your age?",
+                },
+                {"role": "user", "content": f"My age is {user.age}"},
+                {
+                    "role": "assistant",
+                    "content": "What's your gender?",
+                },
+                {"role": "user", "content": f"My gender is {user.gender}"},
+            ]
+        )
         if user.gender == "Female":
             history.extend(
                 [
@@ -262,22 +284,4 @@ class MySQL:
                             },
                         ]
                     )
-            disease_specific_instructions = "\n".join(
-                [
-                    instruction.detail
-                    for instruction in self.get_instances(
-                        None,
-                        DiseaseInstructions,
-                        extra_filters={"disease_id": disease_id},
-                    )
-                ]
-            )
-            history.extend(
-                [
-                    {
-                        "role": "system",
-                        "content": f"Here are some instructions for you from the doctor:\n\n{disease_specific_instructions}",
-                    },
-                ]
-            )
         return history
