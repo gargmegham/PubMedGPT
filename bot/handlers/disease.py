@@ -102,6 +102,8 @@ async def other_questions(update: Update, context: CallbackContext) -> int:
             parse_mode=ParseMode.HTML,
         )
         return OTHER_QUESTIONS
+    if user_id not in user_semaphores:
+        user_semaphores[user_id] = asyncio.Semaphore(1)
     async with user_semaphores[user_id]:
         task = asyncio.create_task(
             message_handle_fn(
