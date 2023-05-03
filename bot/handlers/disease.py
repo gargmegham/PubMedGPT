@@ -89,7 +89,6 @@ async def other_questions(update: Update, context: CallbackContext) -> int:
             parse_mode=ParseMode.HTML,
         )
         return OTHER_QUESTIONS
-    mysql_db.set_attribute(user_id, "diagnosed_with", "")
     async with user_semaphores[user_id]:
         task = asyncio.create_task(
             message_handle_fn(
@@ -110,6 +109,7 @@ async def other_questions(update: Update, context: CallbackContext) -> int:
         else:
             pass
         finally:
+            mysql_db.set_attribute(user_id, "diagnosed_with", "")
             update.message.reply_text(
                 "✅ Please use /booking to book an appointment with our recommended doctor.",
                 parse_mode=ParseMode.HTML,
