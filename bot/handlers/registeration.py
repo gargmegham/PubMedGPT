@@ -1,7 +1,7 @@
 import logging
 
 from mysql import MySQL
-from tables import Allergy, MedicalCondition, Medication, Surgery, Symptom
+from tables import Allergy, MedicalCondition, Medication, Surgery
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
 from telegram.constants import ParseMode
 from telegram.ext import (
@@ -40,14 +40,9 @@ questions_meta = {
         "question": "Do you take any medications?\nFor example: <code>Paracetamol, Ibuprofen</code>",
     },
     "surgery": {
-        "next_question": "symptoms",
+        "next_question": "end",
         "table": Surgery,
         "question": "Have you had any surgeries?\nFor example: <code>Appendectomy, Tonsillectomy</code>",
-    },
-    "symptoms": {
-        "next_question": "end",
-        "table": Symptom,
-        "question": "What symptoms are you experiencing?\nFor example: <code>Headache, Fever</code>",
     },
 }
 

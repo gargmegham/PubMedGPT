@@ -72,15 +72,6 @@ class Surgery(Base):
     timestamp = Column(DateTime, default=datetime.utcnow)
 
 
-class Symptom(Base):
-    __tablename__ = "symptom"
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(Text, nullable=False)
-    detail = Column(Text, nullable=False)
-    timestamp = Column(DateTime, default=datetime.utcnow)
-
-
 class Dialog(Base):
     __tablename__ = "dialog"
 
