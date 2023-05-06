@@ -9,10 +9,10 @@ from tables import (
     Dialog,
     DiseaseAnswer,
     DiseaseInstructions,
-    Medicine,
     DiseaseQuestion,
     MedicalCondition,
     Medication,
+    Medicine,
     Surgery,
     User,
 )
@@ -288,54 +288,72 @@ class MySQL:
         return history
 
     def get_allowed_medicines(self, user_id: int, disease_id: int = None) -> list:
-        allowed_medicines = {
-            "ABX": [],
-            "Steroid": [],
-            "Antihistamine": [],
-            "Decongestant": [],
-        }
-        medicine_limitations = self.get_instances(
+        def any_word_in_x_match_any_word_in_y(x: list, y: str):
+            list1 = []
+            list2 = y.split(",").map(lambda x: str(x).lower().strip())
+            for sentence in x:
+                list1.extend(
+                    str(sentence).split(" ").map(lambda x: str(x).lower().strip())
+                )
+            for word in list1:
+                if word in list2:
+                    return True
+            return False
+
+        allowed_medicines = {}
+        medicines = self.get_instances(
             None, Medicine, extra_filters={"disease_id": disease_id}
         )
         user = self.get_instances(user_id, User, find_first=True)
         age = user.age
+        gender = user.gender
         is_pregnant = user.is_pregnant
-        medications = self.get_instances(user_id, Medication)
-        medications = ", ".join(
-            [str(medication.detail).lower() for medication in medications]
-        )
-        allergies = self.get_instances(user_id, Allergy)
-        allergies = ", ".join([str(allergy.detail).lower() for allergy in allergies])
-        for medicine_limitation in medicine_limitations:
-            if medicine_limitation.limit_by == "age":
-                if medicine_limitation.limit_type == ">=":
-                    if age >= medicine_limitation.limit:
-                        allowed_medicines[medicine_limitation.type].append(
-                            medicine_limitation.detail
-                        )
-                elif medicine_limitation.limit_type == "<":
-                    if age < medicine_limitation.limit:
-                        allowed_medicines[medicine_limitation.type].append(
-                            medicine_limitation.detail
-                        )
-            elif medicine_limitation.limit_by == "allergy":
-                if medicine_limitation.limit_type == "=":
-                    if medicine_limitation.limit in allergies:
-                        allowed_medicines[medicine_limitation.type].append(
-                            medicine_limitation.detail
-                        )
-            elif medicine_limitation.limit_by == "medication":
-                if medicine_limitation.limit_type == "!=":
-                    if medicine_limitation.limit not in medications:
-                        allowed_medicines[medicine_limitation.type].append(
-                            medicine_limitation.detail
-                        )
-            elif medicine_limitation.limit_by == "pregnancy":
-                if medicine_limitation.limit_type == "=":
-                    if is_pregnant:
-                        allowed_medicines[medicine_limitation.type].append(
-                            medicine_limitation.detail
-                        )
+        medications = [
+            str(medication.detail).lower()
+            for medication in self.get_instances(user_id, Medication)
+        ]
+        conditions = [
+            str(condition.detail).lower()
+            for condition in self.get_instances(user_id, MedicalCondition)
+        ]
+        allergies = [str(allergy.detail).lower() for allergy in allergies]
+        surgeries = [
+            str(surgery.detail).lower()
+            for surgery in self.get_instances(user_id, Surgery)
+        ]
+        for medicine in medicines:
+            if medicine.type not in allowed_medicines:
+                allowed_medicines[medicine.type] = []
+            if (
+                (age < medicine.age_min or age > medicine.age_max)
+                or (
+                    gender
+                    not in medicine.allowed_gender.split(",").map(lambda x: x.strip())
+                )
+                or (not is_pregnant or medicine.allowed_for_pregnant)
+                or (
+                    any_word_in_x_match_any_word_in_y(
+                        allergies, medicine.not_for_allergies
+                    )
+                )
+                or (
+                    any_word_in_x_match_any_word_in_y(
+                        conditions, medicine.not_for_conditions
+                    )
+                )
+                or (
+                    any_word_in_x_match_any_word_in_y(
+                        surgeries, medicine.not_for_surgeries
+                    )
+                )
+                or (
+                    any_word_in_x_match_any_word_in_y(
+                        medications, medicine.not_for_medications
+                    )
+                )
+            ):
+                continue
+            allowed_medicines[medicine.type].append(medicine.detail)
         return "\n".join(
             [
                 f"{medicine_type}: {', '.join(medicines)}"

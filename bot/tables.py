@@ -126,11 +126,16 @@ class Medicine(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     detail = Column(Text, default="")
-    type = Column(Text, default="")  # Antibiotic, Decongestant, Steroid, Antifungal
-    limit_by = Column(Text, default="")
-    limit = Column(Text, default="")
-    limit_type = Column(Text, default="")  # greater than, less than, equal to, contains
-    disease_id = Column(Integer, ForeignKey("disease.id"))
+    type = Column(Text, default="")
+    min_age = Column(Integer, default=0)
+    max_age = Column(Integer, default=100)
+    allowed_gender = Column(Text, default="Male, Female")
+    allowed_for_pregnant = Column(Boolean, default=False)
+    not_for_allergies = Column(Text, default="")
+    not_for_conditions = Column(Text, default="")
+    not_for_medications = Column(Text, default="")
+    not_for_surgeries = Column(Text, default="")
+    disease_id = Column(Integer, ForeignKey("disease.id"), default=1)
     timestamp = Column(DateTime, default=datetime.utcnow)
 
 
