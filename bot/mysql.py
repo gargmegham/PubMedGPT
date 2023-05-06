@@ -360,7 +360,7 @@ class MySQL:
                 continue
             any_found = True
             allowed_medicines[medicine.type].append(medicine.detail)
-        prescription = f"""Dear {user.name},\nWe suggest you following medicines:\n""" if any_found else f"""Dear {user.name},\nWe are sorry to inform you that we don't have any medicines for your disease because of your medical history, and allergies."""
+        prescription = f"""Dear {user.first_name},\nWe suggest you following medicines:\n""" if any_found else f"""Dear {user.first_name},\nWe are sorry to inform you that we don't have any medicines for your disease because of your medical history, and allergies."""
         for key, value in allowed_medicines.items():
             prescription += f"""{key}:\n"""
             for medicine in value:
