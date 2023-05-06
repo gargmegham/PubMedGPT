@@ -1,9 +1,7 @@
-import asyncio
 import logging
 
-from handlers.message import message_handle_fn
 from mysql import MySQL
-from tables import DiseaseAnswer, DiseaseQuestion
+from tables import DiseaseAnswer, DiseaseQuestion, Disposition
 from telegram import ReplyKeyboardRemove, Update
 from telegram.constants import ParseMode
 from telegram.ext import (
@@ -14,8 +12,6 @@ from telegram.ext import (
     filters,
 )
 from utils import is_previous_message_not_answered_yet
-
-from bot import user_semaphores, user_tasks
 
 mysql_db = MySQL()
 
@@ -98,50 +94,20 @@ async def other_questions(update: Update, context: CallbackContext) -> int:
             parse_mode=ParseMode.HTML,
         )
         return OTHER_QUESTIONS
-    if user_id not in user_semaphores:
-        user_semaphores[user_id] = asyncio.Semaphore(1)
-    async with user_semaphores[user_id]:
-        allowed_medicines = mysql_db.get_allowed_medicines(user_id, diagnosed_with_id)
-        prompt = f"""Based on whatever information i've given you, please provide a prescription for me containing ABX, Steroid, Antihistamine, and Decongestant which I can take.\nI don't have any other symptoms or details to provide.\n
-        Please provide an HTML formatted response with a table containing information on prescribed medications, including antibiotics, decongestants, steroids, and antihistamines. The table should have three columns: Medicine, Medicine Type (e.g., Antibiotic, Decongestant, Steroid, Antihistamine), and a brief Description of the medicine. For example:
-        These medicines are prescribed by a doctor for me so include them in the prescription: {allowed_medicines}
-        <p>Title: Final Disposition</p>
-        <p>[summary...]</p>
-        <table>
-        <tr>
-            <th>[Medicine]</th>
-            <th>[Medicine Type]</th>
-            <th>[Description]</th>
-        </tr>
-        <tr>
-            <td>[Example Medicine]</td>
-            <td>[Example Medicine Type]</td>
-            <td>[Example Description]</td>
-        </tr>
-        </table>
-        """
-        task = asyncio.create_task(
-            message_handle_fn(
-                update=update,
-                context=context,
-                message=prompt,
-                use_new_dialog_timeout=True,
-                pass_dialog_messages=False,
-                user_id=user_id,
-                disease_id=int(diagnosed_with_id),
-            )
-        )
-        user_tasks[user_id] = task
-        try:
-            await task
-        except asyncio.CancelledError:
-            await update.message.reply_text("✅ Canceled", parse_mode=ParseMode.HTML)
-        else:
-            pass
-        finally:
-            mysql_db.set_attribute(user_id, "diagnosed_with", "")
-            if user_id in user_tasks:
-                del user_tasks[user_id]
+    prescription = mysql_db.write_prescription(user_id, diagnosed_with_id)
+    mysql_db.add_instance(
+        user_id,
+        Disposition,
+        {
+            "disease_id": diagnosed_with_id,
+            "detail": prescription,
+        },
+    )
+    await update.message.reply_text(
+        f"{prescription}✅ Please use /booking to book an appointment with our recommended doctor.",
+        parse_mode=ParseMode.HTML,
+    )
+    mysql_db.set_attribute(user_id, "diagnosed_with", "")
     return ConversationHandler.END
 
 

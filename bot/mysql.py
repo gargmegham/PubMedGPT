@@ -287,7 +287,7 @@ class MySQL:
                     )
         return history
 
-    def get_allowed_medicines(self, user_id: int, disease_id: int = None) -> list:
+    def write_prescription(self, user_id: int, disease_id: int = None) -> list:
         def any_word_in_x_match_any_word_in_y(x: list, y: str):
             list1 = []
             list2 = [str(_).lower().strip() for _ in str(y).split(",")]
@@ -299,6 +299,7 @@ class MySQL:
             return False
 
         allowed_medicines = {}
+        any_found = False
         medicines = self.get_instances(
             None, Medicine, extra_filters={"disease_id": disease_id}
         )
@@ -357,11 +358,11 @@ class MySQL:
                 )
             ):
                 continue
+            any_found = True
             allowed_medicines[medicine.type].append(medicine.detail)
-        return "\n".join(
-            [
-                f"{medicine_type}: {', '.join(medicines)}"
-                for medicine_type, medicines in allowed_medicines.items()
-                if len(medicines) > 0
-            ]
-        )
+        prescription = f"""Dear {user.name},\nWe suggest you following medicines:\n""" if any_found else f"""Dear {user.name},\nWe are sorry to inform you that we don't have any medicines for your disease because of your medical history, and allergies."""
+        for key, value in allowed_medicines.items():
+            prescription += f"""{key}:\n"""
+            for medicine in value:
+                prescription += f"""{medicine}\n"""
+        return prescription
