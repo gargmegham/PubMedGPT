@@ -287,7 +287,7 @@ class MySQL:
                     )
         return history
 
-    def get_allowed_medicines(self, user_id: int, disease_id: int = None) -> list:
+    def write_prescription(self, user_id: int, disease_id: int = None) -> list:
         def any_word_in_x_match_any_word_in_y(x: list, y: str):
             list1 = []
             list2 = [str(_).lower().strip() for _ in str(y).split(",")]
@@ -327,14 +327,14 @@ class MySQL:
         ]
         for medicine in medicines:
             if medicine.type not in allowed_medicines:
-                allowed_medicines[medicine.type] = []
+                allowed_medicines[medicine.type] = None
             if (
                 (age < medicine.min_age or age > medicine.max_age)
                 or (
                     str(gender).lower().strip()
                     not in str(medicine.allowed_gender).lower().strip()
                 )
-                or (not is_pregnant or medicine.allowed_for_pregnant)
+                or (is_pregnant and not medicine.allowed_for_pregnant)
                 or (
                     any_word_in_x_match_any_word_in_y(
                         allergies, medicine.not_for_allergies
@@ -355,13 +355,8 @@ class MySQL:
                         medications, medicine.not_for_medications
                     )
                 )
+                or allowed_medicines[medicine.type] is not None
             ):
                 continue
             allowed_medicines[medicine.type].append(medicine.detail)
-        return "\n".join(
-            [
-                f"{medicine_type}: {', '.join(medicines)}"
-                for medicine_type, medicines in allowed_medicines.items()
-                if len(medicines) > 0
-            ]
-        )
+        return allowed_medicines
