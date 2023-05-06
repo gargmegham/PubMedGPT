@@ -299,7 +299,6 @@ class MySQL:
         )
         user = self.get_instances(user_id, User, find_first=True)
         age = user.age
-        gender = user.gender
         is_pregnant = user.is_pregnant
         medications = self.get_instances(user_id, Medication)
         medications = ", ".join(
@@ -310,24 +309,24 @@ class MySQL:
         for medicine_limitation in medicine_limitations:
             if medicine_limitation.limit_by == "age":
                 if medicine_limitation.limit_type == ">=":
-                    if age >= medicine_limitation.limit_value:
+                    if age >= medicine_limitation.limit:
                         allowed_medicines[medicine_limitation.type].append(
                             medicine_limitation.detail
                         )
                 elif medicine_limitation.limit_type == "<":
-                    if age < medicine_limitation.limit_value:
+                    if age < medicine_limitation.limit:
                         allowed_medicines[medicine_limitation.type].append(
                             medicine_limitation.detail
                         )
             elif medicine_limitation.limit_by == "allergy":
                 if medicine_limitation.limit_type == "=":
-                    if medicine_limitation.limit_value in allergies:
+                    if medicine_limitation.limit in allergies:
                         allowed_medicines[medicine_limitation.type].append(
                             medicine_limitation.detail
                         )
             elif medicine_limitation.limit_by == "medication":
                 if medicine_limitation.limit_type == "!=":
-                    if medicine_limitation.limit_value not in medications:
+                    if medicine_limitation.limit not in medications:
                         allowed_medicines[medicine_limitation.type].append(
                             medicine_limitation.detail
                         )
