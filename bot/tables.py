@@ -113,21 +113,32 @@ class DiseaseAnswer(Base):
 
 
 class DiseaseInstructions(Base):
-    __tablename__ = "disease_instructions"
+    __tablename__ = "disease_instruction"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     detail = Column(Text, nullable=False)
     disease_id = Column(Integer, ForeignKey("disease.id"))
     timestamp = Column(DateTime, default=datetime.utcnow)
 
+
 class Medicine(Base):
     __tablename__ = "medicine"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     detail = Column(Text, default="")
-    type = Column(Text, default="")# Antibiotic, Steroid, OTC
+    type = Column(Text, default="")  # Antibiotic, Decongestant, Steroid, Antifungal
     limit_by = Column(Text, default="")
     limit = Column(Text, default="")
-    limit_type = Column(Text, default="") # greater than, less than, equal to, contains
+    limit_type = Column(Text, default="")  # greater than, less than, equal to, contains
     disease_id = Column(Integer, ForeignKey("disease.id"))
+    timestamp = Column(DateTime, default=datetime.utcnow)
+
+
+class Disposition(Base):
+    __tablename__ = "disposition"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    detail = Column(Text, nullable=False)
+    disease_id = Column(Integer, ForeignKey("disease.id"))
+    user_id = Column(Text, nullable=False)
     timestamp = Column(DateTime, default=datetime.utcnow)

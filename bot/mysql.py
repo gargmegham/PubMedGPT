@@ -9,6 +9,7 @@ from tables import (
     Dialog,
     DiseaseAnswer,
     DiseaseInstructions,
+    Medicine,
     DiseaseQuestion,
     MedicalCondition,
     Medication,
@@ -285,3 +286,61 @@ class MySQL:
                         ]
                     )
         return history
+
+    def get_allowed_medicines(self, user_id: int, disease_id: int = None) -> list:
+        allowed_medicines = {
+            "ABX": [],
+            "Steroid": [],
+            "Antihistamine": [],
+            "Decongestant": [],
+        }
+        medicine_limitations = self.get_instances(
+            None, Medicine, extra_filters={"disease_id": disease_id}
+        )
+        user = self.get_instances(user_id, User, find_first=True)
+        age = user.age
+        gender = user.user
+        is_pregnant = user.is_pregnant
+        medications = self.get_instances(user_id, Medication)
+        medications = ", ".join(
+            [str(medication.detail).lower() for medication in medications]
+        )
+        allergies = self.get_instances(user_id, Allergy)
+        allergies = ", ".join([str(allergy.detail).lower() for allergy in allergies])
+        for medicine_limitation in medicine_limitations:
+            if medicine_limitation.limit_by == "age":
+                if medicine_limitation.limit_type == ">=":
+                    if age >= medicine_limitation.limit_value:
+                        allowed_medicines[medicine_limitation.type].append(
+                            medicine_limitation.detail
+                        )
+                elif medicine_limitation.limit_type == "<":
+                    if age < medicine_limitation.limit_value:
+                        allowed_medicines[medicine_limitation.type].append(
+                            medicine_limitation.detail
+                        )
+            elif medicine_limitation.limit_by == "allergy":
+                if medicine_limitation.limit_type == "=":
+                    if medicine_limitation.limit_value in allergies:
+                        allowed_medicines[medicine_limitation.type].append(
+                            medicine_limitation.detail
+                        )
+            elif medicine_limitation.limit_by == "medication":
+                if medicine_limitation.limit_type == "!=":
+                    if medicine_limitation.limit_value not in medications:
+                        allowed_medicines[medicine_limitation.type].append(
+                            medicine_limitation.detail
+                        )
+            elif medicine_limitation.limit_by == "pregnancy":
+                if medicine_limitation.limit_type == "=":
+                    if is_pregnant:
+                        allowed_medicines[medicine_limitation.type].append(
+                            medicine_limitation.detail
+                        )
+        return "\n".join(
+            [
+                f"{medicine_type}: {', '.join(medicines)}"
+                for medicine_type, medicines in allowed_medicines.items()
+                if len(medicines) > 0
+            ]
+        )
