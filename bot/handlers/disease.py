@@ -101,25 +101,24 @@ async def other_questions(update: Update, context: CallbackContext) -> int:
     if user_id not in user_semaphores:
         user_semaphores[user_id] = asyncio.Semaphore(1)
     async with user_semaphores[user_id]:
-        restritced_medicines = mysql_db.get_allowed_medicines(
+        allowed_medicines = mysql_db.get_allowed_medicines(
             user_id, diagnosed_with_id
         )
         prompt = f"""Based on whatever information i've given you, please provide a prescription for me containing ABX, Steroid, Antihistamine, and Decongestant which I can take.\nI don't have any other symptoms or details to provide.\n
         Please provide an HTML formatted response with a table containing information on prescribed medications, including antibiotics, decongestants, steroids, and antihistamines. The table should have three columns: Medicine, Medicine Type (e.g., Antibiotic, Decongestant, Steroid, Antihistamine), and a brief Description of the medicine. For example:
-        These medicines are allowed for me so consider them in the prescription: {restritced_medicines}
-        Response:
-        Title: Final Disposition
-        <p>summary...</p>
+        These medicines are prescribed by a doctor for me so include them in the prescription: {allowed_medicines}
+        <p>Title: Final Disposition</p>
+        <p>[summary...]</p>
         <table>
         <tr>
-            <th>Medicine</th>
-            <th>Medicine Type</th>
-            <th>Description</th>
+            <th>[Medicine]</th>
+            <th>[Medicine Type]</th>
+            <th>[Description]</th>
         </tr>
         <tr>
-            <td>Example Medicine</td>
-            <td>Example Medicine Type</td>
-            <td>Example Description</td>
+            <td>[Example Medicine]</td>
+            <td>[Example Medicine Type]</td>
+            <td>[Example Description]</td>
         </tr>
         </table>
         """
