@@ -305,7 +305,10 @@ class MySQL:
             None, Medicine, extra_filters={"disease_id": disease_id}
         )
         user = self.get_instances(user_id, User, find_first=True)
-        age = user.age
+        try:
+            age = int(user.age)
+        except:
+            age = 0
         gender = user.gender
         is_pregnant = user.is_pregnant
         medications = [
