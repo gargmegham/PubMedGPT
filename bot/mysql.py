@@ -335,7 +335,7 @@ class MySQL:
                     str(gender).lower().strip()
                     not in str(medicine.allowed_gender).lower().strip()
                 )
-                or (not is_pregnant or medicine.allowed_for_pregnant)
+                or (is_pregnant and not medicine.allowed_for_pregnant)
                 or (
                     any_word_in_x_match_any_word_in_y(
                         allergies, medicine.not_for_allergies
@@ -362,7 +362,9 @@ class MySQL:
             allowed_medicines[medicine.type].append(medicine.detail)
         prescription = f"""Dear {user.first_name},\nWe suggest you following medicines:\n""" if any_found else f"""Dear {user.first_name},\nWe are sorry to inform you that we don't have any medicines for your disease because of your medical history, and allergies."""
         for key, value in allowed_medicines.items():
+            if len(value) == 0:
+                continue
             prescription += f"""{key}:\n"""
             for medicine in value:
-                prescription += f"""{medicine}\n"""
+                prescription += f"""\t{medicine}\n"""
         return prescription
