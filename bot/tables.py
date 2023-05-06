@@ -119,3 +119,15 @@ class DiseaseInstructions(Base):
     detail = Column(Text, nullable=False)
     disease_id = Column(Integer, ForeignKey("disease.id"))
     timestamp = Column(DateTime, default=datetime.utcnow)
+
+class Medicine(Base):
+    __tablename__ = "medicine"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    detail = Column(Text, default="")
+    type = Column(Text, default="")# Antibiotic, Steroid, OTC
+    limit_by = Column(Text, default="")
+    limit = Column(Text, default="")
+    limit_type = Column(Text, default="") # greater than, less than, equal to, contains
+    disease_id = Column(Integer, ForeignKey("disease.id"))
+    timestamp = Column(DateTime, default=datetime.utcnow)
