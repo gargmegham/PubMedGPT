@@ -102,7 +102,7 @@ async def other_questions(update: Update, context: CallbackContext) -> int:
         user_semaphores[user_id] = asyncio.Semaphore(1)
     async with user_semaphores[user_id]:
         allowed_medicines = mysql_db.write_prescription(user_id, diagnosed_with_id)
-        prompt = f"""Please provide a formatted table in response, it should have three columns: Medicine, Medicine Type (e.g., Antibiotic, Decongestant, Steroid, Antihistamine), and a brief Description of the medicine.\nProvide table for these medicines for me: {allowed_medicines}. It already contains name and type add description from your knowledge base\nKeep the title same\nTitle: Final Disposition\n[summary...]\n[Medicine] | [Medicine Type] | [Description]\n[Example Medicine] | [Example Medicine Type] | [Example Description]\n"""
+        prompt = f"""Provide table for these medicines for me: {allowed_medicines}.\nIt should have three columns: Medicine, Medicine Type (e.g., Antibiotic, Decongestant, Steroid, Antihistamine), and a brief Description of the medicine.\nI'm already giving you name and type, just add description and summary from your knowledge base\nKeep the title of response in following format\n\n`Title: Final Disposition`\n[summary of medicine list...]\nMedicine | Medicine Type | Description\n[Example Medicine1] | [Example Medicine Type] | [Example Description]\n[Example Medicine2] | [Example Medicine Type] | [Example Description]\n`"""
         task = asyncio.create_task(
             message_handle_fn(
                 update=update,
