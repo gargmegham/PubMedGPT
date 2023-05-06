@@ -358,5 +358,11 @@ class MySQL:
                 or allowed_medicines[medicine.type] is not None
             ):
                 continue
-            allowed_medicines[medicine.type].append(medicine.detail)
-        return allowed_medicines
+            allowed_medicines[medicine.type] = medicine.detail
+        return "\n".join(
+            [
+                f"{key}: {value}"
+                for key, value in allowed_medicines.items()
+                if value is not None
+            ]
+        )
