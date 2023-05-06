@@ -325,7 +325,7 @@ class MySQL:
             if medicine.type not in allowed_medicines:
                 allowed_medicines[medicine.type] = []
             if (
-                (age < medicine.age_min or age > medicine.age_max)
+                (age < medicine.min_age or age > medicine.max_age)
                 or (
                     gender
                     not in medicine.allowed_gender.split(",").map(lambda x: x.strip())
