@@ -290,11 +290,9 @@ class MySQL:
     def get_allowed_medicines(self, user_id: int, disease_id: int = None) -> list:
         def any_word_in_x_match_any_word_in_y(x: list, y: str):
             list1 = []
-            list2 = y.split(",").map(lambda x: str(x).lower().strip())
+            list2 = [str(_).lower().strip() for _ in str(y).split(",")]
             for sentence in x:
-                list1.extend(
-                    str(sentence).split(" ").map(lambda x: str(x).lower().strip())
-                )
+                list1.extend([str(_).lower().strip() for _ in str(sentence).split(" ")])
             for word in list1:
                 if word in list2:
                     return True
@@ -319,7 +317,10 @@ class MySQL:
             str(condition.detail).lower()
             for condition in self.get_instances(user_id, MedicalCondition)
         ]
-        allergies = [str(allergy.detail).lower() for allergy in self.get_instances(user_id, Allergy)]
+        allergies = [
+            str(allergy.detail).lower()
+            for allergy in self.get_instances(user_id, Allergy)
+        ]
         surgeries = [
             str(surgery.detail).lower()
             for surgery in self.get_instances(user_id, Surgery)
@@ -330,8 +331,8 @@ class MySQL:
             if (
                 (age < medicine.min_age or age > medicine.max_age)
                 or (
-                    gender
-                    not in medicine.allowed_gender.split(",").map(lambda x: x.strip())
+                    str(gender).lower().strip()
+                    not in str(medicine.allowed_gender).lower().strip()
                 )
                 or (not is_pregnant or medicine.allowed_for_pregnant)
                 or (
