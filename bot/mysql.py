@@ -299,7 +299,7 @@ class MySQL:
         )
         user = self.get_instances(user_id, User, find_first=True)
         age = user.age
-        gender = user.user
+        gender = user.gender
         is_pregnant = user.is_pregnant
         medications = self.get_instances(user_id, Medication)
         medications = ", ".join(
