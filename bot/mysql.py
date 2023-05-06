@@ -316,7 +316,7 @@ class MySQL:
             str(condition.detail).lower()
             for condition in self.get_instances(user_id, MedicalCondition)
         ]
-        allergies = [str(allergy.detail).lower() for allergy in allergies]
+        allergies = [str(allergy.detail).lower() for allergy in self.get_instances(user_id, Allergy)]
         surgeries = [
             str(surgery.detail).lower()
             for surgery in self.get_instances(user_id, Surgery)
