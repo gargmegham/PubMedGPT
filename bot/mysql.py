@@ -361,7 +361,10 @@ class MySQL:
                 (age < medicine.min_age or age > medicine.max_age)
                 or (
                     str(gender).lower().strip()
-                    not in str(medicine.allowed_gender).lower().strip()
+                    not in [
+                        str(gend).lower().strip()
+                        for gend in str(medicine.allowed_gender).split(",")
+                    ]
                 )
                 or (is_pregnant and not medicine.allowed_for_pregnant)
                 or (
