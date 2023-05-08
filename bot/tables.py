@@ -97,6 +97,9 @@ class DiseaseQuestion(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     detail = Column(Text, nullable=False)
+    medicine = Column(Text, default="")
+    filter = Column(Text, default="")
+    value = Column(Text, default="")
     disease_id = Column(Integer, ForeignKey("disease.id"))
     timestamp = Column(DateTime, default=datetime.utcnow)
 

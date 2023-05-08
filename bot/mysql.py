@@ -1,3 +1,4 @@
+import re
 import uuid
 from typing import Optional
 
@@ -298,6 +299,28 @@ class MySQL:
                     return True
             return False
 
+        blocked_medicine_types = []
+        disease_answes = self.get_instances(
+            user_id, DiseaseAnswer, extra_filters={"disease_id": disease_id}
+        )
+        for disease_answer in disease_answes:
+            disease_question = self.get_instances(
+                None,
+                DiseaseQuestion,
+                extra_filters={"id": disease_answer.question_id},
+                find_first=True,
+            )
+            if disease_question.value is None:
+                continue
+            if disease_answer.filter == "<":
+                first_integer_in_answer = re.findall(r"\d+", disease_answer.detail)[0]
+                if int(first_integer_in_answer) < int(disease_question.value):
+                    blocked_medicine_types.extend(
+                        [
+                            str(_).lower().strip()
+                            for _ in str(disease_question.medicine).split(",")
+                        ]
+                    )
         allowed_medicines = {}
         medicines = self.get_instances(
             None, Medicine, extra_filters={"disease_id": disease_id}
@@ -356,6 +379,7 @@ class MySQL:
                     )
                 )
                 or allowed_medicines[medicine.type] is not None
+                or medicine.type in blocked_medicine_types
             ):
                 continue
             allowed_medicines[medicine.type] = medicine.detail
