@@ -152,6 +152,12 @@ class MySQL:
         session.close()
         return instance
 
+    def remove_instance(self, user_id: int, model: Base, extra_filters: dict = {}):
+        session = self.Session()
+        session.query(model).filter_by(user_id=str(user_id), **extra_filters).delete()
+        session.commit()
+        session.close()
+
     def prepare_patient_history(self, user_id: int, disease_id: int = None) -> list:
         user = self.get_instances(user_id, User, find_first=True)
         history = []
@@ -317,7 +323,7 @@ class MySQL:
                 if int(first_integer_in_answer) < int(disease_question.value):
                     blocked_medicine_types.extend(
                         [
-                            str(_).lower().strip()
+                            str(_).strip()
                             for _ in str(disease_question.medicine).split(",")
                         ]
                     )

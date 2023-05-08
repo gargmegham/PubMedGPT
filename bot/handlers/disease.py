@@ -74,6 +74,16 @@ async def other_questions(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     user_id = user.id
     info = update.message.text
+    # Remove previous answer if any
+    mysql_db.remove_instance(
+        user_id,
+        DiseaseAnswer,
+        extra_filters={
+            "disease_id": diagnosed_with_id,
+            "question_id": current_question_id,
+        },
+    )
+    # Add new answer
     mysql_db.add_instance(
         user_id,
         DiseaseAnswer,
