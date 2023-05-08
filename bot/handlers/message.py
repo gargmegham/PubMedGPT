@@ -6,7 +6,6 @@ from datetime import datetime
 import medicalgpt
 import telegram
 from mysql import MySQL
-from tables import Disposition
 from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import CallbackContext
@@ -80,19 +79,6 @@ async def message_handle_fn(
             # update only when 100 new symbols are ready
             if abs(len(answer) - len(prev_answer)) < 100 and status != "finished":
                 continue
-            if status == "finished" and disease_id is not None:
-                mysql_db.add_instance(
-                    user_id,
-                    Disposition,
-                    {
-                        "disease_id": disease_id,
-                        "detail": answer,
-                    },
-                )
-                await update.message.reply_text(
-                    "✅ Please use /booking to book an appointment with our recommended doctor.",
-                    parse_mode=ParseMode.HTML,
-                )
             try:
                 await context.bot.edit_message_text(
                     answer,

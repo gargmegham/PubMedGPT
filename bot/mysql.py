@@ -393,9 +393,5 @@ class MySQL:
                 continue
             allowed_medicines[medicine.type] = medicine.detail
         return "\n".join(
-            [
-                f"{key}: {value}"
-                for key, value in allowed_medicines.items()
-                if value is not None
-            ]
+            [value for value in allowed_medicines.values() if value is not None]
         )
