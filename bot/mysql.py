@@ -319,14 +319,17 @@ class MySQL:
             if disease_question.value is None:
                 continue
             if disease_question.filter == "<":
-                first_integer_in_answer = re.findall(r"\d+", disease_answer.detail)[0]
-                if int(first_integer_in_answer) < int(disease_question.value):
-                    blocked_medicine_types.extend(
-                        [
-                            str(_).strip()
-                            for _ in str(disease_question.medicine).split(",")
-                        ]
-                    )
+                try:
+                    first_integer_in_answer = re.findall(r"\d+", disease_answer.detail)[0]
+                    if int(first_integer_in_answer) < int(disease_question.value):
+                        blocked_medicine_types.extend(
+                            [
+                                str(_).strip()
+                                for _ in str(disease_question.medicine).split(",")
+                            ]
+                        )
+                except IndexError:
+                    pass
         allowed_medicines = {}
         medicines = self.get_instances(
             None, Medicine, extra_filters={"disease_id": disease_id}

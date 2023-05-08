@@ -117,6 +117,7 @@ async def other_questions(update: Update, context: CallbackContext) -> int:
         f"<b>Here is your prescription:</b>\n{prescription}\n✅ Please use /booking to book an appointment with our recommended doctor.",
         parse_mode=ParseMode.HTML,
     )
+    mysql_db.set_attribute(user_id, "diagnosed_with", "")
     return ConversationHandler.END
 
 
