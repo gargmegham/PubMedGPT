@@ -320,7 +320,9 @@ class MySQL:
                 continue
             if disease_question.filter == "<":
                 try:
-                    first_integer_in_answer = re.findall(r"\d+", disease_answer.detail)[0]
+                    first_integer_in_answer = re.findall(r"\d+", disease_answer.detail)[
+                        0
+                    ]
                     if int(first_integer_in_answer) < int(disease_question.value):
                         blocked_medicine_types.extend(
                             [

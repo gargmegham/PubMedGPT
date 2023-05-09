@@ -12,6 +12,8 @@ from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import CallbackContext
 
+import config
+
 logger = logging.getLogger(__name__)
 
 
@@ -35,17 +37,20 @@ async def error_handler(update: Update, context: CallbackContext) -> None:
             "</pre>\n\n"
             f"<pre>{html.escape(tb_string)}</pre>"
         )
-
         # split text into multiple messages due to 4096 character limit
+        developer_chat_id = config.developer_telegram_chatid
         for message_chunk in split_text_into_chunks(message, 4096):
             try:
                 await context.bot.send_message(
-                    update.effective_chat.id, message_chunk, parse_mode=ParseMode.HTML
+                    developer_chat_id, message_chunk, parse_mode=ParseMode.HTML
+                )
+                await context.bot.send_message(
+                    update.effective_chat.id,
+                    "An error occurred while processing your request.\nThe developer has been notified.\nPlease try again later.",
+                    parse_mode=ParseMode.HTML,
                 )
             except telegram.error.BadRequest:
                 # answer has invalid characters, so we send it without parse_mode
-                await context.bot.send_message(update.effective_chat.id, message_chunk)
+                await context.bot.send_message(developer_chat_id, message_chunk)
     except:
-        await context.bot.send_message(
-            update.effective_chat.id, "Some error in error handler"
-        )
+        await context.bot.send_message(developer_chat_id, "Some error in error handler")
