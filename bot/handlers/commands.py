@@ -96,6 +96,6 @@ class CommandHandler:
             )
             return
         await update.message.reply_text(
-            "Please use below link to book an appointment 📅\n\nhttps://cal.com/agroha-solutions/medical-gpt",
+            "Please use below link to book an appointment 📅\n\nhttps://cal.com/breeze2000/telegram-medicalgpt",
             parse_mode=ParseMode.HTML,
         )
