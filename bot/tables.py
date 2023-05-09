@@ -150,3 +150,12 @@ class Disposition(Base):
     disease_id = Column(Integer, ForeignKey("disease.id"))
     user_id = Column(Text, nullable=False)
     timestamp = Column(DateTime, default=datetime.utcnow)
+
+
+class Booking(Base):
+    __tablename__ = "booking"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(Text, nullable=False)
+    event_id = Column(Text, nullable=False)
+    timestamp = Column(DateTime, default=datetime.utcnow)

@@ -1,0 +1,100 @@
+{
+  "triggerEvent": "BOOKING_CREATED",
+  "createdAt": "2023-05-09T06:07:32.599Z",
+  "payload": {
+    "type": "MedicalGPT Consultation",
+    "title": "Medical consultation with Dr. Dale",
+    "description": "meghamgarg+cal@gmail.com",
+    "additionalNotes": "meghamgarg+cal@gmail.com",
+    "customInputs": {},
+    "startTime": "2023-05-09T08:30:00Z",
+    "endTime": "2023-05-09T09:00:00Z",
+    "organizer": {
+      "id": 83341,
+      "name": "Megham Garg",
+      "email": "meghamgarg@gmail.com",
+      "username": "agroha-solutions",
+      "timeZone": "Asia/Calcutta",
+      "language": { "locale": "en" },
+      "timeFormat": "h:mma"
+    },
+    "responses": {
+      "name": { "label": "Your telegram username", "value": "megham_garg" },
+      "location": {
+        "label": "location",
+        "value": { "optionValue": "", "value": "integrations:daily" }
+      },
+      "email": {
+        "label": "email_address",
+        "value": "meghamgarg+cal@gmail.com"
+      },
+      "notes": {
+        "label": "additional_notes",
+        "value": "meghamgarg+cal@gmail.com"
+      },
+      "guests": { "label": "additional_guests" },
+      "rescheduleReason": { "label": "reschedule_reason" }
+    },
+    "userFieldsResponses": {},
+    "attendees": [
+      {
+        "email": "meghamgarg+cal@gmail.com",
+        "name": "megham_garg",
+        "timeZone": "Asia/Calcutta",
+        "language": { "locale": "en" }
+      }
+    ],
+    "location": "integrations:daily",
+    "destinationCalendar": {
+      "id": 80054,
+      "integration": "google_calendar",
+      "externalId": "meghamgarg@gmail.com",
+      "userId": 83341,
+      "eventTypeId": null,
+      "credentialId": 108906
+    },
+    "hideCalendarNotes": false,
+    "requiresConfirmation": null,
+    "eventTypeId": 287534,
+    "seatsShowAttendees": true,
+    "seatsPerTimeSlot": null,
+    "uid": "uMTKH4orUkM5eZ6BePC48a",
+    "conferenceData": {
+      "createRequest": { "requestId": "2db644eb-37a5-581a-99fa-ebe6ce513834" }
+    },
+    "videoCallData": {
+      "type": "daily_video",
+      "id": "4HpbuHNlmrxRXQ7ZSx3s",
+      "password": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyIjoiNEhwYnVITmxtcnhSWFE3WlN4M3MiLCJvIjp0cnVlLCJkIjoiYmJkOThhNzEtMTljOS00YmIxLWE1YzUtY2FmMWVjNWJkMTA1IiwiaWF0IjoxNjgzNjEyNDUxfQ.B_uFf9NtqED0q-aDhvMvB12K2IlqMK2Btkku7IMn-qQ",
+      "url": "https://meetco.daily.co/4HpbuHNlmrxRXQ7ZSx3s"
+    },
+    "iCalUID": "2267r5k84rodbd05g6cdir8o2o@google.com",
+    "appsStatus": [
+      {
+        "appName": "Cal Video",
+        "type": "daily_video",
+        "success": 1,
+        "failures": 0,
+        "errors": []
+      },
+      {
+        "appName": "Google Calendar",
+        "type": "google_calendar",
+        "success": 1,
+        "failures": 0,
+        "errors": [],
+        "warnings": []
+      }
+    ],
+    "eventTitle": "MedicalGPT Consultation",
+    "eventDescription": "",
+    "price": 0,
+    "currency": "usd",
+    "length": 30,
+    "bookingId": 372663,
+    "metadata": {
+      "videoCallUrl": "https://app.cal.com/video/uMTKH4orUkM5eZ6BePC48a"
+    },
+    "status": "ACCEPTED"
+  }
+}
