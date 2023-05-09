@@ -5,7 +5,7 @@ import handlers
 import medicalgpt
 from handlers.message import message_handler
 from mysql import MySQL
-from tables import User
+from tables import Booking, User
 from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import CallbackContext
@@ -33,7 +33,7 @@ class CommandHandler:
         user_id = update.message.from_user.id
         mysql_db.set_attribute(user_id, "last_interaction", datetime.now())
         await update.message.reply_text(
-            """Hi! I'm <b>Maya</b> your personal medical assistant 🤖.\n⚪ /register - Register yourself as a patient\n⚪ /new - Start new conversation\n⚪ /retry - Regenerate last bot answer\n⚪ /cancel - Cancel current conversation\n⚪ /help - Show this help message""",
+            """Hi! I'm <b>Maya</b> your personal medical assistant 🤖.\n⚪ /register - Register yourself as a patient\n⚪ /new - Start new conversation\n⚪ /retry - Regenerate last bot answer\n⚪ /cancel - Cancel current conversation\n⚪ /help - Show this help message\n⚪ /call - Book an appointment, if not already booked""",
             parse_mode=ParseMode.HTML,
         )
 
@@ -78,4 +78,24 @@ class CommandHandler:
             return
         await update.message.reply_text(
             "<i>Nothing to cancel...</i>", parse_mode=ParseMode.HTML
+        )
+
+    async def call_handle(update: Update, context: CallbackContext):
+        if await register_user_if_not_exists(update, context, update.message.from_user):
+            return
+        user_id = update.message.from_user.id
+        mysql_db.set_attribute(user_id, "last_interaction", datetime.now())
+        if mysql_db.check_if_object_exists(
+            user_id,
+            False,
+            Booking,
+        ):
+            await update.message.reply_text(
+                "You've already booked an appointment 📅\n\nPlease pay your dues by clicking on /pay",
+                parse_mode=ParseMode.HTML,
+            )
+            return
+        await update.message.reply_text(
+            "Please use below link to book an appointment 📅\n\nhttps://cal.com/agroha-solutions/medical-gpt",
+            parse_mode=ParseMode.HTML,
         )

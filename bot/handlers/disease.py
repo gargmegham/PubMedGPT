@@ -114,7 +114,7 @@ async def other_questions(update: Update, context: CallbackContext) -> int:
         },
     )
     await update.message.reply_text(
-        f"<b>Here is your prescription:</b>\n{prescription}\n✅ Please use /booking to book an appointment with our recommended doctor.",
+        f"<b>Here is your prescription:</b>\n{prescription}\n✅ Please use /call to book an appointment with our recommended doctor.",
         parse_mode=ParseMode.HTML,
     )
     mysql_db.set_attribute(user_id, "diagnosed_with", "")
@@ -124,7 +124,7 @@ async def other_questions(update: Update, context: CallbackContext) -> int:
 async def end(update: Update, context: CallbackContext) -> int:
     """Cancels and ends the conversation."""
     await update.message.reply_text(
-        "I hope this conversation was useful. Please use /booking to book an appointment.",
+        "I hope this conversation was useful. Please use /call to book an appointment.",
         reply_markup=ReplyKeyboardRemove(),
         parse_mode=ParseMode.HTML,
     )

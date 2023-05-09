@@ -28,6 +28,10 @@ async def post_init(application: Application):
             BotCommand(command="/new", description="Start new conversation"),
             BotCommand(command="/retry", description="Regenerate last bot answer"),
             BotCommand(command="/help", description="Show available commands"),
+            BotCommand(
+                command="/call",
+                description="Book an appointment with recommended Dr., if not already booked",
+            ),
             BotCommand(command="/cancel", description="Cancel current conversation"),
             BotCommand(command="/start", description="Start the bot"),
             BotCommand(
@@ -58,6 +62,9 @@ def run_bot() -> None:
     )
     application.add_handler(
         CommandHandler("help", command_handler.help_handle, filters=user_filter)
+    )
+    application.add_handler(
+        CommandHandler("call", command_handler.call_handle, filters=user_filter)
     )
     application.add_handler(
         CommandHandler("retry", command_handler.retry_handle, filters=user_filter)
