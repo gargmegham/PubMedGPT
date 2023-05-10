@@ -53,6 +53,8 @@ async def start(update: Update, context: CallbackContext) -> int:
                 "🚧 We're still working on this disease.\nPlease try again later. 🚫",
                 parse_mode=ParseMode.HTML,
             )
+            user_id = update.message.from_user.id
+            mysql_db.set_attribute(user_id, "diagnosed_with", "")
             return ConversationHandler.END
         context.user_data["current_question_id"] = first_question.id
         context.user_data["diagnosed_with_id"] = diagnosed_with_id
