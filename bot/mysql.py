@@ -33,12 +33,15 @@ class MySQL:
     def check_if_object_exists(
         self, user_id: int, raise_exception: bool = False, model: Base = User
     ) -> bool:
-        session = self.Session()
-        user = session.query(model).filter_by(user_id=str(user_id)).first()
-        session.close()
-        if raise_exception and user is None:
-            raise Exception(f"User {user_id} does not exist in the database")
-        return user is not None
+        try:
+            session = self.Session()
+            user = session.query(model).filter_by(user_id=str(user_id)).first()
+            if raise_exception and user is None:
+                raise Exception(f"User {user_id} does not exist in the database")
+            session.close()
+            return user is not None
+        except:
+            session.close()
 
     def update_n_used_tokens(
         self, user_id: int, model: str, n_input_tokens: int, n_output_tokens: int
@@ -92,16 +95,19 @@ class MySQL:
     def get_attribute(
         self, user_id: int, attribute: str, model: Base = User, extra_filters: dict = {}
     ):
-        session = self.Session()
-        instance = (
-            session.query(model)
-            .filter_by(user_id=str(user_id), **extra_filters)
-            .first()
-        )
-        session.close()
-        if instance is None:
-            return None
-        return getattr(instance, attribute)
+        try:
+            session = self.Session()
+            instance = (
+                session.query(model)
+                .filter_by(user_id=str(user_id), **extra_filters)
+                .first()
+            )
+            session.close()
+            if instance is None:
+                return None
+            return getattr(instance, attribute)
+        except:
+            session.close()
 
     def set_attribute(
         self,
@@ -111,12 +117,14 @@ class MySQL:
         model: Base = User,
         extra_filters: dict = {},
     ):
-        session = self.Session()
-        session.query(model).filter_by(user_id=str(user_id), **extra_filters).update(
-            {attribute: value}
-        )
-        session.commit()
-        session.close()
+        try:
+            session = self.Session()
+            session.query(model).filter_by(
+                user_id=str(user_id), **extra_filters
+            ).update({attribute: value})
+            session.commit()
+        finally:
+            session.close()
 
     def get_instances(
         self,
@@ -130,35 +138,45 @@ class MySQL:
         """
         Supported tables:
         """
-        session = self.Session()
-        instances = session.query(model)
-        if user_id is not None:
-            instances = instances.filter_by(user_id=str(user_id))
-        if extra_filters is not None:
-            instances = instances.filter_by(**extra_filters)
-        if id_greater_than is not None:
-            instances = instances.filter(model.id > id_greater_than)
-        if find_first:
-            instances = instances.order_by(model.id).first()
-        elif find_last:
-            instances = instances.order_by(model.id.desc()).first()
-        else:
-            instances = instances.all()
-        session.close()
-        return instances
+        try:
+            session = self.Session()
+            instances = session.query(model)
+            if user_id is not None:
+                instances = instances.filter_by(user_id=str(user_id))
+            if extra_filters is not None:
+                instances = instances.filter_by(**extra_filters)
+            if id_greater_than is not None:
+                instances = instances.filter(model.id > id_greater_than)
+            if find_first:
+                instances = instances.order_by(model.id).first()
+            elif find_last:
+                instances = instances.order_by(model.id.desc()).first()
+            else:
+                instances = instances.all()
+            session.close()
+            return instances
+        except:
+            session.close()
 
     def add_instance(self, user_id: int, model: Base, data: dict):
-        session = self.Session()
-        instance = session.add(model(user_id=str(user_id), **data))
-        session.commit()
-        session.close()
-        return instance
+        try:
+            session = self.Session()
+            instance = session.add(model(user_id=str(user_id), **data))
+            session.commit()
+            session.close()
+            return instance
+        except:
+            session.close()
 
     def remove_instance(self, user_id: int, model: Base, extra_filters: dict = {}):
-        session = self.Session()
-        session.query(model).filter_by(user_id=str(user_id), **extra_filters).delete()
-        session.commit()
-        session.close()
+        try:
+            session = self.Session()
+            session.query(model).filter_by(
+                user_id=str(user_id), **extra_filters
+            ).delete()
+            session.commit()
+        finally:
+            session.close()
 
     def prepare_patient_history(self, user_id: int, disease_id: int = None) -> list:
         user = self.get_instances(user_id, User, find_first=True)
