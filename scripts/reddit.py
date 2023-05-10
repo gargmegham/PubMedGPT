@@ -38,9 +38,7 @@ def scrape_titles():
             ),
         )
         with engine.connect() as conn:
-            all_posts = reddit.subreddit("AskDocs").top(
-                time_filter="all", limit=None
-            )
+            all_posts = reddit.subreddit("AskDocs").top(time_filter="all", limit=None)
             existing_titles = conn.execute(
                 sqlalchemy.text("SELECT title FROM reddit_ask_docs")
             ).fetchall()
