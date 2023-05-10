@@ -24,6 +24,7 @@ This repo is ChatGPT re-created as Telegram Bot. **And it works great.**
 - `/disease` - Diagnose a disease
 - `/call` - Book an appointment, if not already booked
 - `/end` - Ends the current conversation
+- '/pay' - Pay for services
 
 ## Setup
 1. Get your [OpenAI API](https://openai.com/api/) key
