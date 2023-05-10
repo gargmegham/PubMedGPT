@@ -99,6 +99,8 @@ class MySQL:
             .first()
         )
         session.close()
+        if instance is None:
+            return None
         return getattr(instance, attribute)
 
     def set_attribute(
