@@ -46,7 +46,7 @@ async def error_handler(update: Update, context: CallbackContext) -> None:
                 )
                 await context.bot.send_message(
                     update.effective_chat.id,
-                    "An error occurred while processing your request.\nThe developer has been notified.\nPlease try again later.",
+                    "🚫 An error occurred while processing your request.\nThe developer 🧑🏻‍💻 has been notified.\nPlease try again later. 🙏",
                     parse_mode=ParseMode.HTML,
                 )
             except telegram.error.BadRequest:
