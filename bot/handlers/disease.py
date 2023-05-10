@@ -48,6 +48,12 @@ async def start(update: Update, context: CallbackContext) -> int:
             find_first=True,
             extra_filters={"disease_id": diagnosed_with_id},
         )
+        if first_question is None:
+            await update.message.reply_text(
+                "🚧 We're still working on this disease.\nPlease try again later. 🚫",
+                parse_mode=ParseMode.HTML,
+            )
+            return ConversationHandler.END
         context.user_data["current_question_id"] = first_question.id
         context.user_data["diagnosed_with_id"] = diagnosed_with_id
         await update.message.reply_text(
