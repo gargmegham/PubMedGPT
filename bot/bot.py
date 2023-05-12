@@ -86,9 +86,7 @@ def run_bot() -> None:
         )
     )
     application.add_handler(
-        CallbackQueryHandler(
-            command_handler.choose_disease_callback, filters=user_filter
-        )
+        CallbackQueryHandler(command_handler.choose_disease_callback)
     )
     application.add_handler(handlers.registeration_handler(user_filter))
     application.add_handler(handlers.disease(user_filter))
