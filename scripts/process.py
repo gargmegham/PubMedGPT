@@ -54,7 +54,11 @@ def process_data_jsonl():
             completion = line["completion"]
             processed_jsonl.append(
                 {
-                    "prompt": (f"Question: Is following sentence indicating {completion}?\nSentence: {prompt}\nAnswer:Yes/No").lower().strip(),
+                    "prompt": (
+                        f"Question: Is following sentence indicating {completion}?\nSentence: {prompt}\nAnswer:Yes/No"
+                    )
+                    .lower()
+                    .strip(),
                     "completion": "yes",
                 }
             )

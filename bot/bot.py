@@ -10,6 +10,7 @@ from telegram.ext import (
     AIORateLimiter,
     Application,
     ApplicationBuilder,
+    CallbackQueryHandler,
     CommandHandler,
     MessageHandler,
     filters,
@@ -42,6 +43,10 @@ async def post_init(application: Application):
             ),
             BotCommand(command="/disease", description="Diagnose a disease"),
             BotCommand(command="/end", description="Ends the current conversation"),
+            BotCommand(
+                command="/choose_disease",
+                description="Choose a disease, and start it's diagnosis",
+            ),
         ]
     )
 
@@ -74,6 +79,16 @@ def run_bot() -> None:
     )
     application.add_handler(
         CommandHandler("cancel", command_handler.cancel_handle, filters=user_filter)
+    )
+    application.add_handler(
+        CommandHandler(
+            "choose_disease", command_handler.choose_disease, filters=user_filter
+        )
+    )
+    application.add_handler(
+        CallbackQueryHandler(
+            command_handler.choose_disease_callback, filters=user_filter
+        )
     )
     application.add_handler(handlers.registeration_handler(user_filter))
     application.add_handler(handlers.disease(user_filter))

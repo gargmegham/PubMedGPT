@@ -5,10 +5,10 @@ import handlers
 import medicalgpt
 from handlers.message import message_handler
 from mysql import MySQL
-from tables import Booking, User
-from telegram import Update
+from tables import Booking, Disease
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.constants import ParseMode
-from telegram.ext import CallbackContext
+from telegram.ext import CallbackContext, ContextTypes
 from utils import is_previous_message_not_answered_yet, register_user_if_not_exists
 
 mysql_db = MySQL()
@@ -33,7 +33,7 @@ class CommandHandler:
         user_id = update.message.from_user.id
         mysql_db.set_attribute(user_id, "last_interaction", datetime.now())
         await update.message.reply_text(
-            """Hi! I'm <b>Maya</b> your personal medical assistant 🤖.\n⚪ /register - Register yourself as a patient\n⚪ /new - Start new conversation\n⚪ /retry - Regenerate last bot answer\n⚪ /cancel - Cancel current conversation\n⚪ /help - Show this help message\n⚪ /call - Book an appointment, if not already booked""",
+            """Hi! I'm <b>Maya</b> your personal medical assistant 🤖.\n⚪ /register - Register yourself as a patient\n⚪ /new - Start new conversation\n⚪ /retry - Regenerate last bot answer\n⚪ /cancel - Cancel current conversation\n⚪ /help - Show this help message\n⚪ /call - Book an appointment, if not already booked\n⚪ /choose_disease - Choose a disease, and start it's diagnosis""",
             parse_mode=ParseMode.HTML,
         )
 
@@ -99,3 +99,34 @@ class CommandHandler:
             "Please use below link to book an appointment 📅\n\nhttps://cal.com/breeze2000/telegram-medicalgpt",
             parse_mode=ParseMode.HTML,
         )
+
+    async def choose_disease(update: Update, context: CallbackContext):
+        if await register_user_if_not_exists(update, context, update.message.from_user):
+            return
+        available_diseases = [
+            disease.detail
+            for disease in mysql_db.get_instances(
+                None,
+                Disease,
+            )
+        ]
+        keyboard = [
+            [
+                InlineKeyboardButton(
+                    str(disease).replace("_", " ").title(), callback_data="disease"
+                )
+                for disease in available_diseases
+            ],
+            [InlineKeyboardButton("Option 3", callback_data="3")],
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+        await update.message.reply_text(
+            "Please choose disease you're suffering from:", reply_markup=reply_markup
+        )
+
+    async def choose_disease_callback(
+        update: Update, context: ContextTypes.DEFAULT_TYPE
+    ) -> None:
+        query = update.callback_query
+        await query.answer()
+        await query.edit_message_text(text=f"Selected disease: {query.data}")
