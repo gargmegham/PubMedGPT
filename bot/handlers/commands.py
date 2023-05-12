@@ -119,7 +119,7 @@ class CommandHandler:
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         await update.message.reply_text(
-            "Please choose disease you're suffering from:", reply_markup=reply_markup
+            "Please choose a disease which you think best fits your concern:", reply_markup=reply_markup
         )
 
     async def choose_disease_callback(
