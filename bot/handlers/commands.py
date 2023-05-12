@@ -122,7 +122,8 @@ class CommandHandler:
             )
         reply_markup = InlineKeyboardMarkup(keyboard)
         await update.message.reply_text(
-            "Please choose a disease which you think best fits your concern:", reply_markup=reply_markup
+            "Please choose a disease which you think best fits your concern:",
+            reply_markup=reply_markup,
         )
 
     async def choose_disease_callback(
@@ -138,6 +139,6 @@ class CommandHandler:
             query.data,
         )
         await query.edit_message_text(
-            text=f"Confirmed choice: {query.data.split(',')[0]}.\nPlease click on /diagnose to start the diagnosis conversation.",
+            text=f"Confirmed choice: {query.data.split(',')[0].replace('_', ' ').title()}.\nPlease click on /diagnose to start the diagnosis conversation.",
             parse_mode=ParseMode.HTML,
         )
