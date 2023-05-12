@@ -110,13 +110,16 @@ class CommandHandler:
                 Disease,
             )
         }
-        keyboard = [
-            InlineKeyboardButton(
-                str(disease).replace("_", " ").title(),
-                callback_data=f"{disease},{available_diseases[disease]}",
+        keyboard = []
+        for disease in available_diseases.keys():
+            if len(keyboard) == 0 or len(keyboard[-1]) == 2:
+                keyboard.append([])
+            keyboard[-1].append(
+                InlineKeyboardButton(
+                    str(disease).replace("_", " ").title(),
+                    callback_data=f"{disease},{available_diseases[disease]}",
+                )
             )
-            for disease in available_diseases.keys()
-        ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         await update.message.reply_text(
             "Please choose a disease which you think best fits your concern:", reply_markup=reply_markup
