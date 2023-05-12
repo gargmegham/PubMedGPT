@@ -48,4 +48,3 @@
 {"prompt": "my son is feeling sick and needs to be treated.", "completion": "my child is sick"}
 {"prompt": "my son is not feeling well and needs medical assistance.", "completion": "my child is sick"}
 {"prompt": "my son is experiencing a health problem and needs care.", "completion": "my child is sick"}
-{"prompt": "nan", "completion": "my child is sick"}

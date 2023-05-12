@@ -1,0 +1,998 @@
+{"prompt":"wants antibiotics for a cold?\nsentence: can i take antibiotics to help treat my cough, nose, ear, throat, or fever?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm concerned that i have a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm noticing that my symptoms are consistent with a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have itching in my vaginal area.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest feels like it's on fire.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a feeling of fullness and ringing in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm dealing with vaginal discomfort and discharge that's affecting my sex life.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing cognitive confusion.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: my bowels are loose\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is not feeling well and needs attention.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an x-ray to rule out a fracture.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm dealing with gastrointestinal irritation.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: is it necessary to fast before a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head is hurting on one side.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is experiencing health issues.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i have a sharp pain in my ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel powerless.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's causing my skin to become itchy and inflamed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is feeling sensitive to touch.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an inflamed conjunctiva.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've been feeling sick with a combination of symptoms including nausea, cough, fever, and sore throat for three days.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have a digestive dysfunction with vomiting and diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm dealing with a persistent cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have a gastrointestinal upset with nausea, vomiting, and diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i have an earache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm experiencing a tightness or tension in my back.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i have a splitting headache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have a stomach flu.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an eye virus.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've been battling a combination of symptoms such as nausea, cough, fever, and sore throat for the past three days.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back feels like it's on fire.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have bowel irregularities.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head is pounding.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a feeling of fluid in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have inflammation of the eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i tripped and hit my head on the ground.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear feels like it's been hit.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest feels sore.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm coughing and feeling like i'm choking.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like i'm about to fall over.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is not well and needs to rest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm experiencing a sense of helplessness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i have a hacking, persistent cough that's making me feel miserable.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've been experiencing a persistent set of symptoms for the past three days including nausea, cough, fever, and sore throat.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm experiencing a lack of physical strength.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm feeling nauseous and have diarrhea with vomiting.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm feeling a dull ache in my upper back.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i have a feeling of pressure and pain in my ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is making it hard to button or zip things up.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: my nose is congested.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling poorly and needs help.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an imaging test.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can i take antibiotics to help fight off my illness?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing brain fog.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm exhibiting symptoms that suggest a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal itching that's causing me to feel anxious.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm experiencing loose and unformed stools.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is throbbing with a dull pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have a gastrointestinal illness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm experiencing an upset stomach with vomiting and frequent bowel movements.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back feels like it's been twisted or contorted.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally disconnected.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally scattered.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've been dealing with a persistent set of symptoms for three days now including nausea, cough, fever, and sore throat.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can you order a blood test for me?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is dealing with a health issue.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm feeling a pulling sensation in my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like i'm about to lose my balance.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: my nose is running like a faucet with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally dazed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have an upset digestive system.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can you prescribe antibiotics for my illness?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm noticing skin bumps that are causing me to feel like my skin is rough and uneven.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i'm experiencing pain in my eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm congested.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm feeling a dull pain in my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm experiencing sharp pain in my back.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling sick and needs to rest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: may i be given antibiotics to help alleviate my symptoms?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back feels like it's being squeezed or compressed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have bowel problems.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger feels like it's been jammed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i have the shits\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger feels sore.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest is aching.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: my skin has developed a rash that's causing me to feel like i'm not in control of my body.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i have the hershey squirts\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm feeling fatigued with a cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i have a barking cough.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm suffering from sharp ear pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have bumps on my skin that are causing me to feel self-conscious about my appearance.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally weakened.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i hurt my finger and it's making it difficult to type or write.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can i take antibiotics to help fight off my cough, nose, ear, throat, or fever?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm feeling congested in my nose.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have skin bumps that are causing me discomfort.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm experiencing ear pain that's accompanied by a fever.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i'm experiencing a foreign body sensation in my eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: my nasal passages are inflamed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i have a headache that comes and goes.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm feeling a cramp in my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest is throbbing.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i have a squeezing sensation in my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm experiencing a sense of frailty.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is causing me pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have skin bumps that are making my skin feel bumpy and uneven.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm having difficulty breathing through my nose.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: may i be given antibiotics to help treat my condition?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: is it possible to have a blood test without a referral?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm dealing with a cold virus.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like my surroundings are spinning.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have a digestive disorder with nausea, vomiting, and diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: my sinuses are blocked.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've been experiencing a set of symptoms for three days including nausea, cough, fever, and sore throat.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i'm experiencing a cluster headache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i'm experiencing discomfort when looking at bright lights.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm coughing and wheezing.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally foggy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing a lack of mental focus.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing muffled hearing in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i have a case of the hershey squirts\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm experiencing digestive issues with vomiting and diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling lightheaded and unsteady.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: is it possible for me to take antibiotics for my condition?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have skin bumps that are causing me to feel self-conscious.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing cognitive slowness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's making me feel uncomfortable in my own skin.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've been feeling unwell with a combination of symptoms including nausea, cough, fever, and sore throat for the past three days.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have a stomach infection.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: my throat feels scratchy with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling weak and needs to recover.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a sensation of popping in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's causing my skin to flake or peel.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm experiencing a cough that's causing me to feel dizzy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i'm suffering from a skin rash.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is hurting.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i'm looking to get an x-ray.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have an upset gastrointestinal tract.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal discharge that's causing me to feel like something is wrong.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have itching in my vaginal area with discharge.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i took a tumble and hit my head on the way down.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing a lack of mental clarity.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm experiencing discomfort that could be a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: would antibiotics be an effective treatment for my symptoms?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing a lack of mental sharpness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have bumps on my skin that are causing redness and irritation.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i injured my finger and it's feeling hot to the touch.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is suffering from an illness and needs care.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is not feeling up to par.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal discharge that's causing me to feel like i need to constantly clean myself.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a feeling of numbness and tingling in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i feel like i have a cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel weak and tired.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest feels like it's in a vice.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm feeling like i'm developing a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: may i have a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an inflamed retina.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm having trouble getting air through my nose.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm feeling a tightness in my chest that won't go away.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have an upset bowel.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: would taking antibiotics be a helpful way to manage my symptoms?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i can't hear out of one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm noticing that my symptoms are worsening and could be a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is throbbing with pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i'm experiencing excessive tearing of the eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm dealing with a hacking, dry cough.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm experiencing symptoms that are typical of a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an x-ray scan.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm dealing with a cough that's causing me to feel short of breath.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back feels sore.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i injured my finger and it's making it hard to grip things.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i'm experiencing itching and burning of the eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i have a stabbing pain in my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a misfortune and hit my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear is painful and feels itchy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: i think i need a blood test. can you help me?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can i ask for a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i'm dealing with a headache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm feeling a shooting pain in my back.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm experiencing vaginal discharge.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head feels like it's about to explode.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm feeling run down.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have a stomach bug.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i have the runs\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a loss of balance.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i'm experiencing a series of symptoms including nausea, cough, fever, and sore throat that have been present for three days now.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: my skin has developed a rash that's causing blisters.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need to get an imaging study.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have bowel incontinence.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can i be given antibiotics to help speed up my recovery?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have a stomach virus.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can you authorize a blood test for me?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i'm experiencing a combination of symptoms such as nausea, cough, fever, and sore throat that have been present for three days now.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have an upset stomach and loose stools.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm experiencing chest discomfort.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can i have a blood test at this clinic?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling sick and needs assistance.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm noticing changes that could be a sign of a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm experiencing a sense of weakness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm feeling an earache that radiates to my jaw or neck.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm feeling stuffed up.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have bumps on my skin that are making me feel like my skin is lumpy and uneven.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a mishap and hit my head on a fixture.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head is hurting with a sensitivity to light.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a feeling of popping and crackling in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear feels like it's been stabbed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm experiencing a cough that's making my eyes water.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest feels like it's being squeezed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like i'm going to collapse.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm noticing small, black bumps on my skin that are causing me concern\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a sensation of distortion in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm experiencing pain and discomfort that could be a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm struggling to breathe comfortably.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: may i be prescribed antibiotics to help with my illness?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: my nose is drippy with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm dealing with vaginal discomfort and discharge that's causing me to feel like i can't be intimate with my partner.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest feels achy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally dull.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have a viral infection in my eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an x-ray examination.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm experiencing discomfort that could be a sign of a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a sensation of sensitivity to sound in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest is experiencing sharp pains.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally depleted.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a sensation of being lightheaded and dizzy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest is hurting.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head feels like it's being squeezed with my headache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like i'm going to lose consciousness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a sensation of discomfort in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head is pounding on both sides.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i require a diagnostic imaging test.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a feeling of being disoriented.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm dealing with a persistent cough that's making it hard to speak.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm dealing with digestive discomfort.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel exhausted and depleted.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i have discomfort in my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i have a pain in my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm feeling infirm.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i have a cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can you give me information on the accuracy of blood tests?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm feeling a constriction in my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: my ear feels plugged.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm experiencing unusual vaginal itching.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i have a cough that's making it hard to swallow.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's causing me to avoid certain clothing or situations.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i have back pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm congested.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is battling a sickness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i'm dealing with a rash that's making me feel like i'm alone in my discomfort.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm coughing and choking.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is not feeling his best.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's causing redness and irritation.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need a diagnostic radiograph.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel exhausted.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm experiencing a sense of lethargy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an imaging procedure to diagnose my problem.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i have a sharp stabbing pain in my back.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can i take antibiotics to help alleviate my discomfort?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm struggling to breathe through my nose.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm dealing with discomfort that's consistent with a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like i'm losing my balance.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i took a tumble and hit my head on the floor.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is not feeling like himself.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal itching that's causing me to feel like i need to avoid certain situations.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is hurting so much that it's difficult to sit or stand.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have a contagious eye infection.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally fogged.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm dealing with gastrointestinal discomfort with vomiting and diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm noticing changes in my urinary habits that could be a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear is swollen and painful.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: my ear feels like it's blocked.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i'm dealing with finger pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm experiencing loose and explosive diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's making my skin feel sensitive to the touch.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm experiencing a stabbing, shooting pain in my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm dealing with vaginal discomfort and discharge that's causing me to feel like i need to see a doctor.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally confused.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a slip and fell, hitting my head on the way down.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i'm dealing with a dull ache in my finger.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i have to undergo an x-ray.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: my skin has broken out in a rash.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm experiencing fatigue.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is hurting so much that it's hard to use.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a collision and hit my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm experiencing a radiating pain in my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm experiencing throbbing ear pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can antibiotics help me recover faster?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm dealing with a cough that's causing my mouth to feel dry.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel languid.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing a lack of mental stamina.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have small, raised bumps on my skin that are causing me to feel like my skin is bumpy and rough.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm feeling queasy and have frequent diarrhea and vomiting.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have digestive irregularities.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: for the last three days, i have been dealing with nausea, a cough, fever, and a sore throat.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can you suggest the most suitable blood test for my needs?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm experiencing vaginal discomfort and itching that's causing me to feel worried.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is aching.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is making it hard to move.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling sick and needs to recover.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm experiencing discomfort that's similar to a previous uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm experiencing skin bumps that are causing me to feel like my skin is inflamed and irritated.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i have a burning sensation in my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel frail.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling dizzy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back feels like it's locked up.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm experiencing a tickle in my throat with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm suffering from frequent bowel movements and diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have bumps on my skin that are causing me to feel like my skin is rough and scaly.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm suffering from gastrointestinal issues.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm feeling like i need to rule out a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head feels like it's splitting in two.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm dealing with intense back pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm dealing with vaginal discomfort and discharge that's causing me to feel like i can't go out in public.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling weak and needs attention.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: my nose is clogged.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm dealing with a cough that's causing my throat to feel raw.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i think i may be suffering from a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm feeling a shooting pain that comes and goes in my ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm dealing with an excruciating pain in my back.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm dealing with gastrointestinal complications.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: may i receive antibiotics to help improve my condition?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have an upset intestinal system.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i fell and hit my head on a hard, unforgiving surface.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is causing me to feel nauseous or dizzy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i have a hacking cough.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i fell and made contact with a hard surface with my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling poorly and needs attention.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm experiencing a sharp, stabbing pain in my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i have a rattling cough.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have a pinkish hue to my eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm noticing that my symptoms are consistent with a recurrent uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm experiencing loose stools.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i have a case of the bubble guts\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i have a stomach bug\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm dealing with vaginal discomfort.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i took a fall and struck my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm dealing with skin bumps that are causing me to feel like i need to constantly touch my skin.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest feels constricted.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm feeling rundown.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm having trouble smelling things.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i require an x-ray.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have a viral keratitis.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i'm suffering from loose stools\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have skin bumps that are causing me to feel embarrassed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm feeling sick to my stomach, vomited, and have diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: my ears are clogged with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: is it appropriate for me to take antibiotics for my symptoms?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: it appears that i might have a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm experiencing frequent diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i hurt my digit.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest is throbbing with pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: for three days now, i have been experiencing symptoms of nausea, cough, fever, and sore throat.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm having a stabbing sensation in my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel enervated.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i have a constant ache in my ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i have the squirts\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm dealing with small, raised bumps on my skin.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have the runs.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an inflamed lacrimal gland.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i stumbled and made contact with my head on a fixed object.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm feeling debilitated.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm coughing and clearing my throat constantly.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: would taking antibiotics be beneficial for my symptoms?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i have a persistent cough that's causing my chest to feel tight.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i have a headache that's worse when i move my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear is tender.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: is it necessary for me to take antibiotics to treat my symptoms?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an inflamed blood vessel in my eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm feeling sick to my stomach and have diarrhea with vomiting.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing cognitive impairment.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally tired.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have a corneal abrasion.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i'm feeling dizzy and have a headache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i'm having loose bowel movements\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: my nostrils feel blocked.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: is it necessary for me to take antibiotics to manage my symptoms?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i have a stabbing pain in my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i lost my balance and hit my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can you tell me how often i need to have a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need to get a bone x-ray.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i have a low-grade fever with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an imaging study to assess my injury.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i'm dealing with a rash that's causing me to feel fatigued or weak.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an x-ray to find the source of my pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i have a feeling that i have a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is causing me pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i'm dealing with an itchy rash on my skin.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm experiencing a loss of vitality.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm feeling a deep ache in my back.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm feeling aches and pains with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal discharge that's causing me to feel like i'm constantly wet.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm feeling a stabbing pain in my ear when i swallow.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i have a cough that's causing my nose to run.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i'm experiencing a headache with nausea and vomiting.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm feeling like my body is fighting a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i have a case of the runs\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i have a case of the trots\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a sensation of imbalance and disorientation due to my ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm having chest spasms.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm feeling chilly with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i'm dealing with a rash that's causing me to feel embarrassed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i can't breathe through my nose.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling sick and needs medical attention.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling ill and needs medical attention.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i have a sharp pain in my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a feeling of fullness in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i have explosive diarrhea\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have sore eyes.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear is hurting and feels congested.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear hurts when i lie down on it.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: could i get a blood test as part of my check-up?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i slipped and made contact with my head on something unyielding.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is battling an infection.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i'm dealing with a rash that's making me feel embarrassed to go out in public.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is stiff and painful.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm dealing with a persistent cough that's making me feel weak.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: my nose is sore with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i fell down and hit my head on a hard surface.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm experiencing vaginal discomfort and itching that's making me feel self-conscious.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest feels heavy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i'm experiencing loose stools\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm experiencing coughing spells.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an imaging scan to confirm a diagnosis.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i'm having bowel trouble\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest feels like it's being compressed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm dealing with raised bumps on my skin that are itchy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can you tell me what to expect during a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally unfocused.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: my nose feels stuffy and congested.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head is tender to the touch.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm experiencing bumps on my skin that are causing me to feel worried about my health.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm dealing with a nagging ache in my back.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: my ear feels like it's blocked by pressure.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can you prescribe antibiotics to help with my condition?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally slow.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear feels like it's on fire.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm dealing with gastrointestinal disorder with vomiting and diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm experiencing stomach upset and loose stools.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i have a hurting finger.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear is painful and feels like it's full of fluid.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: do you think antibiotics would help alleviate my symptoms?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i must have an x-ray taken.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: i would like to know how to request a blood test.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is throbbing with a dull pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've been feeling sick with a set of symptoms including nausea, cough, fever, and sore throat for three days straight.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i require a diagnostic imaging test for my condition.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm sniffling a lot.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm having difficulty breathing deeply because of my chest pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need radiographic imaging.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm experiencing a lack of energy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest feels like it's being crushed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can you inform me of the cost of a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm feeling like i may be at risk for a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back hurts\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is feeling sore and tender.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm experiencing cold chills.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm experiencing gastrointestinal distress.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's causing me discomfort.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing a lack of mental acuity.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm feeling a sharp pain that's accompanied by discharge from my ear\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm experiencing bowel urgency.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally overwhelmed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling weak and ill.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a feeling of deafness in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i have a cough that's keeping me up at night.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm experiencing a lack of vigor.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm experiencing vaginal discomfort and itching that's causing me to feel like i need to constantly use the restroom.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm experiencing diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm dealing with persistent back pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm coughing and gasping for breath.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have a pus-like discharge from my eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is feeling strained and sore.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm noticing that my symptoms are getting worse and could be a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm having trouble breathing normally.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a feeling of inflammation and soreness in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i have a stuffy nose.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling under the weather and needs care.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like i'm about to topple over.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an x-ray to identify my problem.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had an incident and hit my head on something hard.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm noticing small, pimple-like bumps on my skin.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm coughing and feeling like i'm suffocating.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a sensation of itchiness in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i have a headache that's accompanied by blurred vision.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: my voice is raspy with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's causing my skin to feel tender.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm feeling dizzy with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head feels heavy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an eye allergy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm pretty sure i have a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal discharge that's causing me to feel self-conscious about my body.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need a radiology exam.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: may i have antibiotics prescribed to help ease my discomfort?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm feeling stuffed up in my nasal passages.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm dealing with a cough that won't go away.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: is it appropriate for me to take antibiotics to treat my cough, nose, ear, throat, or fever?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm experiencing pain that radiates from my back to other parts of my body.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i fell down and hit my head on a stationary object.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like i'm swaying or spinning.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have small, flesh-colored bumps on my skin that are causing me discomfort.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an eye condition.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i injured my finger and it's making it hard to hold things.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm experiencing discomfort that's similar to what i've felt with a uti before.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally stuck.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have watery bowel movements.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i'm experiencing a sudden loss of vision in one or both eyes.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel decrepit.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: my bowel movements are watery and frequent\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm feeling nauseous, vomited, and have diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is making it difficult to stand up straight.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a sensation of buzzing and ringing in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've been dealing with a series of symptoms for three days now including nausea, cough, fever, and sore throat.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like the ground is moving beneath me.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm experiencing vaginal discomfort and itching.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i have a gnawing pain in my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm feeling like i'm developing a uti again.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had an accident and struck my head on something.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i have a cough.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing a lack of mental clarity and focus\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a misfortune and struck my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm dealing with a chest cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i believe i may have a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm suffering from an upset digestive system.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling ill and needs rest and recovery time.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back feels like it's in knots or spasm.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i require a medical image of my body.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest is radiating pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have a herpes simplex infection in my eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm having ear discomfort.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i'm feeling a pulsating pain in my forehead with my headache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm suffering from a cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i injured my finger and it's causing me to feel nauseous.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm feeling a shooting pain in my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm feeling lethargic with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i'm feeling ill with a set of symptoms including nausea, cough, fever, and sore throat that have been present for three days.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have a strong odor coming from my vaginal discharge.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can you recommend a laboratory for a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally groggy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally burnt out.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is causing me a great deal of pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i'm experiencing gastrointestinal distress\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can i get a blood test done?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a feeling of numbness in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a sensation of ringing in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel wobbly.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's causing my skin to feel like it's crawling or tingling.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i'm experiencing discomfort in my finger.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing a lack of mental dexterity.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally blunted.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is hurting me a lot.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally sluggish.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a sensation of echo in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm feeling like my symptoms are indicative of a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a blockage in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: is it possible to get a blood test at home?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is not feeling well and needs medical assistance.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm experiencing a stabbing pain in my ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: my nose is itchy with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm experiencing a sense of feebleness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can antibiotics help to improve my condition?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm noticing little bumps on my skin that are causing me to worry.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm suffering from back pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm experiencing symptoms that i think are related to a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing a lack of mental alertness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal discharge that's causing me to feel like i need to wear a panty liner all the time.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can antibiotics help improve my condition?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head feels like it's being stabbed with a knife.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i'm feeling a shooting pain in my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i feel like i'm going to pass out.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's making my skin feel hot.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i have a cough that's causing me to feel like i'm going to pass out.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm dealing with skin bumps that are causing my skin to feel bumpy and rough.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i suspect i have a urinary tract infection.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm dealing with vaginal discomfort and odor.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i'm experiencing redness and swelling of the eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: my intestines are irritated\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: my ear feels like it's stuffed with cotton.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling unwell and needs medical care.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear is aching.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i injured my finger and it's stiff.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm feeling feverish with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm experiencing nasal irritation.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a sensation of pressure and pain in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an x-ray to verify my condition.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing dizziness and weakness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i fell and made contact with my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: my skin is covered in a rash.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: my nasal passages are blocked.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a sensation of being unsteady and nauseous.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an irritated eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i hurt my finger and it's causing me to feel dizzy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm feeling queasy, vomited, and have diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an inflamed optic nerve.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: my stomach is churning\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is feeling very sensitive to touch.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm noticing that my symptoms are affecting my daily life and could be a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm dealing with a cough that's causing my chest to ache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm feeling a sharp stabbing pain in the center of my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i'm experiencing a sharp stabbing pain in my finger.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm noticing that my symptoms match those of a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm dealing with vaginal discomfort and discharge that's making me feel uncomfortable.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling sick and needs to be taken care of.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is experiencing a health problem and needs care.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have a bacterial infection in my eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need to get an x-ray done.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm experiencing symptoms that are making me think of a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a collision and hit my head on a hard surface.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm noticing symptoms that indicate a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: may i receive antibiotics to help combat my illness?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm suffering from digestive distress.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: my skin has developed a rash that's causing me to feel hot and uncomfortable.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: my hearing is distorted in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had an incident and hit my head on a solid structure.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head is hurting with a tightness in my temples.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i'm feeling a pressure behind my eyes with my headache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an inflamed eyelid.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i have a persistent headache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing a lack of mental flexibility.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like my head is spinning.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm feeling lethargic.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is causing me to feel a pins-and-needles sensation.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm dealing with gastrointestinal symptoms.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have skin bumps that are causing me to feel like i need to avoid certain clothing or situations.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can i request a specific blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i have an intense earache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is making it hard to do everyday tasks.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a tumble and hit my head on a solid surface.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel faint.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a slip and hit my head on a hard object.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: may i know how to get a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i have a chesty cough.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm experiencing ear pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i'm experiencing diarrhea\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm experiencing a cough that's causing me to feel lightheaded.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: my skin has developed a rash that's making it hard to concentrate.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a sensation of itchiness and irritation in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: may i request a blood test from my doctor?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: may i please have a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm experiencing chronic diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like i'm about to pass out.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a buzzing sensation in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have skin bumps that are causing me to feel like i need to constantly cover my skin.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: it's possible that i have a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a slip and hit my head on a rigid surface.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally fuzzy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have a red and inflamed eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a sensation of being lightheaded and off-balance.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: is taking antibiotics necessary for treating my cough, nose, ear, throat, or fever?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm feeling a pulsating pain in my ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal discharge that's causing me to feel self-conscious.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally drained.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have bumps on my skin that are causing me to feel like my skin is irritated and red.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest feels tender.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i injured my finger.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest feels like it's being gripped.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an inflamed iris.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a misstep and hit my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: would antibiotics be a good option for me to consider?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've been battling a combination of symptoms such as nausea, cough, fever, and sore\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i fell over and hit my head on the way down.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i'm noticing a rash on my skin that wasn't there before.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm coughing uncontrollably.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear is hurting and feels clogged.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a sensation of being off-balance.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i'm suffering from liquid stools\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i fell and hit my head on a stationary object.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i have a throbbing headache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is suffering from a health condition.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: is it possible to perform a blood test today?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a sensation of being unsteady and dizzy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is feeling like it's been cut or lacerated.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have a digestive ailment.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a sensation of being dizzy and disoriented.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i stumbled and hit my head on a fixed object.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm feeling feeble.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is feeling like it's been pulled or strained.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i stumbled and hit my head on a surface.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing a lack of mental agility.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm feeling debilitated and exhausted.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i have a nagging pain in my back.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have a gastrointestinal infection.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i have a headache that's worse when i lay down.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i'm feeling nauseous with my headache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a sensation of being lightheaded and weak.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm experiencing small, itchy bumps on my skin that are causing me discomfort.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can i book a blood test appointment?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have a stomach bug.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm experiencing a lack of stamina.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like i'm about to black out or faint.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i'm experiencing digestive issues\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm experiencing small, hard bumps on my skin.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling poorly.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm having difficulty taking deep breaths.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's causing my skin to feel rough and bumpy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm feeling sick with a cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an eye infection.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a sensation of itching and burning in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a sensation of dizziness and imbalance due to my ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: my stool is runny\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can you prescribe antibiotics to help me feel better?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can i be referred for a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i'm feeling under the weather with a set of symptoms including nausea, cough, fever, and sore throat for three days.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i have the sniffles.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm coughing and feeling like i can't catch my breath.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i require a medical image of my bones.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i'm experiencing dryness in my eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm dealing with a cough that's making me feel like i need to lie down.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a sensation of throbbing in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm experiencing vaginal discomfort and itching that's making me feel frustrated.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: is it possible to get a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i'm experiencing a headache with a fever.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a feeling of congestion in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i have a sore ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an imaging procedure to investigate my condition.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like i'm about to faint or collapse.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i have a bad case of diarrhea\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm feeling congested in my chest with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: my nose is running with a cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm concerned that i'm dealing with a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back feels like it's in knots.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally muddled.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm experiencing vaginal discomfort and itching that's causing me to feel like i need to take a break from my daily activities.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's causing small bumps on my skin.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm dealing with vaginal discomfort and discharge that's causing me to feel like i need to take time off work.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm experiencing discomfort that's concerning for a uti recurrence.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: would antibiotics be an effective way to treat my illness?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm dealing with a cough that's causing my head to ache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling unwell and needs to see a healthcare professional.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is dealing with a medical condition.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is not feeling good.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm suffering from bowel issues.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm feeling like i need to get checked for a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm having trouble breathing clearly.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've been feeling ill with a combination of symptoms such as nausea, cough, fever, and sore throat for three days.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can you provide me with antibiotics to help improve my condition?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've been feeling sick for the past three days with a combination of symptoms including nausea, cough, fever, and sore throat.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: my ear feels like it's congested.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm suffering from ear pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can i be given antibiotics to treat my condition?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've been dealing with a combination of symptoms such as nausea, cough, fever, and sore throat that have been lingering for three days.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i have a finger injury.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i have a deep pain in my ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm experiencing a cough that's making me feel like i need to vomit.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear is painful to the touch.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally hazy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: my skin has developed a rash that's making it hard to sleep.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is dealing with an illness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a slip-up and hit my head on an object.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling ill and needs rest and care.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is causing me to have difficulty breathing.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm experiencing raised bumps on my skin that are causing me to scratch.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear hurts when i chew or talk.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm feeling a burning sensation in my back.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back feels like it's been pulled or strained.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing cognitive distortion.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i'm experiencing conjunctivitis.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's causing my skin to become inflamed and painful.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is feeling cold and numb.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i lost my footing and hit my head on something.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's causing my skin to feel like it's been rubbed raw.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling sick and needs to be monitored.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an x-ray to diagnose my issue.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i have a bout of diarrhea\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm experiencing discomfort in my ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm feeling like i need medical attention for a possible uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i feel like i need to blow my nose.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i'm dealing with loose bowel movements\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a sensation of being light-headed and dizzy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm dealing with a persistent earache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm experiencing discomfort in my back.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal itching that's causing me to feel like i'm being judged.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've had a set of symptoms including nausea, cough, fever, and sore throat that have been persistent for the past three days.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm experiencing ear pain that's accompanied by dizziness or vertigo.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can i have antibiotics prescribed to me to help relieve my symptoms?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i have nasal congestion.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i'm experiencing a rash that's making me feel self-conscious.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: would it be appropriate for me to take antibiotics for my symptoms?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: would antibiotics be a beneficial treatment for my symptoms?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: my nose is stuffy and congested with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an inflamed tear duct.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a sensation of dizziness and nausea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is not feeling good and needs help.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal discharge that's causing irritation.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling unwell.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm coughing.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: my stool is watery\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've been unwell with a combination of symptoms including nausea, cough, fever, and sore throat for the past three days.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest is experiencing a dull throb.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i'm dealing with a persistent pain in my finger.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm experiencing an unbearable pain in my back.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm feeling a loss of smell and taste with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: i would like to know what blood tests are available.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have diarrhea-like symptoms.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i have a headache that's accompanied by neck pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a sensation of being dizzy and light-headed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have bumps on my skin that are causing me concern.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is feeling like it's been sprained.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a misstep and hit my head on a solid object.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is feeling like it's been broken.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: my stomach is doing flip-flops\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm coughing and sniffling.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is tender to the touch.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel wasted.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: my skin is inflamed and has a rash.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm experiencing a sharp shooting pain in my lower back.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: my sinuses are clogged.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i have a dry cough.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm experiencing ear pain that's accompanied by ringing or buzzing sounds.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can you tell me more about getting a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i'm dealing with a sinus headache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i have a dull headache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: for the last three days, i've been experiencing nausea, cough, fever, and sore throat symptoms.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel debilitated.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing cognitive overload.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: is there any preparation required for a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing a lack of mental energy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an inflamed sclera.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm experiencing chest pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: may i receive antibiotics to help alleviate my symptoms?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing cognitive disorganization.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing hearing loss in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: i would like to have a blood test to monitor my health.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a spinning sensation.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing cognitive cloudiness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: my eyes are watery with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm experiencing stomach cramps and diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm dealing with backache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a dull ache in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can you provide me with antibiotics to help with my cough, nose, ear, throat, or fever?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a sensation of being dizzy and nauseous.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal itching that's causing me to feel like i need to constantly scratch.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head is hurting with a ringing in my ears.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i slipped and fell, hitting my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i'm experiencing discomfort in my eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i have a nasal blockage.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have bumps on my skin that are making my skin feel itchy and irritated.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have an upset gastrointestinal tract.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need a diagnostic procedure.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm experiencing loose and urgent bowel movements.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i'm experiencing a shooting pain in my finger.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i tripped and hit my head on a sharp object.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm experiencing nausea, vomiting, and loose stools.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can you explain the process of getting a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: my nose is stuffed up.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an imaging procedure to check for abnormalities.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm experiencing small, red bumps on my skin that are causing me discomfort.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have bowel disturbances.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can you arrange a blood test for me?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm noticing skin bumps that are causing my skin to feel sensitive.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: my ear feels like it's blocked by a foreign object.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i have a nagging pain in my finger.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm coming down with a cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally lethargic.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm experiencing a constant pain in my back.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have diarrhea symptoms.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: is it possible to schedule a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have small, flesh-colored bumps on my skin.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm dealing with digestive problems with vomiting and diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've had a persistent combination of symptoms such as nausea, cough, fever, and sore throat for three days now.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm lacking strength.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have skin bumps that are making my skin feel rough.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm feeling unwell, vomited, and have diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i have a wheezing cough.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm experiencing vaginal discomfort and itching that's causing me to feel like i can't talk about it.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm feeling queasy and have gastrointestinal distress with vomiting and diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have bowel irritation.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can i request a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm experiencing symptoms that are preventing me from functioning normally and could be a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: my stomach is upset and i have diarrhea\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm experiencing a persistent, irritating cough.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have frequent bowel movements.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i'm suffering from a headache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm experiencing bumps on my skin that i haven't noticed before.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: my bowel movements are watery\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm dealing with a chronic pain in my back.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: my nose is obstructed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing cognitive fuzziness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal itching that's causing me to feel like i can't focus on anything else.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an imaging test to evaluate my condition.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a loss of balance due to my ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an inflamed ciliary body.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have digestive issues.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: i would like to check my blood with a test.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is under the weather.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: may i be given antibiotics to help combat my illness?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest is twinging.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm coughing up phlegm.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is unwell and needs to see a doctor.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm feeling a pressure-like sensation in my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing vertigo.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm dealing with small, pink bumps on my skin.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i'm seeking an x-ray.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is hurting.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: is taking antibiotics an appropriate treatment for my symptoms?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have a digestive condition.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally cloudy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling sick and needs care.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i damaged my finger.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm experiencing a digestive disturbance.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: i need to have a blood test.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm experiencing a cough that's making my throat sore.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i'm dealing with a rash that's making me feel like i'm not taking care of myself\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i have a sensation of lightheadedness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a feeling of discomfort and pressure in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel drained.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm experiencing an upset stomach with vomiting and diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm feeling a dull ache in my ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i'm dealing with a persistent combination of symptoms such as nausea, cough, fever, and sore throat for three days now.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've had a persistent combination of symptoms such as nausea, cough, fever, and sore throat for the past three days.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest feels like it's being squeezed by a vise.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: my stomach is in knots\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: would taking antibiotics be a good option for me to consider?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i'm having trouble with my bowels\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: could i have a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm experiencing discomfort that could be associated with a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had an accident and hit my head on a surface.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: i would like to request a blood test.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an image of my bones.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear is hurting badly.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have a gastrointestinal upset.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can i have a blood test as part of my annual physical?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: my nose is plugged up.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i injured my finger and it's causing me to have trouble using my hand.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need radiological imaging.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've had nausea, a cough, a fever, and a sore throat persisting for three days.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i'm experiencing stomach troubles\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a sensation of being lightheaded and faint.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal discharge that smells.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have diarrhea-like bowel movements.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need a medical image of a specific body part.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm feeling achy with a cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel drained of energy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have loose and watery stools.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i'm experiencing crusting on my eyelids.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had an accident and hit my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like i'm about to black out.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm experiencing digestive disturbance.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have an inflamed digestive system with vomiting and diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: what do i need to do to get a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i feel pressure in my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm dealing with digestive issues.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's causing my skin to feel rough.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can antibiotics help with my symptoms?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i have a head cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm dealing with a head and chest cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm having trouble with my nasal airflow.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's causing me to feel like i'm being judged or looked at.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i hurt my finger and it's swollen.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm experiencing intestinal issues.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: my bowel movements are not solid\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have bumps on my skin that are making me feel like i need to seek medical attention.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest is experiencing a dull ache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal itching that's making me feel embarrassed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: my skin has developed a rash that's causing me to feel like my skin is on fire.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling sickly.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i'm experiencing blurry vision in one or both eyes.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i'm experiencing a headache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have some small, raised bumps on my skin that are causing me concern.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an inflamed cornea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling sick and needs to be treated.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is making it difficult to bend or move.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like i'm about to lose consciousness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm experiencing chest tightness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a mishap and struck my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm coughing and spluttering.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i have a hacking cough with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i'm dealing with diarrhea\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i'm dealing with a sharp pain in my finger.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need a medical imaging scan of my bones.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel puny.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a mishap and hit my head on an immovable object.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm dealing with a cough that's making me feel exhausted.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i'm experiencing a bout of diarrhea\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a feeling of pressure and fullness in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i feel like i'm swaying.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: my head is pounding with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a sensation of being lightheaded and nauseous.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i'm experiencing frequent bowel movements\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a collision and made contact with my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i have an upset stomach with diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i have a headache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i have a runny nose.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i slipped and hit my head on an unyielding surface.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm experiencing nausea, vomiting, and frequent bowel movements.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i'm experiencing a rash that's making it hard to move or do certain activities.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: is there a way to get a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm feeling emaciated.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a feeling of heaviness in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling sick and needs rest and support.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i'm experiencing a rash that's causing my skin to become dry and scaly.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal itching that's causing me to feel like i need to constantly take a shower.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an imaging test to discover the cause of my symptoms.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have gastrointestinal problems.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel spent.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i'm experiencing a dull ache in my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: my digestive system is acting up\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm dealing with vaginal discomfort and discharge that's causing me to feel like i need to constantly change my underwear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i'm experiencing a rash that's making it hard to focus on anything else.\nanswer:yes\/no","completion":" yes"}

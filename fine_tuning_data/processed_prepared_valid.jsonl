@@ -1,0 +1,250 @@
+{"prompt":"diarrhea?\nsentence: my stomach is upset\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i have an upset stomach\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: my digestive system is out of whack\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i'm dealing with a case of the hershey squirts\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i have the runs really bad\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i'm having diarrhea like crazy\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i'm having bowel problems\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: my digestive system is in distress\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: i have a case of the hershey's\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarrhea?\nsentence: my digestive system is not cooperating\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm feeling mentally disoriented.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing a lack of mental precision.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing a lack of mental endurance.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing a lack of mental fortitude.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"brain fog?\nsentence: i'm experiencing cognitive dysfunction.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm noticing small bumps on my skin.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have some small lumps on my skin.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm dealing with bumps on my skin that are painful to touch.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i have skin bumps that are causing me to feel like i need to hide my skin.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm noticing small, white bumps on my skin that are causing me concern.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm dealing with skin bumps that are causing me to feel like i need to constantly scratch my skin.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"skin bumps?\nsentence: i'm noticing small, brown bumps on my skin that are causing me concern.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i feel faint.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i have a feeling of unsteadiness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i feel like the room is spinning.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a sensation of floating.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling off balance.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like i'm in a fog.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like i'm going to faint.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like i'm on a boat.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm experiencing a sensation of being unsteady and light-headed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like i'm about to collapse or pass out.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"lightheaded or dizziness?\nsentence: i'm feeling like my head is swimming.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head hurts.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head is aching.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i'm experiencing a migraine.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head is throbbing with pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i'm feeling pressure in my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i'm having a tension headache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i have a pounding sensation in my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i'm experiencing a headache behind my eyes.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head feels like it's in a vice.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head is throbbing with a pulsating pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: my head feels like it's in a fog with my headache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"headache?\nsentence: i have a headache that's worse in the morning.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have an unusual vaginal discharge.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm dealing with vaginal discomfort and discharge.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm experiencing vaginal itching and discharge that's causing me to feel uncomfortable.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal discharge that's causing my clothes to become stained.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm dealing with vaginal discomfort and discharge that's making me feel isolated.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal discharge that's causing me to feel like i can't wear certain clothes.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i'm experiencing vaginal discomfort and itching that's causing me to feel like i'm alone in my discomfort.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"vaginal discharge?\nsentence: i have vaginal itching that's causing me to feel like i need to constantly adjust my clothing.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest feels tight.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm feeling a sharp pain in my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm having chest discomfort.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm having trouble breathing because of my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: i'm feeling a heavy weight on my chest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"chest pain?\nsentence: my chest feels like it's being pressed down.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i have a persistent cough.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm dealing with a ticklish cough.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm experiencing a nagging cough.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm dealing with a cough that's causing my voice to sound hoarse.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm coughing and feeling like my chest is being squeezed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm coughing and feeling like i'm running out of breath.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"cough?\nsentence: i'm experiencing a cough that's causing my muscles to ache.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i have pain in my ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear is hurting.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear is sore.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm feeling pain in my ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear is throbbing.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear hurts a lot.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear is sensitive to touch.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i have a shooting pain in my ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm dealing with ear pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: my ear feels inflamed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm feeling a burning sensation in my ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear pain?\nsentence: i'm experiencing ear pain that's getting worse.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: my hearing is impaired in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a sensation of pressure in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a sensation of clicking in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i have a sensation of tinnitus in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a feeling of tightness in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a feeling of clogging in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: my ear feels like it's blocked by wax.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: my ear feels like it's closed off.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a feeling of pulsing in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"ear clogged?\nsentence: i'm experiencing a feeling of throbbing and pain in one ear.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a fall and hit my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a mishap and banged my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a slip and fall accident, hitting my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a mishap and bumped my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i stumbled and hit my head on an obstacle.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i lost my balance and made contact with my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i had a mishap and made contact with my head.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i fell down and hit my head on a rough surface.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i lost my footing and hit my head on a hard surface.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"head trauma?\nsentence: i took a tumble and hit my head on an unyielding object.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm having trouble breathing through my nose.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i have a nasal obstruction.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: my nose is full of mucus.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm experiencing nasal stuffiness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: my nose is swollen shut.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: i'm feeling stuffed up in my nose.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nasal congestion?\nsentence: my nasal cavities are clogged.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is throbbing with pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is aching and feels tender.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: i'm experiencing dull pain in my back.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back feels like it's been hit with a hammer.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back feels like it's about to give out.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"back pain?\nsentence: my back is causing me to feel fatigued and worn out.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm experiencing stomach upset.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have an upset stomach.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have an upset digestive system.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have an upset tummy.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm feeling sick, vomited, and have diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm dealing with gastrointestinal upset.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have a gi bug.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm feeling nauseated, vomited, and have loose stools.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm dealing with digestive disturbance with vomiting and diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have a stomach disorder.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm experiencing gastroenteritis.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have a digestive disease.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i'm experiencing a stomach disorder with vomiting and diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"nausea and diarrhea?\nsentence: i have a gi illness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: may i have antibiotics to help relieve my symptoms?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can you prescribe me antibiotics to help with my cough, nose, ear, throat, or fever?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: may i receive antibiotics to help alleviate my discomfort?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: is it appropriate for me to take antibiotics to treat my illness?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can i be given antibiotics to help speed up my recovery time?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: would antibiotics be a suitable option for me to consider?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: is it possible for antibiotics to help treat my illness?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: would antibiotics be a helpful treatment for my illness?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"wants antibiotics for a cold?\nsentence: can you provide me with antibiotics to help manage my symptoms?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is in pain.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is aching.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i hurt my finger and it's making it hard to move.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger feels like it's been twisted or bent.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i hurt my finger and it's bruised.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is feeling numb.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is swollen and painful.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is feeling like it's been burned or scalded.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: i hurt my finger and it's making it hard to do my job.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"finger pain?\nsentence: my finger is causing me to feel fatigued or worn out.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have an upset stomach.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm experiencing abdominal discomfort.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have loose bowel movements.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have frequent loose stools.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm experiencing loose and watery bowel movements.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm suffering from an upset stomach and diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have digestive discomfort.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have a loose bowel.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i'm experiencing loose and watery diarrhea.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have bowel instability.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"diarhea?\nsentence: i have diarrhea symptoms with abdominal discomfort.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: i would like to have my blood tested.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: would it be possible to do a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: could you arrange for me to have a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can you guide me on how to get a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can you advise me on the best time to have a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can you tell me how long a blood test will take?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can i have a blood test to check for a specific condition?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can i have a blood test to check for allergies?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"blood test?\nsentence: can you advise me on the risks and benefits of a blood test?\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm experiencing symptoms that suggest a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: it seems like i have a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm worried that i might have a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm exhibiting signs of a possible uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm feeling like i might have a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm feeling like i may have a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm feeling like i might be dealing with a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm experiencing symptoms that are concerning for a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm noticing a pattern of symptoms that suggest a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm feeling like i need to get tested for a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"urinary tract infection?\nsentence: i'm noticing that my symptoms are not improving and could be a uti.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is unwell and needs rest.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is suffering from an illness.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is experiencing a health problem.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling ill and needs support.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is not feeling his best and needs help.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling sick and needs attention from a healthcare professional.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is unwell and needs to be taken care of.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"my child is sick?\nsentence: my son is feeling poorly and needs medical attention.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've been feeling queasy, coughing, having a fever, and experiencing a sore throat for three days now.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i'm experiencing a combination of symptoms such as nausea, cough, fever, and sore throat that have been present for three days.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: for three days now, i have been experiencing nausea, cough, fever, and sore throat symptoms.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"gastrointestinal and respiratory?\nsentence: i've been unwell with a combination of symptoms such as nausea, cough, fever, and sore throat for the last three days.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel listless.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel unenergetic.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel enfeebled.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm feeling incapacitated.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel incapacitated.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm feeling tired.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i'm feeling weak-kneed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel effete.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel shaky.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel drained of energy and vitality.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel limp.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"weakness?\nsentence: i feel fragile.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm feeling under the weather.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i have a runny nose.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm experiencing cold symptoms.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i have a sore throat with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm feeling weak with a cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: my head is congested with a cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm dealing with cold-related symptoms.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm feeling hoarse with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm feeling short of breath with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm experiencing a loss of appetite with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm feeling a soreness in my chest with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: i'm experiencing a general malaise with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"common cold?\nsentence: my throat is sore and scratchy with my cold.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: it's necessary for me to have an x-ray.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i'm in need of an x-ray.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i require a radiograph.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need a bone scan.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need to have my bones imaged.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an x-ray image of my bones.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need a skeletal imaging test.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an imaging test of my bones.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an image of my internal organs.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an imaging scan of my muscles and joints.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an x-ray of my joints.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an imaging test for my injury.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an imaging scan to pinpoint my injury.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an imaging test to determine the extent of my injury.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: i need an imaging study to locate the source of my discomfort.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"xray wanted?\nsentence: nan\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a skin rash.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i'm experiencing a rash.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have developed a skin rash.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i'm dealing with a rash on my skin.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: my skin is itching due to the rash.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i'm noticing a rash that's spreading across my skin.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: my skin has developed a rash that's causing me to scratch constantly.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's causing my skin to feel tight and stretched.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i'm experiencing a rash that's making me feel anxious or stressed.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i have a rash that's causing my skin to become discolored.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"rash?\nsentence: i'm experiencing a rash that's making me feel self-conscious about my appearance.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i'm experiencing red, itchy, and swollen eyes.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have a bacterial conjunctivitis.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have viral conjunctivitis.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have a swollen eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i'm experiencing sensitivity to light.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an itchy and watery eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have a reddened and swollen eyelid.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have a scratchy and irritated eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have a gritty feeling in my eye.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have a bacterial keratitis.\nanswer:yes\/no","completion":" yes"}
+{"prompt":"pink eye?\nsentence: i have an ocular allergy.\nanswer:yes\/no","completion":" yes"}
