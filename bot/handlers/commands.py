@@ -135,6 +135,6 @@ class CommandHandler:
             query.data,
         )
         await query.edit_message_text(
-            text=f"Confirmed disease: {query.data.split(',')[0]}.\nPlease click on /diagnose to start the diagnosis conversation.",
+            text=f"Confirmed choice: {query.data.split(',')[0]}.\nPlease click on /diagnose to start the diagnosis conversation.",
             parse_mode=ParseMode.HTML,
         )
