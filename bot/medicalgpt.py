@@ -121,7 +121,7 @@ class Filter:
             messages=[
                 {
                     "role": "system",
-                    "content": f"Please respond with 'yes' or 'no' based on whether the following message indicates that the user has {condition}. If you're uncertain, respond with 'no'.\n\nMessage: {message}\n\nAnswer(yes/no): ",
+                    "content": f"question: is following sentence indicating {condition}, if you're uncertain, respond with 'no'.?\nsentence: {message}\nanswer:yes/no",
                 },
             ],
             stream=False,
