@@ -111,13 +111,11 @@ class CommandHandler:
             )
         }
         keyboard = [
-            [
-                InlineKeyboardButton(
-                    str(disease).replace("_", " ").title(),
-                    callback_data=f"{disease},{available_diseases[disease]}",
-                )
-                for disease in available_diseases.keys()
-            ]
+            InlineKeyboardButton(
+                str(disease).replace("_", " ").title(),
+                callback_data=f"{disease},{available_diseases[disease]}",
+            )
+            for disease in available_diseases.keys()
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         await update.message.reply_text(
