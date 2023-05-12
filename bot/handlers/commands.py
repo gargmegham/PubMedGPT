@@ -103,21 +103,21 @@ class CommandHandler:
     async def choose_disease(update: Update, context: CallbackContext):
         if await register_user_if_not_exists(update, context, update.message.from_user):
             return
-        available_diseases = [
-            disease.detail
+        available_diseases = {
+            disease.detail: disease.id
             for disease in mysql_db.get_instances(
                 None,
                 Disease,
             )
-        ]
+        }
         keyboard = [
             [
                 InlineKeyboardButton(
-                    str(disease).replace("_", " ").title(), callback_data="disease"
+                    str(disease).replace("_", " ").title(),
+                    callback_data=f"{disease},{available_diseases[disease]}",
                 )
-                for disease in available_diseases
-            ],
-            [InlineKeyboardButton("Option 3", callback_data="3")],
+                for disease in available_diseases.keys()
+            ]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         await update.message.reply_text(
@@ -129,4 +129,14 @@ class CommandHandler:
     ) -> None:
         query = update.callback_query
         await query.answer()
-        await query.edit_message_text(text=f"Selected disease: {query.data}")
+        user_id = query.from_user.id
+        # query.data will contain the disease id in format: "disease_name,disease_id"
+        mysql_db.set_attribute(
+            user_id,
+            "diagnosed_with",
+            query.data,
+        )
+        await query.edit_message_text(
+            text=f"Confirmed disease: {query.data.split(',')[0]}.\nPlease click on /diagnose to start the diagnosis conversation.",
+            parse_mode=ParseMode.HTML,
+        )

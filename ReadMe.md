@@ -21,7 +21,7 @@ This repo is ChatGPT re-created as Telegram Bot. **And it works great.**
 - `/register` - Registers patient in MySQL database with details like age, gender, medical history etc. using a ConversationHandler
 - `/cancel` - Cancel current conversation
 - `/skip` - Skip a registeration step
-- `/disease` - Diagnose a disease
+- `/diagnose` - Diagnose a disease
 - `/call` - Book an appointment, if not already booked
 - `/end` - Ends the current conversation
 - `/pay` - Pay for services

@@ -30,9 +30,9 @@ async def disease_start_handler(
     )
     try:
         diagnosed_with = diagnosed_with.split(",")[0]
-        reply_text = f"I see that you are suffering from <b>{diagnosed_with}</b>\nPlease click on /disease to start the diagnosis process.\nOr if you believe you've some other disease click on /choose_disease to start the diagnosis process for that disease."
+        reply_text = f"I see that you are suffering from <b>{diagnosed_with}</b>\nPlease click on /diagnose to start the diagnosis process.\nOr if you believe you've some other disease click on /choose_disease to start the diagnosis process for that disease."
     except IndexError:
-        reply_text = "You've not been diagnosed with any disease yet. Please tell me your problem and then click on /disease to start the diagnosis process."
+        reply_text = "You've not been diagnosed with any disease yet. Please tell me your problem and then click on /diagnose to start the diagnosis process."
     await update.message.reply_text(reply_text, parse_mode=ParseMode.HTML)
 
 
@@ -66,7 +66,7 @@ async def start(update: Update, context: CallbackContext) -> int:
         return OTHER_QUESTIONS
     except IndexError:
         await update.message.reply_text(
-            "You've not been diagnosed with any disease yet. Please tell me your problem and then click on /disease to start the diagnosis process.",
+            "You've not been diagnosed with any disease yet. Please tell me your problem and then click on /diagnose to start the diagnosis process.",
             parse_mode=ParseMode.HTML,
         )
         return ConversationHandler.END
@@ -141,7 +141,7 @@ async def end(update: Update, context: CallbackContext) -> int:
 
 def disease(user_filter) -> ConversationHandler:
     conv_handler = ConversationHandler(
-        entry_points=[CommandHandler("disease", start)],
+        entry_points=[CommandHandler("diagnose", start)],
         states={
             OTHER_QUESTIONS: [
                 MessageHandler(
