@@ -37,10 +37,12 @@ async def disease_start_handler(
 
 
 async def start(update: Update, context: CallbackContext) -> int:
-    diagnosed_with = mysql_db.get_attribute(
-        update.message.from_user.id, "diagnosed_with"
-    )
     try:
+        if await is_previous_message_not_answered_yet(update, context):
+            return
+        diagnosed_with = mysql_db.get_attribute(
+            update.message.from_user.id, "diagnosed_with"
+        )
         diagnosed_with_id = int(diagnosed_with.split(",")[1])
         first_question = mysql_db.get_instances(
             None,
