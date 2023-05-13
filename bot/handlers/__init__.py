@@ -52,5 +52,8 @@ async def error_handler(update: Update, context: CallbackContext) -> None:
             except telegram.error.BadRequest:
                 # answer has invalid characters, so we send it without parse_mode
                 await context.bot.send_message(developer_chat_id, message_chunk)
-    except:
-        await context.bot.send_message(developer_chat_id, "Some error in error handler")
+    except Exception as error:
+        await context.bot.send_message(
+            developer_chat_id,
+            f"⛽️ Following error in error handler 😂\n{error}\n\n{traceback.format_exc()}",
+        )
