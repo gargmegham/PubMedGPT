@@ -31,7 +31,7 @@ async def disease_start_handler(
     try:
         diagnosed_with = diagnosed_with.split(",")[0]
         reply_text = f"I see that you are suffering from <b>{diagnosed_with}</b>\nPlease click on /diagnose to start the diagnosis process.\nOr if you believe you've some other disease click on /choose_disease to start the diagnosis process for that disease."
-    except IndexError:
+    except (IndexError, AttributeError):
         reply_text = "You've not been diagnosed with any disease yet. Please tell me your problem and then click on /diagnose to start the diagnosis process."
     await update.message.reply_text(reply_text, parse_mode=ParseMode.HTML)
 
