@@ -122,7 +122,7 @@ class CommandHandler:
             )
         reply_markup = InlineKeyboardMarkup(keyboard)
         await update.message.reply_text(
-            "Please choose a disease which you think best fits your concern:",
+            "Please choose an option which you think fits your concern:",
             reply_markup=reply_markup,
         )
 
