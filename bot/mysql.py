@@ -23,7 +23,9 @@ import config
 
 class MySQL:
     def __init__(self):
-        self.engine = create_engine(config.mysql_uri)
+        self.engine = create_engine(
+            config.mysql_uri, pool_recycle=280, pool_pre_ping=True, pool_size=25
+        )
         self.Session = sessionmaker(bind=self.engine)
         self.create_tables_if_not_exists()
 
