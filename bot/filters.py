@@ -44,7 +44,7 @@ def get_messages_that_indicate_a_certian_medical_condition(
                         message.from_user.id, "diagnosed_with", f"{condition},{id}"
                     )
                 return result
-            except RateLimitError:
+            except [RateLimitError, Exception]:
                 return False
 
     return CustomFilter()
