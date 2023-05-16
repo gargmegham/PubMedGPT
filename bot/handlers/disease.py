@@ -25,10 +25,10 @@ async def disease_start_handler(
 ) -> None:
     if await is_previous_message_not_answered_yet(update, context):
         return
-    diagnosed_with = mysql_db.get_attribute(
-        update.message.from_user.id, "diagnosed_with"
-    )
     try:
+        diagnosed_with = mysql_db.get_attribute(
+            update.message.from_user.id, "diagnosed_with"
+        )
         diagnosed_with = diagnosed_with.split(",")[0]
         reply_text = f"I see that you are suffering from <b>{diagnosed_with}</b>\nPlease click on /diagnose to start the diagnosis process.\nOr if you believe you've some other disease click on /choose_disease to start the diagnosis process for that disease."
     except (IndexError, AttributeError):
