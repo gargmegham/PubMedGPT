@@ -39,7 +39,7 @@ async def post_init(application: Application):
             ),
             BotCommand(command="/diagnose", description="Diagnose a disease"),
             BotCommand(
-                command="/choose_disease",
+                command="/choose",
                 description="Choose a disease, and which fits your concern",
             ),
         ]
@@ -77,11 +77,11 @@ def run_bot() -> None:
     )
     application.add_handler(
         CommandHandler(
-            "choose_disease", command_handler.choose_disease, filters=user_filter
+            "choose", command_handler.choose_concern, filters=user_filter
         )
     )
     application.add_handler(
-        CallbackQueryHandler(command_handler.choose_disease_callback)
+        CallbackQueryHandler(command_handler.choose_concern_callback)
     )
     application.add_handler(handlers.registeration_handler(user_filter))
     application.add_handler(handlers.disease(user_filter))

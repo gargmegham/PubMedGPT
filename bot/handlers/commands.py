@@ -33,7 +33,7 @@ class CommandHandler:
         user_id = update.message.from_user.id
         mysql_db.set_attribute(user_id, "last_interaction", datetime.now())
         await update.message.reply_text(
-            """Hi! I'm <b>Maya</b> your personal medical assistant 🤖.\n⚪ /register - Register yourself as a patient\n⚪ /new - Start new conversation\n⚪ /retry - Regenerate last bot answer\n⚪ /cancel - Cancel current conversation\n⚪ /help - Show this help message\n⚪ /call - Book an appointment, if not already booked\n⚪ /choose_disease - Choose a disease, which best fits your concern""",
+            """Hi! I'm <b>Maya</b> your personal medical assistant 🤖.\n⚪ /register - Register yourself as a patient\n⚪ /new - Start new conversation\n⚪ /retry - Regenerate last bot answer\n⚪ /cancel - Cancel current conversation\n⚪ /help - Show this help message\n⚪ /call - Book an appointment, if not already booked\n⚪ /choose - Choose a disease, which best fits your concern""",
             parse_mode=ParseMode.HTML,
         )
 
@@ -100,7 +100,7 @@ class CommandHandler:
             parse_mode=ParseMode.HTML,
         )
 
-    async def choose_disease(update: Update, context: CallbackContext):
+    async def choose_concern(update: Update, context: CallbackContext):
         if await register_user_if_not_exists(update, context, update.message.from_user):
             return
         available_diseases = {
@@ -126,7 +126,7 @@ class CommandHandler:
             reply_markup=reply_markup,
         )
 
-    async def choose_disease_callback(
+    async def choose_concern_callback(
         update: Update, context: ContextTypes.DEFAULT_TYPE
     ) -> None:
         query = update.callback_query
