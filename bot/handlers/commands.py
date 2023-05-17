@@ -33,7 +33,7 @@ class CommandHandler:
         user_id = update.message.from_user.id
         mysql_db.set_attribute(user_id, "last_interaction", datetime.now())
         await update.message.reply_text(
-            """Hi! I'm <b>Maya</b> your personal medical assistant 🤖.\n⚪ /register - Register yourself as a patient\n⚪ /new - Start new conversation\n⚪ /retry - Regenerate last bot answer\n⚪ /cancel - Cancel current conversation\n⚪ /help - Show this help message\n⚪ /call - Book an appointment, if not already booked\n⚪ /choose_disease - Choose a disease, and start it's diagnosis""",
+            """Hi! I'm <b>Maya</b> your personal medical assistant 🤖.\n⚪ /register - Register yourself as a patient\n⚪ /new - Start new conversation\n⚪ /retry - Regenerate last bot answer\n⚪ /cancel - Cancel current conversation\n⚪ /help - Show this help message\n⚪ /call - Book an appointment, if not already booked\n⚪ /choose_disease - Choose a disease, which best fits your concern""",
             parse_mode=ParseMode.HTML,
         )
 

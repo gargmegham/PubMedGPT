@@ -16,15 +16,12 @@ This repo is ChatGPT re-created as Telegram Bot. **And it works great.**
 
 ## Bot commands
 - `/retry` – Regenerate last bot answer
-- `/new` – Start new dialog
-- `/help` – Show help
-- `/register` - Registers patient in MySQL database with details like age, gender, medical history etc. using a ConversationHandler
+- `/new` – Start fresh dialog
+- `/help` – Show command options
+- `/register` - Register patient in database with details like age, gender, medical history etc.
 - `/cancel` - Cancel current conversation
-- `/skip` - Skip a registeration step
 - `/diagnose` - Diagnose a disease
 - `/call` - Book an appointment, if not already booked
-- `/end` - Ends the current conversation
-- `/pay` - Pay for services
 - `/choose_disease` - Choose a disease, and start it's diagnosis
 
 ## Setup
@@ -40,5 +37,5 @@ This repo is ChatGPT re-created as Telegram Bot. **And it works great.**
 
 4. 🔥 And now **run**:
     ```bash
-    docker-compose --env-file config/config.env up --build
+    docker-compose --env-file config/config.env up --build -d
     ```

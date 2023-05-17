@@ -31,21 +31,16 @@ async def post_init(application: Application):
             BotCommand(command="/help", description="Show available commands"),
             BotCommand(
                 command="/call",
-                description="Book an appointment with recommended Dr., if not already booked",
+                description="Book an appointment with our recommended Dr.",
             ),
             BotCommand(command="/cancel", description="Cancel current conversation"),
-            BotCommand(command="/start", description="Start the bot"),
             BotCommand(
                 command="/register", description="Register yourself as a patient"
             ),
-            BotCommand(
-                command="/skip", description="Skip the current question and move on"
-            ),
             BotCommand(command="/diagnose", description="Diagnose a disease"),
-            BotCommand(command="/end", description="Ends the current conversation"),
             BotCommand(
                 command="/choose_disease",
-                description="Choose a disease, and start it's diagnosis",
+                description="Choose a disease, and which fits your concern",
             ),
         ]
     )
