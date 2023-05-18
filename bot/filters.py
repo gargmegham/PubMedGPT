@@ -1,6 +1,5 @@
 import medicalgpt
 from mysql import MySQL
-from openai.error import RateLimitError
 from telegram import Message
 from telegram.ext import filters
 
@@ -44,7 +43,7 @@ def get_messages_that_indicate_a_certian_medical_condition(
                         message.from_user.id, "diagnosed_with", f"{condition},{id}"
                     )
                 return result
-            except [RateLimitError, Exception]:
+            except:
                 return False
 
     return CustomFilter()
