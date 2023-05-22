@@ -2,6 +2,8 @@
 
 We all love [chat.openai.com](https://chat.openai.com), but... It's TERRIBLY laggy, has daily limits, and is only accessible through an archaic web interface.
 
+![Screenshot 2023-05-22 at 9 38 41 AM](https://github.com/gargmegham/MedicalGPT/assets/95271253/b64294df-e6f9-4e65-9a08-e9d7c8bf5c26)
+
 This repo is MedicalGPT re-created as Telegram Bot. **And it works great.**
 
 ## Features
