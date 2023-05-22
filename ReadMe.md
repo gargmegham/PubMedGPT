@@ -1,4 +1,7 @@
-# Medical Telegram Bot: Using OpenAI models & SDKs with no daily limits.
+<div>
+<img src="https://github.com/gargmegham/MedicalGPT/assets/95271253/75be92df-41e5-46b2-908d-4fc55df236ca"  width="50" height="50">
+<h1>Medical Telegram Bot: Using OpenAI models & SDKs with no daily limits.<h1>
+</div>
 
 We all love [chat.openai.com](https://chat.openai.com), but... It's TERRIBLY laggy, has daily limits, and is only accessible through an archaic web interface.
 
