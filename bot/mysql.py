@@ -349,7 +349,7 @@ class MySQL:
                         blocked_medicine_types.extend(
                             [
                                 str(_).strip()
-                                for _ in str(disease_question.medicine).split(",")
+                                for _ in str(disease_question.blocked_type).split(",")
                             ]
                         )
                 except IndexError:
