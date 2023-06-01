@@ -326,6 +326,22 @@ class MySQL:
                 if word in list2:
                     return True
             return False
+        
+        def qna_prescription_filter(disease_question):
+            a, b = None, None
+            if disease_question.blocked_type:
+                a = [
+                        str(_).strip()
+                        for _ in str(disease_question.blocked_type).split(
+                            ","
+                        )
+                    ]
+            if disease_question.prescribe:
+                b = [
+                        int(_)
+                        for _ in str(disease_question.prescribe).split(",")
+                    ]
+            return a, b
 
         blocked_medicine_types = []
         disease_answes = self.get_instances(
@@ -347,46 +363,31 @@ class MySQL:
                         0
                     ]
                     if int(first_integer_in_answer) < int(disease_question.value):
-                        if disease_question.blocked_type:
-                            blocked_medicine_types.extend(
-                                [
-                                    str(_).strip()
-                                    for _ in str(disease_question.blocked_type).split(
-                                        ","
-                                    )
-                                ]
-                            )
-                        if disease_question.prescribe:
-                            qna_prescription.extend(
-                                [
-                                    int(_)
-                                    for _ in str(disease_question.prescribe).split(",")
-                                ]
-                            )
+                        a, b = qna_prescription_filter(disease_question)
+                        blocked_medicine_types.extend(a)
+                        qna_prescription.extend(b)
                 except IndexError:
                     pass
-            if disease_question.filter == ">":
+            elif disease_question.filter == ">":
                 try:
                     first_integer_in_answer = re.findall(r"\d+", disease_answer.detail)[
                         0
                     ]
                     if int(first_integer_in_answer) < int(disease_question.value):
-                        if disease_question.blocked_type:
-                            blocked_medicine_types.extend(
-                                [
-                                    str(_).strip()
-                                    for _ in str(disease_question.blocked_type).split(
-                                        ","
-                                    )
-                                ]
-                            )
-                        if disease_question.prescribe:
-                            qna_prescription.extend(
-                                [
-                                    int(_)
-                                    for _ in str(disease_question.prescribe).split(",")
-                                ]
-                            )
+                        a, b = qna_prescription_filter(disease_question)
+                        blocked_medicine_types.extend(a)
+                        qna_prescription.extend(b)
+                except IndexError:
+                    pass
+            elif disease_question.filter == "yes":
+                try:
+                    is_yes = any_word_in_x_match_any_word_in_y(
+                        disease_answer.detail, "yes"
+                    )
+                    if is_yes:
+                        a, b = qna_prescription_filter(disease_question)
+                        blocked_medicine_types.extend(a)
+                        qna_prescription.extend(b)
                 except IndexError:
                     pass
         allowed_medicines = {}
