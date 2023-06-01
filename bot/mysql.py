@@ -331,6 +331,7 @@ class MySQL:
         disease_answes = self.get_instances(
             user_id, DiseaseAnswer, extra_filters={"disease_id": disease_id}
         )
+        qna_prescription = []
         for disease_answer in disease_answes:
             disease_question = self.get_instances(
                 None,
@@ -346,12 +347,46 @@ class MySQL:
                         0
                     ]
                     if int(first_integer_in_answer) < int(disease_question.value):
-                        blocked_medicine_types.extend(
-                            [
-                                str(_).strip()
-                                for _ in str(disease_question.blocked_type).split(",")
-                            ]
-                        )
+                        if disease_question.blocked_type:
+                            blocked_medicine_types.extend(
+                                [
+                                    str(_).strip()
+                                    for _ in str(disease_question.blocked_type).split(
+                                        ","
+                                    )
+                                ]
+                            )
+                        if disease_question.prescribe:
+                            qna_prescription.extend(
+                                [
+                                    int(_)
+                                    for _ in str(disease_question.prescribe).split(",")
+                                ]
+                            )
+                except IndexError:
+                    pass
+            if disease_question.filter == ">":
+                try:
+                    first_integer_in_answer = re.findall(r"\d+", disease_answer.detail)[
+                        0
+                    ]
+                    if int(first_integer_in_answer) < int(disease_question.value):
+                        if disease_question.blocked_type:
+                            blocked_medicine_types.extend(
+                                [
+                                    str(_).strip()
+                                    for _ in str(disease_question.blocked_type).split(
+                                        ","
+                                    )
+                                ]
+                            )
+                        if disease_question.prescribe:
+                            qna_prescription.extend(
+                                [
+                                    int(_)
+                                    for _ in str(disease_question.prescribe).split(",")
+                                ]
+                            )
                 except IndexError:
                     pass
         allowed_medicines = {}
@@ -414,11 +449,17 @@ class MySQL:
                         medications, medicine.not_for_medications
                     )
                 )
-                or allowed_medicines[medicine.type] is not None
+                or (
+                    allowed_medicines[medicine.type] is not None
+                    and medicine.id not in qna_prescription
+                )
                 or medicine.type in blocked_medicine_types
             ):
                 continue
-            allowed_medicines[medicine.type] = medicine.detail
+            if allowed_medicines[medicine.type] is not None:
+                allowed_medicines[f"{medicine.type}_{medicine.id}"] = medicine.detail
+            else:
+                allowed_medicines[medicine.type] = medicine.detail
         return "\n".join(
             [value for value in allowed_medicines.values() if value is not None]
         )

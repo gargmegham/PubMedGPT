@@ -76,9 +76,7 @@ def run_bot() -> None:
         CommandHandler("cancel", command_handler.cancel_handle, filters=user_filter)
     )
     application.add_handler(
-        CommandHandler(
-            "choose", command_handler.choose_concern, filters=user_filter
-        )
+        CommandHandler("choose", command_handler.choose_concern, filters=user_filter)
     )
     application.add_handler(
         CallbackQueryHandler(command_handler.choose_concern_callback)
