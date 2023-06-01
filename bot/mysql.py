@@ -382,7 +382,7 @@ class MySQL:
             elif disease_question.filter == "yes":
                 try:
                     is_yes = any_word_in_x_match_any_word_in_y(
-                        disease_answer.detail, "yes"
+                        ["yes"], disease_answer.detail
                     )
                     if is_yes:
                         a, b = qna_prescription_filter(disease_question)
