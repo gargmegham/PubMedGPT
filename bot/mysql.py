@@ -328,7 +328,7 @@ class MySQL:
             return False
         
         def qna_prescription_filter(disease_question):
-            a, b = None, None
+            a, b = [], []
             if disease_question.blocked_type:
                 a = [
                         str(_).strip()
