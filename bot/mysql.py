@@ -326,21 +326,16 @@ class MySQL:
                 if word in list2:
                     return True
             return False
-        
+
         def qna_prescription_filter(disease_question):
             a, b = [], []
             if disease_question.blocked_type:
                 a = [
-                        str(_).strip()
-                        for _ in str(disease_question.blocked_type).split(
-                            ","
-                        )
-                    ]
+                    str(_).strip()
+                    for _ in str(disease_question.blocked_type).split(",")
+                ]
             if disease_question.prescribe:
-                b = [
-                        int(_)
-                        for _ in str(disease_question.prescribe).split(",")
-                    ]
+                b = [int(_) for _ in str(disease_question.prescribe).split(",")]
             return a, b
 
         blocked_medicine_types = []
@@ -348,6 +343,7 @@ class MySQL:
             user_id, DiseaseAnswer, extra_filters={"disease_id": disease_id}
         )
         qna_prescription = []
+        additional_instructions = []
         for disease_answer in disease_answes:
             disease_question = self.get_instances(
                 None,
@@ -377,6 +373,10 @@ class MySQL:
                         a, b = qna_prescription_filter(disease_question)
                         blocked_medicine_types.extend(a)
                         qna_prescription.extend(b)
+                        if disease_question.additional_instructions:
+                            additional_instructions.append(
+                                disease_question.additional_instructions
+                            )
                 except IndexError:
                     pass
             elif disease_question.filter == "yes":
@@ -388,6 +388,10 @@ class MySQL:
                         a, b = qna_prescription_filter(disease_question)
                         blocked_medicine_types.extend(a)
                         qna_prescription.extend(b)
+                        if disease_question.additional_instructions:
+                            additional_instructions.append(
+                                disease_question.additional_instructions
+                            )
                 except IndexError:
                     pass
         allowed_medicines = {}
@@ -461,6 +465,6 @@ class MySQL:
                 allowed_medicines[f"{medicine.type}_{medicine.id}"] = medicine.detail
             else:
                 allowed_medicines[medicine.type] = medicine.detail
-        return "\n".join(
-            [value for value in allowed_medicines.values() if value is not None]
-        )
+        result = [value for value in allowed_medicines.values() if value is not None]
+        result.extend(additional_instructions)
+        return "\n".join(result)
