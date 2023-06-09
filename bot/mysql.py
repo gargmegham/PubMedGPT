@@ -318,10 +318,8 @@ class MySQL:
 
     def write_prescription(self, user_id: int, disease_id: int = None) -> list:
         def any_word_in_x_match_any_word_in_y(x: list, y: str):
-            list1 = []
+            list1 = [str(_).lower().strip() for _ in str(x).split(",")]
             list2 = [str(_).lower().strip() for _ in str(y).split(",")]
-            for sentence in x:
-                list1.extend([str(_).lower().strip() for _ in str(sentence).split(" ")])
             for word in list1:
                 if word in list2:
                     return True
