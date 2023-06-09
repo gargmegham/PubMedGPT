@@ -225,9 +225,7 @@ def registeration_handler(user_filter) -> ConversationHandler:
         entry_points=[CommandHandler("register", start)],
         states={
             AGE: [
-                MessageHandler(
-                    filters.Regex("^(0?[1-9]|[1-9][0-9])$") & user_filter, age
-                )
+                MessageHandler(filters.Regex("^[0-9]+(\.[0-9]+)?$") & user_filter, age)
             ],
             GENDER: [
                 MessageHandler(filters.Regex("^(Male|Female)$") & user_filter, gender)
