@@ -116,12 +116,14 @@ class Filter:
         Given a message from the user, check if user has this medical condition
         :return: True if user has this medical condition, False otherwise
         """
+        condition = condition.split("_")
+        condition = " ".join(condition)
         response = openai.ChatCompletion.create(
             model="gpt-4",
             messages=[
                 {
                     "role": "system",
-                    "content": f"question: is following sentence indicating {condition.split('_')}, if you're uncertain, respond with 'no'.?\nsentence: {message}\nanswer:yes/no",
+                    "content": f"question: is following sentence indicating {condition}, if you're uncertain, respond with 'no'.?\nsentence: {message}\nanswer:yes/no",
                 },
             ],
             stream=False,
