@@ -138,6 +138,7 @@ class Medicine(Base):
     not_for_allergies = Column(Text, default="")
     not_for_conditions = Column(Text, default="")
     not_for_medications = Column(Text, default="")
+    prefix = Column(Text, default="")
     not_for_surgeries = Column(Text, default="")
     disease_id = Column(Integer, ForeignKey("disease.id"), default=1)
     timestamp = Column(DateTime, default=datetime.utcnow)

@@ -463,10 +463,15 @@ class MySQL:
                 or medicine.type in blocked_medicine_types
             ):
                 continue
-            if allowed_medicines[medicine.type] is not None:
-                allowed_medicines[f"{medicine.type}_{medicine.id}"] = medicine.detail
-            else:
-                allowed_medicines[medicine.type] = medicine.detail
+            allowed_medicines[
+                medicine.type
+                if medicine.type not in allowed_medicines
+                else f"{medicine.type}_{medicine.id}"
+            ] = (
+                medicine.detail
+                if not medicine.prefix
+                else f"{medicine.prefix} {medicine.detail}"
+            )
         result = [value for value in allowed_medicines.values() if value is not None]
         result.extend(additional_instructions)
         return "\n".join(result)
