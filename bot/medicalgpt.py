@@ -123,7 +123,7 @@ class Filter:
             messages=[
                 {
                     "role": "system",
-                    "content": f"question: is following sentence indicating {condition}, if you're uncertain, respond with 'no'.?\nsentence: {message}\nanswer:yes/no",
+                    "content": f"Question: is following sentence indicating {condition}?\nSentence: {message}.\nIf you're uncertain, respond with 'no'.\nAnswer: yes/no",
                 },
             ],
             stream=False,
