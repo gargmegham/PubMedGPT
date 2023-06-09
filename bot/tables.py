@@ -27,7 +27,7 @@ class User(Base):
     first_seen = Column(DateTime, default=datetime.utcnow)
     current_dialog_id = Column(Text, default="")
     current_chat_mode = Column(Text, default="default")
-    current_model = Column(Text, default="gpt-3.5-turbo")
+    current_model = Column(Text, default="gpt-4")
     n_used_tokens = Column(JSON, default={})
     is_pregnant = Column(Boolean, default=False)
     diagnosed_with = Column(Text, default="")
@@ -80,7 +80,7 @@ class Dialog(Base):
     user_id = Column(Text, nullable=False)
     chat_mode = Column(Text, default="default")
     start_time = Column(DateTime, default=datetime.utcnow)
-    model = Column(Text, default="gpt-3.5-turbo")
+    model = Column(Text, default="gpt-4")
     messages = Column(JSON, default=[])
 
 

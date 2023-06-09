@@ -42,7 +42,7 @@ class BaseMedicalGPT:
         return messages
 
     def _count_tokens_from_messages(self, messages, answer):
-        encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
+        encoding = tiktoken.encoding_for_model("gpt-4")
         # every message follows <im_start>{role/name}\n{content}<im_end>\n
         tokens_per_message = 4
         # if there's a name, the role is omitted
@@ -73,7 +73,7 @@ class MedicalGPT(BaseMedicalGPT):
                     message, dialog_messages, user_id=user_id, disease_id=disease_id
                 )
                 r_gen = await openai.ChatCompletion.acreate(
-                    model="gpt-3.5-turbo",
+                    model="gpt-4",
                     messages=messages,
                     stream=True,
                     **OPENAI_COMPLETION_OPTIONS,
@@ -117,11 +117,11 @@ class Filter:
         :return: True if user has this medical condition, False otherwise
         """
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4",
             messages=[
                 {
                     "role": "system",
-                    "content": f"question: is following sentence indicating {condition}, if you're uncertain, respond with 'no'.?\nsentence: {message}\nanswer:yes/no",
+                    "content": f"question: is following sentence indicating {condition.split('_')}, if you're uncertain, respond with 'no'.?\nsentence: {message}\nanswer:yes/no",
                 },
             ],
             stream=False,

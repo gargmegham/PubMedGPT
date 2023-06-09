@@ -35,12 +35,12 @@ async def register_user_if_not_exists(
     if user.id not in user_semaphores:
         user_semaphores[user.id] = asyncio.Semaphore(1)
     if mysql_db.get_attribute(user.id, "current_model") is None:
-        mysql_db.set_attribute(user.id, "current_model", "gpt-3.5-turbo")
+        mysql_db.set_attribute(user.id, "current_model", "gpt-4")
     # back compatibility for n_used_tokens field
     n_used_tokens = mysql_db.get_attribute(user.id, "n_used_tokens")
     if isinstance(n_used_tokens, int):
         new_n_used_tokens = {
-            "gpt-3.5-turbo": {"n_input_tokens": 0, "n_output_tokens": n_used_tokens}
+            "gpt-4": {"n_input_tokens": 0, "n_output_tokens": n_used_tokens}
         }
         mysql_db.set_attribute(user.id, "n_used_tokens", new_n_used_tokens)
     if reply_text != "":
