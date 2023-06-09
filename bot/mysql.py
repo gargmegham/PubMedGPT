@@ -421,6 +421,8 @@ class MySQL:
             str(surgery.detail).lower()
             for surgery in self.get_instances(user_id, Surgery)
         ]
+        if not medicines:
+            medicines = []
         for medicine in medicines:
             if medicine.type not in allowed_medicines:
                 allowed_medicines[medicine.type] = None
