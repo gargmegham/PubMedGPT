@@ -8,13 +8,12 @@ ENV PIP_NO_CACHE_DIR=off
 ENV PIP_DISABLE_PIP_VERSION_CHECK=on
 ENV PIP_DEFAULT_TIMEOUT=100
 
-RUN apt-get update
-RUN apt-get install -y python3 python3-pip python-dev build-essential python3-venv ffmpeg python3-pymysql
+RUN apt-get update && apt-get install -y python-dev-is-python3 build-essential ffmpeg default-libmysqlclient-dev
 
 RUN mkdir -p /code
 ADD . /code
 WORKDIR /code
 
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 
 CMD ["bash"]
