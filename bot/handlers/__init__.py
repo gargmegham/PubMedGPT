@@ -23,6 +23,8 @@ def split_text_into_chunks(text, chunk_size):
 
 
 async def error_handler(update: Update, context: CallbackContext) -> None:
+    if update is None:
+        return
     logger.error(msg="Exception while handling an update:", exc_info=context.error)
     try:
         # collect error message
